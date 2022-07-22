@@ -1,8 +1,10 @@
 {
-  "private": true,
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build"
+  "name": "armor-upgrade-tracker",
+  "description": "<p align=\"center\"><a href=\"https://laravel.com\" target=\"_blank\"><img src=\"https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg\" width=\"400\"></a></p>",
+  "version": "1.0.0",
+  "author": "Chris McGee",
+  "bugs": {
+    "url": "https://github.com/SturmB/armor-upgrade-tracker/issues"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.2",
@@ -15,28 +17,26 @@
     "tailwindcss": "^3.1.0",
     "vite": "^2.9.11"
   },
-  "name": "armor-upgrade-tracker",
-  "description": "<p align=\"center\"><a href=\"https://laravel.com\" target=\"_blank\"><img src=\"https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg\" width=\"400\"></a></p>",
-  "version": "1.0.0",
-  "main": "public/index.php",
   "directories": {
     "test": "tests"
   },
+  "homepage": "https://github.com/SturmB/armor-upgrade-tracker#readme",
+  "keywords": [
+    "armor",
+    "botw",
+    "tracker",
+    "upgrade",
+    "zelda"
+  ],
+  "license": "GPL-3.0-or-later",
+  "main": "public/index.php",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SturmB/armor-upgrade-tracker.git"
   },
-  "keywords": [
-    "zelda",
-    "armor",
-    "tracker",
-    "upgrade",
-    "botw"
-  ],
-  "author": "Chris McGee",
-  "license": "GPL-3.0-or-later",
-  "bugs": {
-    "url": "https://github.com/SturmB/armor-upgrade-tracker/issues"
-  },
-  "homepage": "https://github.com/SturmB/armor-upgrade-tracker#readme"
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite"
+  }
 }
