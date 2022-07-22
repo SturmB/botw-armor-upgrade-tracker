@@ -1,9 +1,21 @@
 {
-    "name": "laravel/laravel",
+    "name": "sturm/armor-upgrade-tracker",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
-    "license": "MIT",
+    "description": "An armor upgrade tracker for \"The Legend of Zelda: Breath of the Wild\"",
+    "keywords": [
+        "armor",
+        "botw",
+        "tracker",
+        "upgrade",
+        "zelda"
+    ],
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Chris McGee",
+            "email": "chris@chrismcgee.info"
+        }
+    ],
     "require": {
         "php": "^8.0.2",
         "guzzlehttp/guzzle": "^7.2",
