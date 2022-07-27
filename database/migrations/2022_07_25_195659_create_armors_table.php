@@ -4,21 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('armors', function (Blueprint $table) {
+        Schema::create("armors", function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100);
-            $table->string('image', 100);
-            $table->boolean('upgradable');
-            $table->foreignId('armor_sets')
+            $table->string("name", 100);
+            $table->string("image", 100);
+            $table->boolean("upgradable");
+            $table
+                ->foreignId("armor_sets")
                 ->nullable()
                 ->constrained()
                 ->cascadeOnUpdate()
@@ -32,8 +32,8 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('armors');
+        Schema::dropIfExists("armors");
     }
 };
