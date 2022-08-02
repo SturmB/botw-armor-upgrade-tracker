@@ -13,17 +13,20 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create("armors", function (Blueprint $table) {
-            $table->smallIncrements('id');
+            $table->smallIncrements("id");
             $table->string("name", 100);
             $table->string("image", 100);
-            $table->boolean("upgradable");
-            $table
-                ->foreignId("armor_sets")
-                ->nullable()
-                ->constrained()
-                ->cascadeOnUpdate()
-                ->nullOnDelete();
+            $table->boolean("upgradable")->default(1);
+            $table->unsignedSmallInteger("armor_set_id");
             $table->timestamps();
+
+            $table
+                ->foreign("armor_set_id")
+                ->references("id")
+                ->on("armor_sets")
+                ->cascadeOnUpdate()
+                ->nullOnDelete()
+                ->nullable();
         });
     }
 

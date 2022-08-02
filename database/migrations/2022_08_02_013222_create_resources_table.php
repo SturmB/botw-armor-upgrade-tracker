@@ -12,7 +12,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create("armor_sets", function (Blueprint $table) {
+        Schema::create("resources", function (Blueprint $table) {
             $table->smallIncrements("id");
             $table->string("name", 100);
             $table->string("image", 100);
@@ -27,6 +27,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists("armor_sets");
+        Schema::dropIfExists("resources");
     }
 };
