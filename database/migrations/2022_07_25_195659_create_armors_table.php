@@ -13,7 +13,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create("armors", function (Blueprint $table) {
-            $table->id();
+            $table->smallIncrements('id');
             $table->string("name", 100);
             $table->string("image", 100);
             $table->boolean("upgradable");
