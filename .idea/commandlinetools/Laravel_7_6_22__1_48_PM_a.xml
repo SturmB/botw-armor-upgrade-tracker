@@ -1427,6 +1427,118 @@
     </optionsBefore>
   </command>
   <command>
+    <name>krlove:generate:model</name>
+    <help><![CDATA[<table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--table-name</td><td>(-tn)</td><td>Name of the table to use</td></tr> <tr><td>--output-path</td><td>(-op)</td><td>Directory to store generated model</td></tr> <tr><td>--namespace</td><td>(-ns)</td><td>Namespace of the model</td></tr> <tr><td>--base-class-name</td><td>(-bc)</td><td>Model parent class</td></tr> <tr><td>--no-timestamps</td><td>(-ts)</td><td>Set timestamps property to false</td></tr> <tr><td>--date-format</td><td>(-df)</td><td>dateFormat property</td></tr> <tr><td>--connection</td><td>(-cn)</td><td>Connection property</td></tr> <tr><td>--no-backup</td><td>(-b)</td><td>Backup existing model</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display help for the given command. When no command is given display help for the <b>list</b> command</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force (or disable --no-ansi) ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Negate the "--ansi" option</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td></td><td>The environment the command should run under</td></tr> </table> <br/>]]></help>
+    <params>class-name</params>
+    <optionsBefore>
+      <option name="--table-name" shortcut="-tn" pattern="equals">
+        <help><![CDATA[Name of the table to use]]></help>
+      </option>
+      <option name="--output-path" shortcut="-op" pattern="equals">
+        <help><![CDATA[Directory to store generated model]]></help>
+      </option>
+      <option name="--namespace" shortcut="-ns" pattern="equals">
+        <help><![CDATA[Namespace of the model]]></help>
+      </option>
+      <option name="--base-class-name" shortcut="-bc" pattern="equals">
+        <help><![CDATA[Model parent class]]></help>
+      </option>
+      <option name="--no-timestamps" shortcut="-ts" pattern="equals">
+        <help><![CDATA[Set timestamps property to false]]></help>
+      </option>
+      <option name="--date-format" shortcut="-df" pattern="equals">
+        <help><![CDATA[dateFormat property]]></help>
+      </option>
+      <option name="--connection" shortcut="-cn" pattern="equals">
+        <help><![CDATA[Connection property]]></help>
+      </option>
+      <option name="--no-backup" shortcut="-b" pattern="equals">
+        <help><![CDATA[Backup existing model]]></help>
+      </option>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display help for the given command. When no command is given display help for the <b>list</b> command]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force (or disable --no-ansi) ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Negate the "--ansi" option]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--env" shortcut="" pattern="equals">
+        <help><![CDATA[The environment the command should run under]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
+    <name>krlove:generate:models</name>
+    <help><![CDATA[<table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--table-name</td><td>(-tn)</td><td>Name of the table to use</td></tr> <tr><td>--output-path</td><td>(-op)</td><td>Directory to store generated model</td></tr> <tr><td>--namespace</td><td>(-ns)</td><td>Namespace of the model</td></tr> <tr><td>--base-class-name</td><td>(-bc)</td><td>Model parent class</td></tr> <tr><td>--no-timestamps</td><td>(-ts)</td><td>Set timestamps property to false</td></tr> <tr><td>--date-format</td><td>(-df)</td><td>dateFormat property</td></tr> <tr><td>--connection</td><td>(-cn)</td><td>Connection property</td></tr> <tr><td>--no-backup</td><td>(-b)</td><td>Backup existing model</td></tr> <tr><td>--skip-table</td><td>(-sk)</td><td>Tables to skip generating models for</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display help for the given command. When no command is given display help for the <b>list</b> command</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force (or disable --no-ansi) ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Negate the "--ansi" option</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td></td><td>The environment the command should run under</td></tr> </table> <br/>]]></help>
+    <optionsBefore>
+      <option name="--table-name" shortcut="-tn" pattern="equals">
+        <help><![CDATA[Name of the table to use]]></help>
+      </option>
+      <option name="--output-path" shortcut="-op" pattern="equals">
+        <help><![CDATA[Directory to store generated model]]></help>
+      </option>
+      <option name="--namespace" shortcut="-ns" pattern="equals">
+        <help><![CDATA[Namespace of the model]]></help>
+      </option>
+      <option name="--base-class-name" shortcut="-bc" pattern="equals">
+        <help><![CDATA[Model parent class]]></help>
+      </option>
+      <option name="--no-timestamps" shortcut="-ts" pattern="equals">
+        <help><![CDATA[Set timestamps property to false]]></help>
+      </option>
+      <option name="--date-format" shortcut="-df" pattern="equals">
+        <help><![CDATA[dateFormat property]]></help>
+      </option>
+      <option name="--connection" shortcut="-cn" pattern="equals">
+        <help><![CDATA[Connection property]]></help>
+      </option>
+      <option name="--no-backup" shortcut="-b" pattern="equals">
+        <help><![CDATA[Backup existing model]]></help>
+      </option>
+      <option name="--skip-table" shortcut="-sk" pattern="equals">
+        <help><![CDATA[Tables to skip generating models for]]></help>
+      </option>
+      <option name="--help" shortcut="-h">
+        <help><![CDATA[Display help for the given command. When no command is given display help for the <b>list</b> command]]></help>
+      </option>
+      <option name="--quiet" shortcut="-q">
+        <help><![CDATA[Do not output any message]]></help>
+      </option>
+      <option name="--verbose" shortcut="-v">
+        <help><![CDATA[Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug]]></help>
+      </option>
+      <option name="--version" shortcut="-V">
+        <help><![CDATA[Display this application version]]></help>
+      </option>
+      <option name="--ansi" shortcut="">
+        <help><![CDATA[Force (or disable --no-ansi) ANSI output]]></help>
+      </option>
+      <option name="--no-ansi" shortcut="">
+        <help><![CDATA[Negate the "--ansi" option]]></help>
+      </option>
+      <option name="--no-interaction" shortcut="-n">
+        <help><![CDATA[Do not ask any interactive question]]></help>
+      </option>
+      <option name="--env" shortcut="" pattern="equals">
+        <help><![CDATA[The environment the command should run under]]></help>
+      </option>
+    </optionsBefore>
+  </command>
+  <command>
     <name>make:cast</name>
     <help><![CDATA[Create a new custom Eloquent cast class<br/><br/><table> <tr><td><strong>Options:</strong></td></tr> <tr><td>--inbound</td><td></td><td>Generate an inbound cast class</td></tr> <tr><td>--help</td><td>(-h)</td><td>Display help for the given command. When no command is given display help for the <b>list</b> command</td></tr> <tr><td>--quiet</td><td>(-q)</td><td>Do not output any message</td></tr> <tr><td>--verbose</td><td>(-v)</td><td>Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug</td></tr> <tr><td>--version</td><td>(-V)</td><td>Display this application version</td></tr> <tr><td>--ansi</td><td></td><td>Force (or disable --no-ansi) ANSI output</td></tr> <tr><td>--no-ansi</td><td></td><td>Negate the "--ansi" option</td></tr> <tr><td>--no-interaction</td><td>(-n)</td><td>Do not ask any interactive question</td></tr> <tr><td>--env</td><td></td><td>The environment the command should run under</td></tr> </table> <br/>]]></help>
     <params>name</params>

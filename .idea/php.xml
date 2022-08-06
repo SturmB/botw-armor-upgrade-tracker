@@ -128,6 +128,8 @@
       <path value="$PROJECT_DIR$/vendor/spatie/temporary-directory" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-signal-aware-command" />
       <path value="$PROJECT_DIR$/vendor/nunomaduro/termwind" />
+      <path value="$PROJECT_DIR$/vendor/krlove/eloquent-model-generator" />
+      <path value="$PROJECT_DIR$/vendor/krlove/code-generator" />
     </include_path>
   </component>
   <component name="PhpInterpreters">

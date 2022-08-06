@@ -135,6 +135,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/spatie/temporary-directory" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/spatie/laravel-signal-aware-command" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nunomaduro/termwind" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/krlove/eloquent-model-generator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/krlove/code-generator" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
