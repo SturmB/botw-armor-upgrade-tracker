@@ -15,9 +15,9 @@ return new class extends Migration {
         Schema::create("armors", function (Blueprint $table) {
             $table->smallIncrements("id");
             $table->string("name", 100);
-            $table->string("image", 100);
+            $table->string("image", 100)->nullable();
             $table->boolean("upgradable")->default(1);
-            $table->unsignedSmallInteger("armor_set_id");
+            $table->unsignedSmallInteger("armor_set_id")->nullable();
             $table->timestamps();
 
             $table
