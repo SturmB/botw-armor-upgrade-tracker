@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\ArmorSet;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class ArmorSetSeeder extends Seeder
 {
@@ -16,7 +15,7 @@ class ArmorSetSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $prefix = "armor-sets";
 

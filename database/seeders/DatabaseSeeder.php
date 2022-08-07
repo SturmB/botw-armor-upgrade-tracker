@@ -21,6 +21,11 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $this->call([ArmorSetSeeder::class, ArmorSeeder::class]);
+        $this->call([
+            ArmorSetSeeder::class,
+            ArmorSeeder::class,
+            ResourceSeeder::class,
+            ArmorResourceSeeder::class,
+        ]);
     }
 }

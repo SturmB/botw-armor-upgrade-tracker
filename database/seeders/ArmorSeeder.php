@@ -6,18 +6,17 @@ use App\Models\Armor;
 use App\Models\ArmorSet;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class ArmorSeeder extends Seeder
 {
     use WithoutModelEvents;
 
     /**
-     * Seed the Armor table.
+     * Seed the Armors table.
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $prefix = "armors";
 
