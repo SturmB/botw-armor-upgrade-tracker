@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Armor;
 use App\Models\ArmorSet;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -20,10 +21,27 @@ class ArmorSeeder extends Seeder
     {
         $prefix = "armors";
 
+        $wellWornOutfit = ArmorSet::where("name", "Well-Worn Outfit")->first()->id;
         $hylianSet = ArmorSet::where("name", "Hylian Set")->first()->id;
         $soldiersSet = ArmorSet::where("name", "Soldier's Set")->first()->id;
 
-        DB::table("armors")->insert([
+        $armors = [
+            [
+                "name" => "Champion's Tunic",
+                "image" => "{$prefix}/BotW_Champion's_Tunic_Icon.png",
+            ],
+            [
+                "name" => "Old Shirt",
+                "image" => "{$prefix}/BotW_Old_Shirt_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $wellWornOutfit,
+            ],
+            [
+                "name" => "Well-Worn Trousers",
+                "image" => "{$prefix}/BotW_Well-Worn_Trousers_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $wellWornOutfit,
+            ],
             [
                 "name" => "Hylian Hood",
                 "image" => "{$prefix}/BotW_Hylian_Hood_Icon.png",
@@ -54,6 +72,10 @@ class ArmorSeeder extends Seeder
                 "image" => "{$prefix}/BotW_Soldier's_Greaves_Icon.png",
                 "armor_set_id" => $soldiersSet,
             ],
-        ]);
+        ];
+
+        foreach ($armors as $armor) {
+            Armor::create($armor);
+        }
     }
 }
