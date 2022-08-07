@@ -26,10 +26,6 @@ class ArmorSeeder extends Seeder
 
         $armors = [
             [
-                "name" => "Champion's Tunic",
-                "image" => "{$prefix}/BotW_Champion's_Tunic_Icon.png",
-            ],
-            [
                 "name" => "Old Shirt",
                 "image" => "{$prefix}/BotW_Old_Shirt_Icon.png",
                 "upgradable" => 0,
@@ -40,6 +36,10 @@ class ArmorSeeder extends Seeder
                 "image" => "{$prefix}/BotW_Well-Worn_Trousers_Icon.png",
                 "upgradable" => 0,
                 "armor_set_id" => $wellWornOutfit,
+            ],
+            [
+                "name" => "Champion's Tunic",
+                "image" => "{$prefix}/BotW_Champion's_Tunic_Icon.png",
             ],
             [
                 "name" => "Hylian Hood",
@@ -57,17 +57,17 @@ class ArmorSeeder extends Seeder
                 "armor_set_id" => $hylianSet,
             ],
             [
-                "name" => "Hylian Hood",
+                "name" => "Soldier's Helm",
                 "image" => "{$prefix}/BotW_Soldier's_Helm_Icon.png",
                 "armor_set_id" => $soldiersSet,
             ],
             [
-                "name" => "Hylian Tunic",
+                "name" => "Soldier's Armor",
                 "image" => "{$prefix}/BotW_Soldier's_Armor_Icon.png",
                 "armor_set_id" => $soldiersSet,
             ],
             [
-                "name" => "Hylian Trousers",
+                "name" => "Soldier's Greaves",
                 "image" => "{$prefix}/BotW_Soldier's_Greaves_Icon.png",
                 "armor_set_id" => $soldiersSet,
             ],
