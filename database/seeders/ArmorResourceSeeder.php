@@ -13,18 +13,6 @@ class ArmorResourceSeeder extends Seeder
 {
     use WithoutModelEvents;
 
-    private int $bokoblinHorn,
-        $bokoblinFang,
-        $bokoblinGuts,
-        $amber,
-        $moblinGuts,
-        $lizalfosTail,
-        $lynelHoof,
-        $lynelGuts,
-        $chuchuJelly,
-        $keeseWing,
-        $hinoxGuts;
-
     /**
      * Seed the Armor-Resource pivot table.
      *
@@ -42,263 +30,90 @@ class ArmorResourceSeeder extends Seeder
             ->id;
 
         // Resources
-        $this->bokoblinHorn = Resource::where(
-            "name",
-            "Bokoblin Horn",
-        )->first()->id;
-        $this->bokoblinFang = Resource::where(
-            "name",
-            "Bokoblin Fang",
-        )->first()->id;
-        $this->bokoblinGuts = Resource::where(
-            "name",
-            "Bokoblin Guts",
-        )->first()->id;
-        $this->amber = Resource::where("name", "Amber")->first()->id;
-        $this->moblinGuts = Resource::where("name", "Moblin Guts")->first()->id;
-        $this->lizalfosTail = Resource::where(
-            "name",
-            "Lizalfos Tail",
-        )->first()->id;
-        $this->lynelHoof = Resource::where("name", "Lynel Hoof")->first()->id;
-        $this->lynelGuts = Resource::where("name", "Lynel Guts")->first()->id;
-        $this->chuchuJelly = Resource::where(
-            "name",
-            "Chuchu Jelly",
-        )->first()->id;
-        $this->keeseWing = Resource::where("name", "Keese Wing")->first()->id;
-        $this->hinoxGuts = Resource::where("name", "Hinox Guts")->first()->id;
+        $bokoblinHorn = Resource::where("name", "Bokoblin Horn")->first()->id;
+        $bokoblinFang = Resource::where("name", "Bokoblin Fang")->first()->id;
+        $bokoblinGuts = Resource::where("name", "Bokoblin Guts")->first()->id;
+        $amber = Resource::where("name", "Amber")->first()->id;
+        $moblinGuts = Resource::where("name", "Moblin Guts")->first()->id;
+        $lizalfosTail = Resource::where("name", "Lizalfos Tail")->first()->id;
+        $lynelHoof = Resource::where("name", "Lynel Hoof")->first()->id;
+        $lynelGuts = Resource::where("name", "Lynel Guts")->first()->id;
+        $chuchuJelly = Resource::where("name", "Chuchu Jelly")->first()->id;
+        $keeseWing = Resource::where("name", "Keese Wing")->first()->id;
+        $keeseEyeball = Resource::where("name", "Keese Eyeball")->first()->id;
+        $hinoxGuts = Resource::where("name", "Hinox Guts")->first()->id;
 
         $armorResources = new Collection();
 
         // Hylian Set
-        $armorResources->push($this->hylianSet($hylianHood));
-        $armorResources->push($this->hylianSet($hylianTunic));
-        $armorResources->push($this->hylianSet($hylianTrousers));
+        $hylianData = collect([
+            [1, $bokoblinHorn, 5],
+            [2, $bokoblinHorn, 8],
+            [2, $bokoblinFang, 5],
+            [3, $bokoblinFang, 10],
+            [3, $bokoblinGuts, 5],
+            [4, $bokoblinGuts, 15],
+            [4, $amber, 30],
+        ]);
+        $armorResources->push(
+            $this->buildArmorRequirements($hylianHood, $hylianData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($hylianTunic, $hylianData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($hylianTrousers, $hylianData),
+        );
 
         // Soldier's Set
-        $armorResources->push($this->soldiersSet($soldiersHelm));
+        $soldiersData = collect([
+            [1, $chuchuJelly, 5],
+            [1, $bokoblinGuts, 3],
+            [2, $keeseEyeball, 3],
+            [2, $moblinGuts, 3],
+            [3, $lizalfosTail, 5],
+            [3, $hinoxGuts, 2],
+            [4, $lynelHoof, 4],
+            [4, $lynelGuts, 2],
+        ]);
         $armorResources->push(
-            collect([
-                [
-                    "armor_id" => $soldiersArmor,
-                    "resource_id" => $this->chuchuJelly,
-                    "tier" => 1,
-                    "quantity_needed" => 5,
-                    "created_at" => now(),
-                    "updated_at" => now(),
-                ],
-                [
-                    "armor_id" => $soldiersArmor,
-                    "resource_id" => $this->bokoblinGuts,
-                    "tier" => 1,
-                    "quantity_needed" => 3,
-                    "created_at" => now(),
-                    "updated_at" => now(),
-                ],
-                [
-                    "armor_id" => $soldiersArmor,
-                    "resource_id" => Resource::where(
-                        "name",
-                        "Keese Eyeball",
-                    )->first()->id,
-                    "tier" => 2,
-                    "quantity_needed" => 5,
-                    "created_at" => now(),
-                    "updated_at" => now(),
-                ],
-                [
-                    "armor_id" => $soldiersArmor,
-                    "resource_id" => $this->moblinGuts,
-                    "tier" => 2,
-                    "quantity_needed" => 3,
-                    "created_at" => now(),
-                    "updated_at" => now(),
-                ],
-                [
-                    "armor_id" => $soldiersArmor,
-                    "resource_id" => $this->lizalfosTail,
-                    "tier" => 3,
-                    "quantity_needed" => 3,
-                    "created_at" => now(),
-                    "updated_at" => now(),
-                ],
-                [
-                    "armor_id" => $soldiersArmor,
-                    "resource_id" => $this->hinoxGuts,
-                    "tier" => 3,
-                    "quantity_needed" => 1,
-                    "created_at" => now(),
-                    "updated_at" => now(),
-                ],
-                [
-                    "armor_id" => $soldiersArmor,
-                    "resource_id" => $this->lynelHoof,
-                    "tier" => 4,
-                    "quantity_needed" => 2,
-                    "created_at" => now(),
-                    "updated_at" => now(),
-                ],
-                [
-                    "armor_id" => $soldiersArmor,
-                    "resource_id" => $this->lynelGuts,
-                    "tier" => 4,
-                    "quantity_needed" => 2,
-                    "created_at" => now(),
-                    "updated_at" => now(),
-                ],
-            ]),
+            $this->buildArmorRequirements($soldiersHelm, $soldiersData),
         );
-        $armorResources->push($this->soldiersSet($soldiersGreaves));
+        $armorResources->push(
+            $this->buildArmorRequirements($soldiersArmor, $soldiersData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($soldiersGreaves, $soldiersData),
+        );
 
         $armorResources = $armorResources->flatten(1);
         DB::table("armor_resource")->insert($armorResources->toArray());
     }
 
     /**
-     * Since each of the Hylian armor pieces needs the exact same resources
-     * for each tier, we can combine them into a single private method
-     * to keep to DRY principles.
+     * Given an ID of the Armor from the `armors` table and the various requirements needed to
+     * upgrade it to various tiers, this function will convert it into a proper Collection
+     * ready for inserting into the database table.
      *
-     * @param integer $armor
-     * @return Collection
+     * @param integer $armorId The ID of the Armor in the `armors` table
+     * @param Collection $requirements A collection of three-item arrays detailing the requirements
+     * @return Collection The armor and its requirements formatted for entering into the database
      */
-    private function hylianSet(int $armor): Collection
-    {
-        return collect([
-            [
-                "armor_id" => $armor,
-                "resource_id" => $this->bokoblinHorn,
-                "tier" => 1,
-                "quantity_needed" => 5,
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
-            [
-                "armor_id" => $armor,
-                "resource_id" => $this->bokoblinHorn,
-                "tier" => 2,
-                "quantity_needed" => 8,
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
-            [
-                "armor_id" => $armor,
-                "resource_id" => $this->bokoblinFang,
-                "tier" => 2,
-                "quantity_needed" => 5,
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
-            [
-                "armor_id" => $armor,
-                "resource_id" => $this->bokoblinFang,
-                "tier" => 3,
-                "quantity_needed" => 10,
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
-            [
-                "armor_id" => $armor,
-                "resource_id" => $this->bokoblinGuts,
-                "tier" => 3,
-                "quantity_needed" => 5,
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
-            [
-                "armor_id" => $armor,
-                "resource_id" => $this->bokoblinGuts,
-                "tier" => 4,
-                "quantity_needed" => 15,
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
-            [
-                "armor_id" => $armor,
-                "resource_id" => $this->amber,
-                "tier" => 4,
-                "quantity_needed" => 15,
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
-        ]);
-    }
-
-    /**
-     * Since 2 tiers of the Soldier's armor pieces needs the exact same resources,
-     * we can combine them into a single private method to keep to DRY principles.
-     *
-     * @param integer $armor
-     * @return Collection
-     */
-    private function soldiersSet(int $armor): Collection
-    {
-        return collect([
-            [
-                "armor_id" => $armor,
-                "resource_id" => $this->chuchuJelly,
-                "tier" => 1,
-                "quantity_needed" => 5,
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
-            [
-                "armor_id" => $armor,
-                "resource_id" => $this->bokoblinGuts,
-                "tier" => 1,
-                "quantity_needed" => 3,
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
-            [
-                "armor_id" => $armor,
-                "resource_id" => $this->keeseWing,
-                "tier" => 2,
-                "quantity_needed" => 5,
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
-            [
-                "armor_id" => $armor,
-                "resource_id" => $this->moblinGuts,
-                "tier" => 2,
-                "quantity_needed" => 3,
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
-            [
-                "armor_id" => $armor,
-                "resource_id" => $this->lizalfosTail,
-                "tier" => 3,
-                "quantity_needed" => 2,
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
-            [
-                "armor_id" => $armor,
-                "resource_id" => $this->hinoxGuts,
-                "tier" => 3,
-                "quantity_needed" => 2,
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
-            [
-                "armor_id" => $armor,
-                "resource_id" => $this->lynelHoof,
-                "tier" => 4,
-                "quantity_needed" => 2,
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
-            [
-                "armor_id" => $armor,
-                "resource_id" => $this->lynelGuts,
-                "tier" => 4,
-                "quantity_needed" => 2,
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
-        ]);
+    private function buildArmorRequirements(
+        int $armorId,
+        Collection $requirements,
+    ): Collection {
+        return collect(
+            $requirements->map(function ($requirement) use ($armorId) {
+                return [
+                    "armor_id" => $armorId,
+                    "resource_id" => $requirement[1],
+                    "tier" => $requirement[0],
+                    "quantity_needed" => $requirement[2],
+                    "created_at" => now(),
+                    "updated_at" => now(),
+                ];
+            }),
+        );
     }
 }
