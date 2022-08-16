@@ -7,12 +7,12 @@ specifiers:
   alpinejs: ^3.10.3
   autoprefixer: ^10.4.8
   axios: ^0.25.0
-  laravel-vite-plugin: ^0.5
+  laravel-vite-plugin: ^0.5.3
   lodash: ^4.17.21
   postcss: ^8.4.16
   prettier: ^2.7.1
   tailwindcss: ^3.1.8
-  vite: ^3.0.4
+  vite: ^3.0.7
 
 devDependencies:
   '@prettier/plugin-php': 0.18.9_prettier@2.7.1
@@ -21,12 +21,12 @@ devDependencies:
   alpinejs: 3.10.3
   autoprefixer: 10.4.8_postcss@8.4.16
   axios: 0.25.0
-  laravel-vite-plugin: 0.5.3_vite@3.0.5
+  laravel-vite-plugin: 0.5.3_vite@3.0.7
   lodash: 4.17.21
   postcss: 8.4.16
   prettier: 2.7.1
   tailwindcss: 3.1.8
-  vite: 3.0.5
+  vite: 3.0.7
 
 packages:
 
@@ -146,7 +146,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.3
-      caniuse-lite: 1.0.30001374
+      caniuse-lite: 1.0.30001376
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -179,8 +179,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001374
-      electron-to-chromium: 1.4.212
+      caniuse-lite: 1.0.30001376
+      electron-to-chromium: 1.4.220
       node-releases: 2.0.6
       update-browserslist-db: 1.0.5_browserslist@4.21.3
     dev: true
@@ -190,8 +190,8 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  /caniuse-lite/1.0.30001374:
-    resolution: {integrity: sha512-mWvzatRx3w+j5wx/mpFN5v5twlPrabG8NqX2c6e45LCpymdoGqNvRkRutFUqpRTXKFQFNQJasvK0YT7suW6/Hw==}
+  /caniuse-lite/1.0.30001376:
+    resolution: {integrity: sha512-I27WhtOQ3X3v3it9gNs/oTpoE5KpwmqKR5oKPA8M0G7uMXh9Ty81Q904HpKUrM30ei7zfcL5jE7AXefgbOfMig==}
     dev: true
 
   /chokidar/3.5.3:
@@ -241,8 +241,8 @@ packages:
     resolution: {integrity: sha512-+HlytyjlPKnIG8XuRG8WvmBP8xs8P71y+SKKS6ZXWoEgLuePxtDoUEiH7WkdePWrQ5JBpE6aoVqfZfJUQkjXwA==}
     dev: true
 
-  /electron-to-chromium/1.4.212:
-    resolution: {integrity: sha512-LjQUg1SpLj2GfyaPDVBUHdhmlDU1vDB4f0mJWSGkISoXQrn5/lH3ECPCuo2Bkvf6Y30wO+b69te+rZK/llZmjg==}
+  /electron-to-chromium/1.4.220:
+    resolution: {integrity: sha512-RA6Mn51gj2lyeAt/MiuVV+85tN8vt1jbWP+kx7S84htJ0MbIHGHdnVm+j+HzZQp69O6gWmhLBJ+Wpk2c445+ZA==}
     dev: true
 
   /esbuild-android-64/0.14.54:
@@ -560,14 +560,14 @@ packages:
     engines: {node: '>=0.12.0'}
     dev: true
 
-  /laravel-vite-plugin/0.5.3_vite@3.0.5:
+  /laravel-vite-plugin/0.5.3_vite@3.0.7:
     resolution: {integrity: sha512-7Sujs+ywIYQai7lfpn+KxkRCAz/RWVMO8VryheEyUCKBsEITRyLoml5kudMW/rWJCKhSVVSIF3KkYZ3pDmDZzg==}
     engines: {node: '>=14'}
     peerDependencies:
       vite: ^3.0.0
     dependencies:
-      vite: 3.0.5
-      vite-plugin-full-reload: 1.0.4_vite@3.0.5
+      vite: 3.0.7
+      vite-plugin-full-reload: 1.0.4_vite@3.0.7
     dev: true
 
   /lilconfig/2.0.6:
@@ -801,8 +801,8 @@ packages:
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
     dev: true
 
-  /rollup/2.77.2:
-    resolution: {integrity: sha512-m/4YzYgLcpMQbxX3NmAqDvwLATZzxt8bIegO78FZLl+lAgKJBd1DRAOeEiZcKOIOPjxE6ewHWHNgGEalFXuz1g==}
+  /rollup/2.77.3:
+    resolution: {integrity: sha512-/qxNTG7FbmefJWoeeYJFbHehJ2HNWnjkAFRKzWN/45eNBBF/r8lo992CwcJXEzyVxs5FmfId+vTSTQDb+bxA+g==}
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
@@ -878,18 +878,18 @@ packages:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: true
 
-  /vite-plugin-full-reload/1.0.4_vite@3.0.5:
+  /vite-plugin-full-reload/1.0.4_vite@3.0.7:
     resolution: {integrity: sha512-9WejQII6zJ++m/YE173Zvl2jq4cqa404KNrVT+JDzDnqaGRq5UvOvA48fnsSWPIMXFV7S0dq5+sZqcSB+tKBgA==}
     peerDependencies:
       vite: ^2 || ^3
     dependencies:
       picocolors: 1.0.0
       picomatch: 2.3.1
-      vite: 3.0.5
+      vite: 3.0.7
     dev: true
 
-  /vite/3.0.5:
-    resolution: {integrity: sha512-bRvrt9Tw8EGW4jj64aYFTnVg134E8hgDxyl/eEHnxiGqYk7/pTPss6CWlurqPOUzqvEoZkZ58Ws+Iu8MB87iMA==}
+  /vite/3.0.7:
+    resolution: {integrity: sha512-dILhvKba1mbP1wCezVQx/qhEK7/+jVn9ciadEcyKMMhZpsuAi/eWZfJRMkmYlkSFG7Qq9NvJbgFq4XOBxugJsA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -910,7 +910,7 @@ packages:
       esbuild: 0.14.54
       postcss: 8.4.16
       resolve: 1.22.1
-      rollup: 2.77.2
+      rollup: 2.77.3
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
