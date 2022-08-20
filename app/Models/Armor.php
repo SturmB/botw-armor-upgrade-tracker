@@ -59,7 +59,9 @@ class Armor extends Model
      */
     public function resources(): BelongsToMany
     {
-        return $this->belongsToMany(Resource::class);
+        return $this->belongsToMany(Resource::class)
+            ->withPivot("tier", "quantity_needed")
+            ->withTimestamps();
     }
 
     /**
@@ -67,7 +69,9 @@ class Armor extends Model
      */
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)
+            ->withPivot("tracking_tier_start", "tracking_tier_end")
+            ->withTimestamps();
     }
 
     /**

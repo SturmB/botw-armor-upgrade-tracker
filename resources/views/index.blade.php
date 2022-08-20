@@ -14,12 +14,18 @@
 <div>
     @foreach($armorSets as $armorSet)
         <div>
-            <h3>{{ $armorSet->name }}</h3>
-            @forelse($armorSet->armors as $armor)
-                <p>{{ $armor->name }}</p>
-            @empty
-                <p>No armors in the set.</p>
-            @endforelse
+            <h2>{{ $armorSet->name }}</h2>
+            @foreach($armorSet->armors as $armor)
+                <h3>{{ $armor->name }}</h3>
+                @if($armor->upgradable)
+                    @foreach($armor->resources->groupBy(fn($resource) => $resource->pivot->tier) as $tierNum => $resources)
+                        <p>Tier {{ $tierNum }}:</p>
+                        @foreach($resources as $resource)
+                            <p>{{ $resource->pivot->quantity_needed }} {{ $resource->name }}</p>
+                        @endforeach
+                    @endforeach
+                @endif
+            @endforeach
         </div>
     @endforeach
 </div>

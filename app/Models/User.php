@@ -24,11 +24,7 @@ class User extends Authenticatable
      *
      * @var string[]
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $fillable = ["name", "email", "password"];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -36,10 +32,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
-        'two_factor_recovery_codes',
-        'two_factor_secret',
+        "password",
+        "remember_token",
+        "two_factor_recovery_codes",
+        "two_factor_secret",
     ];
 
     /**
@@ -48,7 +44,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        "email_verified_at" => "datetime",
     ];
 
     /**
@@ -56,16 +52,16 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $appends = [
-        'profile_photo_url',
-    ];
+    protected $appends = ["profile_photo_url"];
 
     /**
      * @return BelongsToMany
      */
     public function armors(): BelongsToMany
     {
-        return $this->belongsToMany(Armor::class);
+        return $this->belongsToMany(Armor::class)
+            ->withPivot("tracking_tier_start", "tracking_tier_end")
+            ->withTimestamps();
     }
 
     /**
@@ -73,6 +69,8 @@ class User extends Authenticatable
      */
     public function resources(): BelongsToMany
     {
-        return $this->belongsToMany(Resource::class);
+        return $this->belongsToMany(Resource::class)
+            ->withPivot("quantity_owned")
+            ->withTimestamps();
     }
 }

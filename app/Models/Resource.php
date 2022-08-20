@@ -46,7 +46,9 @@ class Resource extends Model
      */
     public function armors(): BelongsToMany
     {
-        return $this->belongsToMany(Armor::class);
+        return $this->belongsToMany(Armor::class)
+            ->withPivot("tier", "quantity_needed")
+            ->withTimestamps();
     }
 
     /**
@@ -54,6 +56,8 @@ class Resource extends Model
      */
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)
+            ->withPivot("quantity_owned")
+            ->withTimestamps();
     }
 }
