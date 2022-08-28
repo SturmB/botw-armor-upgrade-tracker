@@ -17,7 +17,7 @@ class UserModelTest extends TestCase
      *
      * @return void
      */
-    public function test_saves_to_database(): void
+    public function test_saves_user_model_to_database(): void
     {
         $user = User::factory()->create();
 
@@ -29,7 +29,7 @@ class UserModelTest extends TestCase
      *
      * @return void
      */
-    public function test_is_connected_to_armors(): void
+    public function test_user_is_connected_to_armors_with_pivot(): void
     {
         $user = User::factory()
             ->has(Armor::factory()->count(3))
@@ -47,7 +47,7 @@ class UserModelTest extends TestCase
      *
      * @return void
      */
-    public function test_is_connected_to_resources(): void
+    public function test_user_is_connected_to_resources_with_pivot(): void
     {
         $user = User::factory()
             ->has(Resource::factory()->count(3))
