@@ -35,6 +35,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  */
 class Armor extends Model
 {
+    use HasFactory;
+
     /**
      * The "type" of the auto-incrementing ID.
      *
