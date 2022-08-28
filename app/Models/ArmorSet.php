@@ -27,6 +27,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class ArmorSet extends Model
 {
+    use HasFactory;
+
     /**
      * The "type" of the auto-incrementing ID.
      *
