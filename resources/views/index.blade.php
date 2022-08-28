@@ -6,10 +6,13 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Armor Upgrade Tracker</title>
+    @livewireStyles
 </head>
 <body>
 
 <h1>Armor Sets</h1>
+
+<livewire:shopping-list />
 
 <div>
     @foreach($armorSets as $armorSet)
@@ -21,7 +24,12 @@
                     @foreach($armor->resources->groupBy(fn($resource) => $resource->pivot->tier) as $tierNum => $resources)
                         <p>Tier {{ $tierNum }}:</p>
                         @foreach($resources as $resource)
-                            <p>{{ $resource->pivot->quantity_needed }} {{ $resource->name }}</p>
+                            <livewire:resource-checkbox
+                                :resourceName="$resource->name"
+                                :quantity="$resource->pivot->quantity_needed"
+                                :pivotId="$resource->pivot->id"
+                                :wire:key="'checkbox-' . $resource->pivot->id"
+                            />
                         @endforeach
                     @endforeach
                 @endif
@@ -30,5 +38,6 @@
     @endforeach
 </div>
 
+@livewireScripts
 </body>
 </html>

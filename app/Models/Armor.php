@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * App\Models\Armor
@@ -32,6 +34,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Armor whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Armor whereUpgradable($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Requirement[] $requirements
+ * @property-read int|null $requirements_count
  */
 class Armor extends Model
 {
@@ -62,7 +66,8 @@ class Armor extends Model
     public function resources(): BelongsToMany
     {
         return $this->belongsToMany(Resource::class)
-            ->withPivot("tier", "quantity_needed")
+            ->using(Requirement::class)
+            ->withPivot("id", "tier", "quantity_needed")
             ->withTimestamps();
     }
 
@@ -82,5 +87,15 @@ class Armor extends Model
     public function armorSet(): BelongsTo
     {
         return $this->belongsTo(ArmorSet::class);
+    }
+
+    /**
+     * Get the requirements in which this armor is used.
+     *
+     * @return HasMany
+     */
+    public function requirements(): HasMany
+    {
+        return $this->hasMany(Requirement::class);
     }
 }

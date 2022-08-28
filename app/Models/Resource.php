@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * App\Models\Resource
@@ -26,6 +28,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Resource whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Resource whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Requirement[] $requirements
+ * @property-read int|null $requirements_count
  */
 class Resource extends Model
 {
@@ -49,7 +53,8 @@ class Resource extends Model
     public function armors(): BelongsToMany
     {
         return $this->belongsToMany(Armor::class)
-            ->withPivot("tier", "quantity_needed")
+            ->using(Requirement::class)
+            ->withPivot("id", "tier", "quantity_needed")
             ->withTimestamps();
     }
 
@@ -61,5 +66,15 @@ class Resource extends Model
         return $this->belongsToMany(User::class)
             ->withPivot("quantity_owned")
             ->withTimestamps();
+    }
+
+    /**
+     * Get the requirements in which this resource are used.
+     *
+     * @return HasMany
+     */
+    public function requirements(): HasMany
+    {
+        return $this->hasMany(Requirement::class);
     }
 }
