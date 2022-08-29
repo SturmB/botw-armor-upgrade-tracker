@@ -11,7 +11,7 @@ use Tests\TestCase;
 class ResourceCheckboxTest extends TestCase
 {
     /** @test */
-    public function the_resource_checkbox_can_render()
+    public function the_resource_checkbox_component_can_render()
     {
         $component = Livewire::test(ResourceCheckbox::class);
 

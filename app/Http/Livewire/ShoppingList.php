@@ -32,11 +32,11 @@ class ShoppingList extends Component
         $requirement = Requirement::findOrFail($pivotId);
         $quantity = $requirement->quantity_needed;
         $resource = $requirement->resource;
-//
-//        $this->list->push([
-//            "name" => $resource->name,
-//            "quantity" => $quantity,
-//        ]);
+
+        $this->list->push([
+            "name" => $resource->name,
+            "quantity" => $quantity,
+        ]);
 
 
         // If we're adding, add Requirement ID to session array if it doesn't exist.
