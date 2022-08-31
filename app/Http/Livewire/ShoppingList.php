@@ -6,6 +6,8 @@ use App\Models\Requirement;
 use App\Models\Resource;
 use Illuminate\Support\Collection;
 use Livewire\Component;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 class ShoppingList extends Component
 {
@@ -23,55 +25,62 @@ class ShoppingList extends Component
         $this->list = collect();
     }
 
-    public function checkboxClicked(
-        bool $add,
-//        Resource $resource,
-//        int $quantity,
-        int $pivotId,
-    ) {
-        $requirement = Requirement::findOrFail($pivotId);
+    /**
+     * The action to perform in this ShoppingList component
+     * whenever a ResourceCheckbox component is clicked.
+     *
+     * @param bool $add Whether to add or subtract from the shopping list
+     * @param int $requirementId The ID of the Requirement for getting the Resource and quantity needed
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function checkboxClicked(bool $add, int $requirementId)
+    {
+        $requirement = Requirement::findOrFail($requirementId);
         $quantity = $requirement->quantity_needed;
         $resource = $requirement->resource;
-
-        $this->list->push([
-            "name" => $resource->name,
-            "quantity" => $quantity,
-        ]);
-
+        $sessionRequirements = session()->get("requirements", []);
 
         // If we're adding, add Requirement ID to session array if it doesn't exist.
+        if ($add && !in_array($requirementId, $sessionRequirements)) {
+            $sessionRequirements[] = $requirementId;
+            sort($sessionRequirements);
+        }
         // If we're subtracting, remove from session array if it exists.
+        if (!$add && in_array($requirementId, $sessionRequirements)) {
+            array_splice(
+                $sessionRequirements,
+                array_search($requirementId, $sessionRequirements),
+                1,
+            );
+        }
+        session(["requirements" => $sessionRequirements]);
 
         // Load all Requirements with given $pivotId and eager load its Resources.
-        // Then assign them to the $list.
+        $resources = Resource::whereHas("requirements", function ($query) use (
+            $sessionRequirements,
+        ) {
+            $query->whereIn("id", $sessionRequirements);
+        })
+            ->withSum(
+                [
+                    "requirements" => function ($query2) use (
+                        $sessionRequirements,
+                    ) {
+                        $query2->whereIn("id", $sessionRequirements);
+                    },
+                ],
+                "quantity_needed",
+            )
+            ->get();
 
-        // Check if "Name" already exists in the session/db.
-//        if (session()->exists($resource->name)) {
-//            // If so, add/subtract "Quantity" from it. Then filter out any quantity 0 items. Then save to session/db.
-//            if ($add) {
-//                session([$resource->name => session($resource->name) + $quantity]);
-//            } else {
-//                session([$resource->name => session($resource->name) - $quantity]);
-//                if (session($resource->name) === 0) {
-//                    session()->forget($resource->name);
-//                }
-//            }
-//        } else {
-//            // If not, add it to the session/db.
-//            if ($add) {
-//                session([$resource->name => $quantity]);
-//            }
-//        }
-//        // In both cases, save new info to session/db.
-//
-//        $this->list = collect();
-//        foreach (session()->all() as $key => $item) {
-//            if (!str_starts_with($key, "_")) {
-//                $this->list->push([
-//                    "name" => $key,
-//                    "quantity" => $item,
-//                ]);
-//            }
-//        }
+        // Then assign them to the $list.
+        $this->list = collect();
+        foreach ($resources as $resource) {
+            $this->list->push([
+                "name" => $resource->name,
+                "quantity" => $resource->requirements_sum_quantity_needed,
+            ]);
+        }
     }
 }
