@@ -27,8 +27,6 @@ class ResourceCheckbox extends Component
         $this->emit(
             "checkboxClicked",
             $this->checked,
-//            $this->resource->id,
-//            $this->quantity,
             $this->pivotId,
         );
     }
