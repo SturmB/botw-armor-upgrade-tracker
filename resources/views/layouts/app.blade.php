@@ -8,7 +8,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -19,45 +19,50 @@
     <body class="font-sans antialiased h-full">
         <x-jet-banner />
 
-        <div>
+        <div x-data="{ sidebarOpen: false }">
             <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
-            <div class="relative z-40 md:hidden" role="dialog" aria-modal="true">
-                <!--
-                  Off-canvas menu backdrop, show/hide based on off-canvas menu state.
-
-                  Entering: "transition-opacity ease-linear duration-300"
-                    From: "opacity-0"
-                    To: "opacity-100"
-                  Leaving: "transition-opacity ease-linear duration-300"
-                    From: "opacity-100"
-                    To: "opacity-0"
-                -->
-                <div class="fixed inset-0 bg-gray-600 bg-opacity-75"></div>
+            <div
+                x-show="sidebarOpen"
+                class="relative z-40 md:hidden"
+                role="dialog"
+                aria-modal="true"
+            >
+                <!-- Off-canvas menu backdrop, show/hide based on off-canvas menu state. -->
+                <div
+                    x-show="sidebarOpen"
+                    x-transition:enter="transition-opacity ease-linear duration-300"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition-opacity ease-linear duration-300"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    class="fixed inset-0 bg-gray-600 bg-opacity-75"
+                ></div>
 
                 <div class="fixed inset-0 z-40 flex">
-                    <!--
-                      Off-canvas menu, show/hide based on off-canvas menu state.
-
-                      Entering: "transition ease-in-out duration-300 transform"
-                        From: "-translate-x-full"
-                        To: "translate-x-0"
-                      Leaving: "transition ease-in-out duration-300 transform"
-                        From: "translate-x-0"
-                        To: "-translate-x-full"
-                    -->
-                    <div class="relative flex w-full max-w-xs flex-1 flex-col bg-white pt-5 pb-4">
-                        <!--
-                          Close button, show/hide based on off-canvas menu state.
-
-                          Entering: "ease-in-out duration-300"
-                            From: "opacity-0"
-                            To: "opacity-100"
-                          Leaving: "ease-in-out duration-300"
-                            From: "opacity-100"
-                            To: "opacity-0"
-                        -->
-                        <div class="absolute top-0 right-0 -mr-12 pt-2">
-                            <button type="button" class="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                    <!-- Off-canvas menu, show/hide based on off-canvas menu state. -->
+                    <div
+                        x-show="sidebarOpen"
+                        x-transition:enter="transition ease-in-out duration-300 transform"
+                        x-transition:enter-start="-translate-x-full"
+                        x-transition:enter-end="translate-x-0"
+                        x-transition:leave="transition ease-in-out duration-300 transform"
+                        x-transition:leave-start="translate-x-0"
+                        x-transition:leave-end="-translate-x-full"
+                        class="relative flex w-full max-w-xs flex-1 flex-col bg-white pt-5 pb-4"
+                    >
+                        <!-- Close button, show/hide based on off-canvas menu state. -->
+                        <div
+                            x-show="sidebarOpen"
+                            x-transition:enter="ease-in-out duration-300"
+                            x-transition:enter-start="opacity-0"
+                            x-transition:enter-end="opacity-100"
+                            x-transition:leave="ease-in-out duration-300"
+                            x-transition:leave-start="opacity-100"
+                            x-transition:leave-end="opacity-0"
+                            class="absolute top-0 right-0 -mr-12 pt-2"
+                        >
+                            <button @click="sidebarOpen = !sidebarOpen" type="button" class="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                                 <span class="sr-only">Close sidebar</span>
                                 <!-- Heroicon name: outline/x-mark -->
                                 <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -198,9 +203,11 @@
                     </div>
                 </div>
             </div>
+
             <div class="flex flex-1 flex-col md:pl-64">
+                <!-- Header -->
                 <div class="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow">
-                    <button type="button" class="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden">
+                    <button type="button" @click="sidebarOpen = !sidebarOpen" class="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden">
                         <span class="sr-only">Open sidebar</span>
                         <!-- Heroicon name: outline/bars-3-bottom-left -->
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -223,6 +230,7 @@
                             </form>
                         </div>
                         <div class="ml-4 flex items-center md:ml-6">
+                            {{-- TODO: Change notifications button to light/dark theme button --}}
                             <button type="button" class="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                                 <span class="sr-only">View notifications</span>
                                 <!-- Heroicon name: outline/bell -->
@@ -232,16 +240,17 @@
                             </button>
 
                             <!-- Profile dropdown -->
-                            <div x-data="{ isOpen: false }" class="relative ml-3">
+                            <div x-data="{ profileMenuOpen: false }" class="relative ml-3">
                                 <div>
-                                    <button type="button" @click="isOpen = !isOpen" class="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                    <button type="button" @click="profileMenuOpen = !profileMenuOpen" class="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                         <span class="sr-only">Open user menu</span>
                                         <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
                                     </button>
                                 </div>
 
+                                <!-- Dropdown menu, show/hide based on menu state. -->
                                 <div
-                                    x-show="isOpen"
+                                    x-show="profileMenuOpen"
                                     x-transition:enter="transition ease-out duration-100"
                                     x-transition:enter-start="opacity-0 scale-95"
                                     x-transition:enter-end="opacity-100 scale-100"
@@ -257,15 +266,14 @@
                                     <!-- Active: "bg-gray-100", Not Active: "" -->
                                     <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
 
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Sign out</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Main -->
                 <main class="flex-1">
                     <div class="py-6">
                         <div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
