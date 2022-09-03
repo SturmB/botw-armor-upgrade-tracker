@@ -36,9 +36,6 @@ class ShoppingList extends Component
      */
     public function checkboxClicked(bool $add, int $requirementId)
     {
-        $requirement = Requirement::findOrFail($requirementId);
-        $quantity = $requirement->quantity_needed;
-        $resource = $requirement->resource;
         $sessionRequirements = session()->get("requirements", []);
 
         // If we're adding, add Requirement ID to session array if it doesn't exist.
