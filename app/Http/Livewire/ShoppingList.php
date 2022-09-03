@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Requirement;
 use App\Models\Resource;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -37,6 +38,9 @@ class ShoppingList extends Component
     public function checkboxClicked(bool $add, int $requirementId)
     {
         $sessionRequirements = session()->get("requirements", []);
+//        if (Auth::check() && empty($sessionRequirements)) {
+//            $sessionRequirements = Auth::user()->resources->pivot->pluck("id");
+//        }
 
         // If we're adding, add Requirement ID to session array if it doesn't exist.
         if ($add && !in_array($requirementId, $sessionRequirements)) {
