@@ -5,6 +5,7 @@
         </h2>
     </x-slot>
 
+    <!-- TODO: Add back arrow button or "X" button for going back to the home page. -->
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
             @if (Laravel\Fortify\Features::canUpdateProfileInformation())

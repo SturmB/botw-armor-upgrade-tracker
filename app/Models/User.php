@@ -99,6 +99,26 @@ class User extends Authenticatable
     protected $appends = ["profile_photo_url"];
 
     /**
+     * Get the default profile photo URL if no profile photo has been uploaded.
+     *
+     * @return string
+     */
+    protected function defaultProfilePhotoUrl(): string
+    {
+        $name = trim(
+            collect(explode(" ", $this->name))
+                ->map(function ($segment) {
+                    return mb_substr($segment, 0, 1);
+                })
+                ->join(" "),
+        );
+
+        return "https://ui-avatars.com/api/?name=" .
+            urlencode($name) .
+            "&color=FFFFFF&background=6B7280&bold=true";
+    }
+
+    /**
      * @return BelongsToMany
      */
     public function armors(): BelongsToMany
