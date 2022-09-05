@@ -58,19 +58,9 @@ class ShoppingList extends Component
         session(["requirements" => $sessionRequirements]);
 
         // Load all Requirements with given $pivotId and eager load its Resources.
-        $resources = Resource::whereHas("requirements", function ($query) use (
-            $sessionRequirements,
-        ) {
-            $query->whereIn("id", $sessionRequirements);
-        })
+        $resources = Resource::whereHas("requirements", fn ($query) => $query->whereKey($sessionRequirements))
             ->withSum(
-                [
-                    "requirements" => function ($query2) use (
-                        $sessionRequirements,
-                    ) {
-                        $query2->whereIn("id", $sessionRequirements);
-                    },
-                ],
+                ["requirements" => fn ($query2) => $query2->whereKey($sessionRequirements)],
                 "quantity_needed",
             )
             ->get();
