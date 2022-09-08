@@ -12,14 +12,17 @@
                     @if($armor->upgradable)
                         @foreach($armor->resources->groupBy(fn($resource) => $resource->pivot->tier) as $tierNum => $resources)
                             <p>Tier {{ $tierNum }}:</p>
-                            @foreach($resources as $resource)
-                                <livewire:resource-checkbox
-                                    :resourceName="$resource->name"
-                                    :quantity="$resource->pivot->quantity_needed"
-                                    :pivotId="$resource->pivot->id"
-                                    :wire:key="'checkbox-' . $resource->pivot->id"
-                                />
-                            @endforeach
+                            <livewire:tier-checkbox
+                                :armorName="$armor->name"
+                                :requirementIds="$resources->pluck('pivot.id')"
+                                :tierNum="$tierNum"
+                                :wire:key="'checkbox-' . $armor->name . '-' . $tierNum"
+                            />
+                            <ul>
+                                @foreach($resources as $resource)
+                                    <li>{{ $resource->pivot->quantity_needed }} - {{ $resource->name }}</li>
+                                @endforeach
+                            </ul>
                         @endforeach
                     @endif
                 @endforeach

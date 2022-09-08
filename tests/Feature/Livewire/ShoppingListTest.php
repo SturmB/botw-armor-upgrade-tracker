@@ -39,7 +39,7 @@ class ShoppingListTest extends TestCase
             ->create();
 
         Livewire::test(ShoppingList::class)
-            ->emit("checkboxClicked", true, $requirement->id)
+            ->emit("checkboxClicked", true, [$requirement->id])
             ->assertSee("{$requirement->quantity_needed} of {$requirement->resource->name}");
     }
 
@@ -63,8 +63,8 @@ class ShoppingListTest extends TestCase
         $totalQuantity = $requirements->where("resource.name", "Bokoblin Horn")->pluck("quantity_needed")->sum();
 
         Livewire::test(ShoppingList::class)
-            ->emit("checkboxClicked", true, $requirements[1]->id)
-            ->emit("checkboxClicked", true, $requirements[2]->id)
+            ->emit("checkboxClicked", true, $requirements->pluck("id")->toArray())
+            ->assertSee("{$requirements[0]->quantity_needed} of {$requirements[0]->resource->name}")
             ->assertSee("{$totalQuantity} of {$requirements[1]->resource->name}");
     }
 }
