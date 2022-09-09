@@ -6,26 +6,14 @@
     <div class="py-12">
         @foreach($armorSets as $armorSet)
             <div>
-                <h2>{{ $armorSet->name }}</h2>
-                @foreach($armorSet->armors as $armor)
-                    <h3>{{ $armor->name }}</h3>
-                    @if($armor->upgradable)
-                        @foreach($armor->resources->groupBy(fn($resource) => $resource->pivot->tier) as $tierNum => $resources)
-                            <p>Tier {{ $tierNum }}:</p>
-                            <livewire:tier-checkbox
-                                :armorName="$armor->name"
-                                :requirementIds="$resources->pluck('pivot.id')"
-                                :tierNum="$tierNum"
-                                :wire:key="'checkbox-' . $armor->name . '-' . $tierNum"
-                            />
-                            <ul>
-                                @foreach($resources as $resource)
-                                    <li>{{ $resource->pivot->quantity_needed }} - {{ $resource->name }}</li>
-                                @endforeach
-                            </ul>
+                @if($armorSet->armors->contains(fn ($armor) => $armor->upgradable))
+                    <h2>{{ $armorSet->name }}</h2>
+                    <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                        @foreach($armorSet->armors as $armor)
+                            <x-armor-card :armor="$armor" />
                         @endforeach
-                    @endif
-                @endforeach
+                    </ul>
+                @endif
             </div>
         @endforeach
     </div>
