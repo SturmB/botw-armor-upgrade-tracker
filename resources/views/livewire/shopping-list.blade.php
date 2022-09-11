@@ -1,9 +1,11 @@
 <div>
     @if ($list)
-        @forelse($list as $item)
-            <p>{{ $item["quantity"] }} of {{ $item["name"] }}</p>
-        @empty
-            <p>Empty Shopping List</p>
-        @endforelse
+        <ul>
+            @foreach($list as $item)
+                <li>{{ $item["quantity"] }} of {{ $item["name"] }}</li>
+            @endforeach
+        </ul>
+    @else
+        <p>Empty Shopping List</p>
     @endif
 </div>

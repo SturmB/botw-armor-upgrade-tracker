@@ -21,11 +21,6 @@ class ShoppingList extends Component
         return view("livewire.shopping-list");
     }
 
-    public function mount()
-    {
-        $this->list = collect();
-    }
-
     /**
      * The action to perform in this ShoppingList component
      * whenever a ResourceCheckbox component is clicked.
