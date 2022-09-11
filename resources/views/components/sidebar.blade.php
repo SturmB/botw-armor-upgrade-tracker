@@ -3,10 +3,10 @@
         <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
     </div>
 
-    <livewire:shopping-list />
 
     <div class="mt-5 flex flex-grow flex-col">
         <nav class="flex-1 space-y-1 px-2 pb-4">
+            <livewire:shopping-list />
             <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
             <!-- TODO: Use text-base for mobile version? -->
             <a href="#" class="bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
