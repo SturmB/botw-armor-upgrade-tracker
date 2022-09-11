@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use Barryvdh\Debugbar\Facades\Debugbar;
+use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -26,24 +26,19 @@ class TierCheckbox extends Component
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function mount()
+    public function mount(Request $request)
     {
         $kebabArmor = Str::kebab($this->armorName);
         $this->uniqueId = "checkbox-{$kebabArmor}-{$this->tierNum}";
 
-        $sessionChecked = session()->get($this->uniqueId, false);
-        Debugbar::info($sessionChecked);
+        $sessionChecked = $request->session()->get($this->uniqueId, false);
         $this->checked = $sessionChecked;
     }
 
-    public function checkboxClicked()
+    public function checkboxClicked(Request $request)
     {
-        session([$this->uniqueId => $this->checked]);
+        $request->session()->put($this->uniqueId, $this->checked);
 
-        $this->emit(
-            "checkboxClicked",
-            $this->checked,
-            $this->requirementIds
-        );
+        $this->emit("checkboxClicked", $this->checked, $this->requirementIds);
     }
 }

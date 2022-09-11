@@ -3,9 +3,8 @@
 namespace App\Http\Livewire;
 
 use App\Models\Requirement;
-use App\Models\Resource;
+use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -25,9 +24,9 @@ class ShoppingList extends Component
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function mount()
+    public function mount(Request $request)
     {
-        $sessionRequirements = session()->get("requirements", []);
+        $sessionRequirements = $request->session()->get("requirements", []);
         $this->populateList($sessionRequirements);
     }
 
@@ -40,12 +39,15 @@ class ShoppingList extends Component
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function checkboxClicked(bool $add, array $requirementIds)
-    {
-        $sessionRequirements = session()->get("requirements", []);
-        //        if (Auth::check() && empty($sessionRequirements)) {
-        //            $sessionRequirements = Auth::user()->resources->pivot->pluck("id");
-        //        }
+    public function checkboxClicked(
+        Request $request,
+        bool $add,
+        array $requirementIds,
+    ) {
+        $sessionRequirements = $request->session()->get("requirements", []);
+//        if (Auth::check() && empty($sessionRequirements)) {
+//            $sessionRequirements = Auth::user()->resources->pivot->pluck("id");
+//        }
 
         if ($add) {
             // If we're adding, add Requirement ID to session array if it doesn't exist.
@@ -55,9 +57,12 @@ class ShoppingList extends Component
             sort($sessionRequirements);
         } else {
             // If we're subtracting, remove from session array if it exists.
-            $sessionRequirements = array_diff($sessionRequirements, $requirementIds);
+            $sessionRequirements = array_diff(
+                $sessionRequirements,
+                $requirementIds,
+            );
         }
-        session(["requirements" => $sessionRequirements]);
+        $request->session()->put("requirements", $sessionRequirements);
 
         $this->populateList($sessionRequirements);
     }
