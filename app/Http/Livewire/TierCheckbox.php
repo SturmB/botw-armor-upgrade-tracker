@@ -22,11 +22,7 @@ class TierCheckbox extends Component
         return view("livewire.tier-checkbox");
     }
 
-    /**
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
-     */
-    public function mount(Request $request)
+    public function mount(Request $request): void
     {
         $kebabArmor = Str::kebab($this->armorName);
         $this->uniqueId = "checkbox-{$kebabArmor}-{$this->tierNum}";
@@ -35,7 +31,7 @@ class TierCheckbox extends Component
         $this->checked = $sessionChecked;
     }
 
-    public function checkboxClicked(Request $request)
+    public function checkboxClicked(Request $request): void
     {
         $request->session()->put($this->uniqueId, $this->checked);
 

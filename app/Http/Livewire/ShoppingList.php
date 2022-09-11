@@ -20,11 +20,7 @@ class ShoppingList extends Component
         return view("livewire.shopping-list");
     }
 
-    /**
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
-     */
-    public function mount(Request $request)
+    public function mount(Request $request): void
     {
         $sessionRequirements = $request->session()->get("requirements", []);
         $this->populateList($sessionRequirements);
@@ -36,14 +32,12 @@ class ShoppingList extends Component
      *
      * @param bool $add Whether to add or subtract from the shopping list
      * @param array $requirementIds The IDs of the Requirements for getting the Resources and quantities needed
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
      */
     public function checkboxClicked(
         Request $request,
         bool $add,
         array $requirementIds,
-    ) {
+    ): void {
         $sessionRequirements = $request->session()->get("requirements", []);
 //        if (Auth::check() && empty($sessionRequirements)) {
 //            $sessionRequirements = Auth::user()->resources->pivot->pluck("id");
