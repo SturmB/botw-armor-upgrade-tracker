@@ -22,6 +22,16 @@ class ShoppingList extends Component
     }
 
     /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function mount()
+    {
+        $sessionRequirements = session()->get("requirements", []);
+        $this->populateList($sessionRequirements);
+    }
+
+    /**
      * The action to perform in this ShoppingList component
      * whenever a ResourceCheckbox component is clicked.
      *
@@ -49,27 +59,23 @@ class ShoppingList extends Component
         }
         session(["requirements" => $sessionRequirements]);
 
-        // Load all Requirements with given $pivotId and eager load its Resources.
-        $resources = Resource::whereHas(
-            "requirements",
-            fn($query) => $query->whereKey($sessionRequirements),
-        )
-            ->withSum(
-                [
-                    "requirements" => fn($query2) => $query2->whereKey(
-                        $sessionRequirements,
-                    ),
-                ],
-                "quantity_needed",
-            )
+        $this->populateList($sessionRequirements);
+    }
+
+    private function populateList($sessionRequirements): void
+    {
+        // Load all Requirements with given $requirementIds and aggregate their sums by Resource ID
+        $requirements = Requirement::whereKey($sessionRequirements)
+            ->selectRaw("resource_id, SUM(quantity_needed) AS quantity")
+            ->groupBy("resource_id")
             ->get();
 
         // Then assign them to the $list.
         $this->list = collect();
-        foreach ($resources as $resource) {
+        foreach ($requirements as $requirement) {
             $this->list->push([
-                "name" => $resource->name,
-                "quantity" => $resource->requirements_sum_quantity_needed,
+                "resourceId" => $requirement->resource_id,
+                "quantity" => $requirement->quantity,
             ]);
         }
     }
