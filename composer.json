@@ -19,6 +19,7 @@
     "require": {
         "php": "^8.1.7",
         "guzzlehttp/guzzle": "^7.2",
+        "jantinnerezo/livewire-range-slider": "^1.0",
         "laravel/framework": "^9.19",
         "laravel/jetstream": "^2.11",
         "laravel/sanctum": "^2.14.1",

@@ -108,5 +108,6 @@
         @stack('modals')
 
         @livewireScripts
+        <x-livewire-range-slider::scripts />
     </body>
 </html>

@@ -137,6 +137,7 @@
       <path value="$PROJECT_DIR$/vendor/laravel/fortify" />
       <path value="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib" />
       <path value="" />
+      <path value="$PROJECT_DIR$/vendor/jantinnerezo/livewire-range-slider" />
     </include_path>
   </component>
   <component name="PhpInterpreters">
