@@ -13,7 +13,7 @@ class ShoppingList extends Component
 {
     public Collection $list;
 
-    protected $listeners = ["checkboxClicked"];
+    protected $listeners = ["updateShoppingList"];
 
     public function render()
     {
@@ -22,8 +22,8 @@ class ShoppingList extends Component
 
     public function mount(Request $request): void
     {
-        $sessionRequirements = $request->session()->get("requirements", []);
-        $this->populateList($sessionRequirements);
+//        $sessionArmors = $request->session()->get("armors", []);
+//        $this->populateList($sessionArmors);
     }
 
     /**
@@ -33,49 +33,76 @@ class ShoppingList extends Component
      * @param bool $add Whether to add or subtract from the shopping list
      * @param array $requirementIds The IDs of the Requirements for getting the Resources and quantities needed
      */
-    public function checkboxClicked(
+    public function updateShoppingList(
         Request $request,
-        bool $add,
-        array $requirementIds,
+        array $armorAndTiers,
     ): void {
-        $sessionRequirements = $request->session()->get("requirements", []);
+        $sessionArmors = session("armors", []);
 //        if (Auth::check() && empty($sessionRequirements)) {
 //            $sessionRequirements = Auth::user()->resources->pivot->pluck("id");
 //        }
 
-        if ($add) {
-            // If we're adding, add Requirement ID to session array if it doesn't exist.
-            $sessionRequirements = array_unique(
-                array_merge($sessionRequirements, $requirementIds),
-            );
-            sort($sessionRequirements);
-        } else {
-            // If we're subtracting, remove from session array if it exists.
-            $sessionRequirements = array_diff(
-                $sessionRequirements,
-                $requirementIds,
-            );
-        }
-        $request->session()->put("requirements", $sessionRequirements);
+        $sessionArmors[$armorAndTiers["armorId"]] = [
+            "minTier" => $armorAndTiers["minTier"],
+            "maxTier" => $armorAndTiers["maxTier"],
+        ];
+//        if ($add) {
+//            // If we're adding, add Requirement ID to session array if it doesn't exist.
+//            $sessionRequirements = array_unique(
+//                array_merge($sessionRequirements, $requirementIds),
+//            );
+//            sort($sessionRequirements);
+//        } else {
+//            // If we're subtracting, remove from session array if it exists.
+//            $sessionRequirements = array_diff(
+//                $sessionRequirements,
+//                $requirementIds,
+//            );
+//        }
+        session(["armors" => $sessionArmors]);
 
-        $this->populateList($sessionRequirements);
+        $this->populateList($sessionArmors);
     }
 
-    private function populateList($sessionRequirements): void
+    private function populateList(array $sessionArmors): void
     {
-        // Load all Requirements with given $requirementIds and aggregate their sums by Resource ID
-        $requirements = Requirement::whereKey($sessionRequirements)
-            ->selectRaw("resource_id, SUM(quantity_needed) AS quantity")
+        $cases = '';
+        $bindings = [];
+
+//        foreach ($sessionArmors as $armorId => $tiers) {
+//            $cases .= 'WHEN armor_id = ? AND tier BETWEEN ? AND ? THEN 1 ';
+//            $bindings = [...$bindings, $armorId, $tiers['minTier'], $tiers['maxTier']];
+//        }
+//
+//        $requirements = Requirement::whereArmorId(array_keys($sessionArmors))
+//            ->selectRaw("resource_id, SUM(quantity_needed) AS quantity")
+//            ->whereRaw("(CASE {$cases} ELSE 0 END) = 1", $bindings)
+//            ->whereIn("armor_id", array_keys($sessionArmors))
+//            ->groupBy("resource_id")
+//            ->withCasts(["quantity" => "integer"])
+//            ->get();
+
+        $requirements = Requirement::whereArmorId(array_keys($sessionArmors))
+            ->get()
+            ->filter(function ($requirement) use ($sessionArmors) {
+                $tiers = range(
+                    $sessionArmors[$requirement->armor_id]["minTier"],
+                    $sessionArmors[$requirement->armor_id]["maxTier"]
+                );
+                return in_array($requirement->tier, $tiers);
+            })
             ->groupBy("resource_id")
-            ->get();
+            ->map(
+                fn($resources) => [
+                    "resourceId" => $resources->first()->resource_id,
+                    "quantity" => $resources->sum("quantity_needed"),
+                ]
+            );
 
         // Then assign them to the $list.
-        $this->list = collect();
-        foreach ($requirements as $requirement) {
-            $this->list->push([
-                "resourceId" => $requirement->resource_id,
-                "quantity" => $requirement->quantity,
-            ]);
-        }
+        $this->list = collect($requirements);
+//        foreach ($requirements as $requirement) {
+//            $this->list->push($requirement);
+//        }
     }
 }
