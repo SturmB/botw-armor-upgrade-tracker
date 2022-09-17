@@ -138,6 +138,7 @@
       <path value="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib" />
       <path value="" />
       <path value="$PROJECT_DIR$/vendor/jantinnerezo/livewire-range-slider" />
+      <path value="$PROJECT_DIR$/vendor/_laravel_idea" />
     </include_path>
   </component>
   <component name="PhpInterpreters">
