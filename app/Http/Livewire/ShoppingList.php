@@ -6,8 +6,6 @@ use App\Models\Requirement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Livewire\Component;
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
 
 class ShoppingList extends Component
 {
