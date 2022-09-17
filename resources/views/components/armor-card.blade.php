@@ -14,19 +14,6 @@
     <div>
         @if($armor->upgradable)
             <livewire:tier-slider :armorId="$armor->id" />
-            @foreach($armor->resources->groupBy(fn($resource) => $resource->pivot->tier) as $tierNum => $resources)
-                <livewire:tier-checkbox
-                    :armorName="$armor->name"
-                    :requirementIds="$resources->pluck('pivot.id')"
-                    :tierNum="$tierNum"
-                    :wire:key="'checkbox-' . Str::kebab($armor->name) . '-' . $tierNum"
-                />
-                <ul>
-                    @foreach($resources as $resource)
-                        <li>{{ $resource->pivot->quantity_needed }} - {{ $resource->name }}</li>
-                    @endforeach
-                </ul>
-            @endforeach
         @endif
 
         <div class="-mt-px flex divide-x divide-gray-200">
