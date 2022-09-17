@@ -20,8 +20,8 @@ class ShoppingList extends Component
 
     public function mount(Request $request): void
     {
-//        $sessionArmors = $request->session()->get("armors", []);
-//        $this->populateList($sessionArmors);
+        $sessionArmors = $request->session()->get("armors", []);
+        $this->populateList($sessionArmors);
     }
 
     /**
@@ -35,7 +35,7 @@ class ShoppingList extends Component
         Request $request,
         array $armorAndTiers,
     ): void {
-        $sessionArmors = session("armors", []);
+        $sessionArmors = $request->session()->get("armors", []);
 //        if (Auth::check() && empty($sessionRequirements)) {
 //            $sessionRequirements = Auth::user()->resources->pivot->pluck("id");
 //        }
@@ -44,7 +44,7 @@ class ShoppingList extends Component
             "minTier" => $armorAndTiers["minTier"],
             "maxTier" => $armorAndTiers["maxTier"],
         ];
-        session(["armors" => $sessionArmors]);
+        $request->session()->put("armors", $sessionArmors);
 
         $this->populateList($sessionArmors);
     }
