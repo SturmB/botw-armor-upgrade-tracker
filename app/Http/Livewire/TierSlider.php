@@ -2,16 +2,15 @@
 
 namespace App\Http\Livewire;
 
-use Barryvdh\Debugbar\Facades\Debugbar;
 use Livewire\Component;
 
 class TierSlider extends Component
 {
     public array $options = [
-        "start" => [0, 4],
+        "start" => [1, 4],
         "step" => 1,
         "range" => [
-            "min" => [0],
+            "min" => [1],
             "max" => [4],
         ],
         "connect" => true,
@@ -20,14 +19,14 @@ class TierSlider extends Component
             "mode" => "values",
             "stepped" => true,
             "density" => 100,
-            "values" => [0, 1, 2, 3, 4],
+            "values" => [1, 2, 3, 4],
         ],
     ];
-
     public array $range = [
-        "min" => "0",
+        "min" => "1",
         "max" => "4",
     ];
+    public int $armorId;
 
     public function render()
     {
@@ -36,6 +35,10 @@ class TierSlider extends Component
 
     public function onChange()
     {
-        Debugbar::info($this->range);
+        $this->emit("updateShoppingList", [
+            "armorId" => $this->armorId,
+            "minTier" => intval($this->range["min"]),
+            "maxTier" => intval($this->range["max"]),
+        ]);
     }
 }

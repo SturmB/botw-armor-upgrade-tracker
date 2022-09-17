@@ -13,7 +13,7 @@
     </div>
     <div>
         @if($armor->upgradable)
-            <livewire:tier-slider />
+            <livewire:tier-slider :armorId="$armor->id" />
             @foreach($armor->resources->groupBy(fn($resource) => $resource->pivot->tier) as $tierNum => $resources)
                 <livewire:tier-checkbox
                     :armorName="$armor->name"
