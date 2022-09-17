@@ -30,8 +30,8 @@ class ShoppingList extends Component
      * The action to perform in this ShoppingList component
      * whenever a ResourceCheckbox component is clicked.
      *
-     * @param bool $add Whether to add or subtract from the shopping list
-     * @param array $requirementIds The IDs of the Requirements for getting the Resources and quantities needed
+     * @param Request $request
+     * @param array $armorAndTiers
      */
     public function updateShoppingList(
         Request $request,
@@ -46,19 +46,6 @@ class ShoppingList extends Component
             "minTier" => $armorAndTiers["minTier"],
             "maxTier" => $armorAndTiers["maxTier"],
         ];
-//        if ($add) {
-//            // If we're adding, add Requirement ID to session array if it doesn't exist.
-//            $sessionRequirements = array_unique(
-//                array_merge($sessionRequirements, $requirementIds),
-//            );
-//            sort($sessionRequirements);
-//        } else {
-//            // If we're subtracting, remove from session array if it exists.
-//            $sessionRequirements = array_diff(
-//                $sessionRequirements,
-//                $requirementIds,
-//            );
-//        }
         session(["armors" => $sessionArmors]);
 
         $this->populateList($sessionArmors);
@@ -66,21 +53,6 @@ class ShoppingList extends Component
 
     private function populateList(array $sessionArmors): void
     {
-        $cases = '';
-        $bindings = [];
-
-//        foreach ($sessionArmors as $armorId => $tiers) {
-//            $cases .= 'WHEN armor_id = ? AND tier BETWEEN ? AND ? THEN 1 ';
-//            $bindings = [...$bindings, $armorId, $tiers['minTier'], $tiers['maxTier']];
-//        }
-//
-//        $requirements = Requirement::whereArmorId(array_keys($sessionArmors))
-//            ->selectRaw("resource_id, SUM(quantity_needed) AS quantity")
-//            ->whereRaw("(CASE {$cases} ELSE 0 END) = 1", $bindings)
-//            ->whereIn("armor_id", array_keys($sessionArmors))
-//            ->groupBy("resource_id")
-//            ->withCasts(["quantity" => "integer"])
-//            ->get();
 
         $requirements = Requirement::whereArmorId(array_keys($sessionArmors))
             ->get()
@@ -99,10 +71,6 @@ class ShoppingList extends Component
                 ]
             );
 
-        // Then assign them to the $list.
         $this->list = collect($requirements);
-//        foreach ($requirements as $requirement) {
-//            $this->list->push($requirement);
-//        }
     }
 }
