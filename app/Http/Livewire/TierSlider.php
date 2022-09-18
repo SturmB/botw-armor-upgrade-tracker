@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Http\Request;
 use Livewire\Component;
 
 class TierSlider extends Component
@@ -22,10 +23,7 @@ class TierSlider extends Component
             "values" => [1, 2, 3, 4],
         ],
     ];
-    public array $range = [
-        "min" => "1",
-        "max" => "4",
-    ];
+    public array $range;
     public int $armorId;
 
     public function render()
@@ -33,7 +31,19 @@ class TierSlider extends Component
         return view("livewire.tier-slider");
     }
 
-    public function onChange()
+    public function mount(Request $request)
+    {
+        $armorAndTiers = $request
+            ->session()
+            ->get("armors.{$this->armorId}", ["minTier" => 1, "maxTier" => 4]);
+        $this->options["start"] = array_values($armorAndTiers);
+        $this->range = [
+            "min" => strval($armorAndTiers["minTier"]),
+            "max" => strval($armorAndTiers["maxTier"]),
+        ];
+    }
+
+    public function onChange(Request $request)
     {
         $this->emit("updateShoppingList", [
             "armorId" => $this->armorId,
