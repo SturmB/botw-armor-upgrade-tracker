@@ -5,7 +5,8 @@
       <tool tool_name="PHPUnit">
         <cache>
           <versions>
-            <info id="interpreter-22931778-aea4-4b74-8239-fb40fadaeb7f" version="9.5.21" />
+            <info id="Local" version="PHPUnit version can't be detected. Default PHP interpreter is not local" />
+            <info id="interpreter-22931778-aea4-4b74-8239-fb40fadaeb7f" version="9.5.24" />
           </versions>
         </cache>
       </tool>
