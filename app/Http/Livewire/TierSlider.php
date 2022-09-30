@@ -46,9 +46,10 @@ class TierSlider extends Component
     public function onChange(Request $request)
     {
         $this->emit("updateShoppingList", [
-            "armorId" => $this->armorId,
-            "minTier" => intval($this->range["min"]),
-            "maxTier" => intval($this->range["max"]),
+            $this->armorId => [
+                "minTier" => intval($this->range["min"]),
+                "maxTier" => intval($this->range["max"]),
+            ],
         ]);
     }
 }

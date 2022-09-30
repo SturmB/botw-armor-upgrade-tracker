@@ -56,7 +56,9 @@ class ShoppingList extends Component
         Request $request,
         array $armorAndTiers,
     ): void {
-        $armorService->updateArmorAndTiers($request->session(), $armorAndTiers);
+//        $armorService->updateArmorAndTiers($request->session(), $armorAndTiers);
+        $armorId = array_key_first($armorAndTiers);
+        $request->session()->put("armors.{$armorId}", $armorAndTiers[$armorId]);
         $this->populateList($request->session()->get("armors"));
     }
 
