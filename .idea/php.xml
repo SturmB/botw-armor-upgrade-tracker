@@ -139,6 +139,8 @@
       <path value="" />
       <path value="$PROJECT_DIR$/vendor/jantinnerezo/livewire-range-slider" />
       <path value="$PROJECT_DIR$/vendor/_laravel_idea" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-uuid" />
+      <path value="$PROJECT_DIR$/vendor/symfony/uid" />
     </include_path>
   </component>
   <component name="PhpInterpreters">
