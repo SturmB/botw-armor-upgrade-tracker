@@ -19,9 +19,9 @@ class ShoppingList extends Component
         return view("livewire.shopping-list");
     }
 
-    public function mount(ArmorService $armorService, Request $request): void
+    public function mount(): void
     {
-        if ($request->session()->missing("armors")) {
+        if (session()->missing("armors")) {
             $requirements = Requirement::selectRaw(
                 "armor_id, MIN(tier) AS minTier, MAX(tier) AS maxTier",
             )
@@ -35,10 +35,10 @@ class ShoppingList extends Component
                         ],
                     ];
                 });
-            $request->session()->put("armors", $requirements->toArray());
+            session(["armors" => $requirements->toArray()]);
             $this->populateList($requirements->all());
         } else {
-            $sessionArmors = $request->session()->get("armors", []);
+            $sessionArmors = session("armors", []);
             $this->populateList($sessionArmors);
         }
     }
@@ -47,19 +47,14 @@ class ShoppingList extends Component
      * The action to perform in this ShoppingList component
      * whenever a TierSlider component is changed.
      *
-     * @param ArmorService $armorService
-     * @param Request $request
      * @param array $armorAndTiers
      */
     public function updateShoppingList(
-        ArmorService $armorService,
-        Request $request,
         array $armorAndTiers,
     ): void {
-//        $armorService->updateArmorAndTiers($request->session(), $armorAndTiers);
         $armorId = array_key_first($armorAndTiers);
-        $request->session()->put("armors.{$armorId}", $armorAndTiers[$armorId]);
-        $this->populateList($request->session()->get("armors"));
+        session(["armors.{$armorId}" => $armorAndTiers[$armorId]]);
+        $this->populateList(session("armors"));
     }
 
     private function populateList(array $sessionArmors): void

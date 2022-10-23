@@ -13,7 +13,7 @@ class TierSliderTest extends TestCase
     /** @test */
     public function the_component_can_render()
     {
-        $component = Livewire::test(TierSlider::class);
+        $component = Livewire::test(TierSlider::class, ["armorId" => 4]);
 
         $component->assertStatus(200);
     }

@@ -31,11 +31,12 @@ class TierSlider extends Component
         return view("livewire.tier-slider");
     }
 
-    public function mount(Request $request)
+    public function mount()
     {
-        $armorAndTiers = $request
-            ->session()
-            ->get("armors.{$this->armorId}", ["minTier" => 1, "maxTier" => 4]);
+        $armorAndTiers = session("armors.{$this->armorId}", [
+            "minTier" => 1,
+            "maxTier" => 4,
+        ]);
         $this->options["start"] = array_values($armorAndTiers);
         $this->range = [
             "min" => strval($armorAndTiers["minTier"]),
@@ -43,7 +44,7 @@ class TierSlider extends Component
         ];
     }
 
-    public function onChange(Request $request)
+    public function onChange()
     {
         $this->emit("updateShoppingList", [
             $this->armorId => [

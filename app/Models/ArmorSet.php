@@ -25,6 +25,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|ArmorSet whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ArmorSet whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\ArmorSetFactory factory(...$parameters)
  */
 class ArmorSet extends Model
 {

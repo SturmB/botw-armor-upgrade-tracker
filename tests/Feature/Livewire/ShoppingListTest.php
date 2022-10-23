@@ -6,9 +6,7 @@ use App\Http\Livewire\ShoppingList;
 use App\Models\Armor;
 use App\Models\Requirement;
 use App\Models\Resource;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -38,9 +36,10 @@ class ShoppingListTest extends TestCase
             ->for(Resource::factory()->create())
             ->create();
         $passedData = [
-            "armorId" => $requirement->armor->id,
-            "minTier" => $requirement->tier,
-            "maxTier" => $requirement->tier,
+            $requirement->armor->id => [
+                "minTier" => $requirement->tier,
+                "maxTier" => $requirement->tier,
+            ],
         ];
 
         Livewire::test(ShoppingList::class)
@@ -108,9 +107,10 @@ class ShoppingListTest extends TestCase
             ->create();
 
         $passedData = [
-            "armorId" => $requirements[0]->armor->id,
-            "minTier" => 1,
-            "maxTier" => 3,
+            $requirements[0]->armor->id => [
+                "minTier" => 1,
+                "maxTier" => 3,
+            ],
         ];
 
         $totalHornQuantity = $requirements

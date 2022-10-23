@@ -29,6 +29,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
  * @method static \Illuminate\Database\Eloquent\Builder|Requirement whereTier($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Requirement whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\RequirementFactory factory(...$parameters)
  */
 class Requirement extends Pivot
 {

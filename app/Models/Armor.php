@@ -36,6 +36,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Requirement[] $requirements
  * @property-read int|null $requirements_count
+ * @method static \Database\Factories\ArmorFactory factory(...$parameters)
  */
 class Armor extends Model
 {
