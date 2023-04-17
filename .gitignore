@@ -130,7 +130,7 @@ $RECYCLE.BIN/
 *.lnk
 
 ### Laravel template
-/vendor/
+/**/vendor/
 node_modules/
 npm-debug.log
 yarn-error.log
@@ -153,6 +153,16 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
+
+### PHP-CS-Fixer template
+# Covers PHP CS Fixer
+# Reference: https://cs.symfony.com/
+
+# Generated files
+.php-cs-fixer.cache
+
+# Local config See: https://cs.symfony.com/doc/config.html
+.php-cs-fixer.php
 
 ### Filtered from creating new Laravel project
 /public/build
