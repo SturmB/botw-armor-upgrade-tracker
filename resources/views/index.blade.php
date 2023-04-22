@@ -14,7 +14,7 @@
                     </div>
                     <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 mb-6">
                         @foreach($armorSet->armors as $armor)
-                            <x-armor-card :armor="$armor" />
+                            <livewire:armor-card :armor="$armor" />
                         @endforeach
                     </ul>
                 @endif
