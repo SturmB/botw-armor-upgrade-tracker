@@ -1,14 +1,14 @@
-<li class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow">
+<li class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg text-center shadow @if($isActive) bg-white @else bg-gray-200 @endif">
     @if($armor->upgradable)
-        <x-jet-checkbox class="absolute m-6 h-12 w-12" wire:model="isActive" />
+        <x-jet-checkbox class="absolute m-6 h-12 w-12" wire:model="isActive" wire:change="onChange" />
     @endif
     <div class="flex flex-1 flex-col p-8">
-        <img class="mx-auto h-32 w-32 flex-shrink-0" src="{{ asset("storage/images/{$armor->image}") }}" alt="">
-        <h3 class="mt-6 text-2xl font-medium text-gray-900">{{ $armor->name }}</h3>
+        <img class="mx-auto h-32 w-32 flex-shrink-0 @if(!$isActive) grayscale opacity-50 @endif" src="{{ asset("storage/images/{$armor->image}") }}" alt="">
+        <h3 class="mt-6 text-2xl font-medium @if($isActive) text-gray-900 @else text-gray-400 @endif">{{ $armor->name }}</h3>
     </div>
-    <div class="pb-8 px-4">
+    <div class="pb-8 px-4" @if(!$isActive) disabled @endif>
         @if($armor->upgradable)
-            <x-range-slider class="m-6" :options="$options" wire:model="range.min,range.max" wire:click="onChange" />
+            <x-range-slider class="m-6" :options="$tierSliderOptions" wire:model="range.min,range.max" wire:click="onChange" />
         @endif
     </div>
 </li>

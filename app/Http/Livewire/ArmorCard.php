@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class ArmorCard extends Component
 {
-    public array $options = [
+    public array $tierSliderOptions = [
         "start" => [1, 4],
         "step" => 1,
         "range" => [
@@ -24,8 +24,9 @@ class ArmorCard extends Component
             "values" => [1, 2, 3, 4],
         ],
     ];
-    public array $range;
     public Armor $armor;
+    public array $range;
+    public bool $isActive;
 
     public function render(): View
     {
@@ -37,13 +38,16 @@ class ArmorCard extends Component
         $armorAndTiers = session("armors.{$this->armor->id}", [
             "minTier" => 1,
             "maxTier" => 4,
+            "isActive" => true,
         ]);
-        $this->options["start"] = array_values($armorAndTiers);
+        $this->tierSliderOptions["start"] = [$armorAndTiers["minTier"], $armorAndTiers["maxTier"]];
         $this->range = [
             "min" => strval($armorAndTiers["minTier"]),
             "max" => strval($armorAndTiers["maxTier"]),
         ];
+        $this->isActive = $armorAndTiers["isActive"];
     }
+
 
     public function onChange(): void
     {
@@ -51,6 +55,7 @@ class ArmorCard extends Component
             $this->armor->id => [
                 "minTier" => intval($this->range["min"]),
                 "maxTier" => intval($this->range["max"]),
+                "isActive" => $this->isActive,
             ],
         ]);
     }
