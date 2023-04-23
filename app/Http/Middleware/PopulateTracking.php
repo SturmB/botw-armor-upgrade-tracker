@@ -8,14 +8,19 @@ use Illuminate\Http\Request;
 
 class PopulateTracking
 {
+    private TrackingService $service;
+
+    public function __construct(TrackingService $service)
+    {
+        $this->service = $service;
+    }
+
     public function handle(Request $request, Closure $next)
     {
-        $service = new TrackingService();
-
         if (auth()->check()) {
-            $service->populateTrackingDbIfEmpty(auth()->user()->id);
+            $this->service->populateTrackingDbIfEmpty(auth()->user()->id);
         } else {
-            $service->populateTrackingSessionIfEmpty();
+            $this->service->populateTrackingSessionIfEmpty();
         }
 
         return $next($request);

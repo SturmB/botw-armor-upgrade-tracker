@@ -34,9 +34,8 @@ class ArmorCard extends Component
         return view("livewire.armor-card");
     }
 
-    public function mount(): void
+    public function mount(TrackingService $service): void
     {
-        $service = new TrackingService();
         $trackingData = $service->getTrackingForArmor($this->armor->id);
         $this->tierSliderOptions["start"] = [
             $trackingData["tracking_tier_start"],
@@ -50,14 +49,17 @@ class ArmorCard extends Component
     }
 
 
-    public function onChange(): void
+    public function onChange(TrackingService $service): void
     {
-        $this->emit("updateShoppingList", [
-            $this->armor->id => [
-                "minTier" => intval($this->range["min"]),
-                "maxTier" => intval($this->range["max"]),
-                "isActive" => $this->isActive,
-            ],
+        $updatedTracking = collect([
+            "armor_id" => $this->armor->id,
+            "tracking_tier_start" => intval($this->range["min"]),
+            "tracking_tier_end" => intval($this->range["max"]),
+            "tracking" => $this->isActive,
         ]);
+
+        $service->upsertTrackingForArmor($updatedTracking);
+
+        $this->emit("updateShoppingList");
     }
 }

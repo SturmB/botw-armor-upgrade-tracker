@@ -19,39 +19,31 @@ class ShoppingList extends Component
         return view("livewire.shopping-list");
     }
 
-    public function mount(): void
+    public function mount(TrackingService $service): void
     {
-        $service = new TrackingService();
-        $this->populateList($service->getAllTracking());
+        $this->updateShoppingList($service);
     }
 
     /**
      * The action to perform in this ShoppingList component
      * whenever a TierSlider component is changed.
      */
-    public function updateShoppingList(
-        array $armorAndTiers,
-    ): void {
-        // TODO: Update this to use TrackingService.
-        $armorId = array_key_first($armorAndTiers);
-        session(["armors.$armorId" => $armorAndTiers[$armorId]]);
-        $this->populateList(session("armors"));
-    }
-
-    private function populateList(array $sessionArmors): void
+    public function updateShoppingList(TrackingService $service): void
     {
+        $trackingData = $service->getAllTracking();
         $requirements = Requirement::whereIn(
             "armor_id",
-            array_keys($sessionArmors),
+            array_keys($trackingData),
         )
             ->get()
-            ->filter(function ($requirement) use ($sessionArmors) {
-                if (!$sessionArmors[$requirement->armor_id]["tracking"]) {
+            ->filter(function ($requirement) use ($trackingData) {
+                $trackingForThisArmor = $trackingData[$requirement->armor_id];
+                if (!$trackingForThisArmor["tracking"]) {
                     return false;
                 }
                 $tiers = range(
-                    $sessionArmors[$requirement->armor_id]["tracking_tier_start"],
-                    $sessionArmors[$requirement->armor_id]["tracking_tier_end"],
+                    $trackingForThisArmor["tracking_tier_start"],
+                    $trackingForThisArmor["tracking_tier_end"],
                 );
                 return in_array($requirement->tier, $tiers);
             })
@@ -63,6 +55,6 @@ class ShoppingList extends Component
                 ],
             );
 
-        $this->list = collect($requirements);
+        $this->list = $requirements;
     }
 }
