@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/", [HomeController::class, "index"])->name("home");
+Route::get("/", [HomeController::class, "index"])
+    ->name("home")
+    ->middleware("populate.tracking");
 
 Route::middleware([
     "auth:sanctum",

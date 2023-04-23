@@ -2,28 +2,24 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Requirement extends Pivot
+class Track extends Pivot
 {
-    use HasFactory;
-
     /**
      * The table name for requirements.
      *
      * @var string
      */
-    protected $table = 'armor_resource';
+    protected $table = "armor_user";
 
     protected $fillable = [
+        "user_id",
         "armor_id",
-        "resource_id",
-        "tier",
-        "quantity_needed",
-        "created_at",
-        "updated_at",
+        "tracking",
+        "tracking_tier_start",
+        "tracking_tier_end",
     ];
 
     /**
@@ -34,9 +30,7 @@ class Requirement extends Pivot
     public $incrementing = true;
 
     /**
-     * Gets the armor that is associated with this requirement.
-     *
-     * @return BelongsTo
+     * Gets the Armor to be tracked.
      */
     public function armor(): BelongsTo
     {
@@ -44,12 +38,10 @@ class Requirement extends Pivot
     }
 
     /**
-     * Gets the resource that is associated with this requirement.
-     *
-     * @return BelongsTo
+     * Gets the User doing the tracking.
      */
-    public function resource(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(Resource::class);
+        return $this->belongsTo(User::class);
     }
 }

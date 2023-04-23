@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Requirement;
+use App\Services\TrackingService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Livewire\Component;
@@ -20,27 +21,8 @@ class ShoppingList extends Component
 
     public function mount(): void
     {
-        if (session()->missing("armors")) {
-            $requirements = Requirement::selectRaw(
-                "armor_id, MIN(tier) AS minTier, MAX(tier) AS maxTier",
-            )
-                ->groupBy("armor_id")
-                ->get()
-                ->mapWithKeys(function ($item) {
-                    return [
-                        $item->armor_id => [
-                            "minTier" => $item->minTier,
-                            "maxTier" => $item->maxTier,
-                            "isActive" => true,
-                        ],
-                    ];
-                });
-            session(["armors" => $requirements->toArray()]);
-            $this->populateList($requirements->all());
-        } else {
-            $sessionArmors = session("armors", []);
-            $this->populateList($sessionArmors);
-        }
+        $service = new TrackingService();
+        $this->populateList($service->getAllTracking());
     }
 
     /**
@@ -50,6 +32,7 @@ class ShoppingList extends Component
     public function updateShoppingList(
         array $armorAndTiers,
     ): void {
+        // TODO: Update this to use TrackingService.
         $armorId = array_key_first($armorAndTiers);
         session(["armors.$armorId" => $armorAndTiers[$armorId]]);
         $this->populateList(session("armors"));
@@ -63,12 +46,12 @@ class ShoppingList extends Component
         )
             ->get()
             ->filter(function ($requirement) use ($sessionArmors) {
-                if (!$sessionArmors[$requirement->armor_id]["isActive"]) {
+                if (!$sessionArmors[$requirement->armor_id]["tracking"]) {
                     return false;
                 }
                 $tiers = range(
-                    $sessionArmors[$requirement->armor_id]["minTier"],
-                    $sessionArmors[$requirement->armor_id]["maxTier"],
+                    $sessionArmors[$requirement->armor_id]["tracking_tier_start"],
+                    $sessionArmors[$requirement->armor_id]["tracking_tier_end"],
                 );
                 return in_array($requirement->tier, $tiers);
             })

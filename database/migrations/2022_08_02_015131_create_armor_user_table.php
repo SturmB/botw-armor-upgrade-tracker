@@ -20,6 +20,7 @@ return new class extends Migration {
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->unsignedSmallInteger("armor_id");
+            $table->boolean('tracking')->default(true);
             $table->unsignedTinyInteger("tracking_tier_start")->default(1);
             $table->unsignedTinyInteger("tracking_tier_end")->default(4);
             $table->timestamps();

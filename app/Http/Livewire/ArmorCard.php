@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Armor;
+use App\Services\TrackingService;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
@@ -35,17 +36,17 @@ class ArmorCard extends Component
 
     public function mount(): void
     {
-        $armorAndTiers = session("armors.{$this->armor->id}", [
-            "minTier" => 1,
-            "maxTier" => 4,
-            "isActive" => true,
-        ]);
-        $this->tierSliderOptions["start"] = [$armorAndTiers["minTier"], $armorAndTiers["maxTier"]];
-        $this->range = [
-            "min" => strval($armorAndTiers["minTier"]),
-            "max" => strval($armorAndTiers["maxTier"]),
+        $service = new TrackingService();
+        $trackingData = $service->getTrackingForArmor($this->armor->id);
+        $this->tierSliderOptions["start"] = [
+            $trackingData["tracking_tier_start"],
+            $trackingData["tracking_tier_end"],
         ];
-        $this->isActive = $armorAndTiers["isActive"];
+        $this->range = [
+            "min" => strval($trackingData["tracking_tier_start"]),
+            "max" => strval($trackingData["tracking_tier_end"]),
+        ];
+        $this->isActive = $trackingData["tracking"];
     }
 
 

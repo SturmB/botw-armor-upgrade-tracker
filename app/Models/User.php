@@ -80,7 +80,8 @@ class User extends Authenticatable
     public function armors(): BelongsToMany
     {
         return $this->belongsToMany(Armor::class)
-            ->withPivot("tracking_tier_start", "tracking_tier_end")
+            ->using(Track::class)
+            ->withPivot("tracking", "tracking_tier_start", "tracking_tier_end")
             ->withTimestamps();
     }
 
