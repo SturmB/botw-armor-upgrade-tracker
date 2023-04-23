@@ -4,6 +4,7 @@
     <option name="generationStringOptionValues">
       <map>
         <entry key="createDatabaseMigration.create" value="" />
+        <entry key="newModelSimpleOption:addFillable" value="1" />
         <entry key="postGeneration:migration" value="" />
       </map>
     </option>
