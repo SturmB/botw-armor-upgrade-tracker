@@ -69,9 +69,12 @@ class TrackingService
 
     public function populateTrackingDbIfEmpty(int $userId): void
     {
-        // TODO: Copy over session data, if it exists, rather than starting DB entries from scratch.
         if (Track::where("user_id", $userId)->count() === 0) {
-            $this->populateTrackingDb($userId);
+            if (session()->has("armors")) {
+                $this->copyTrackingData($userId);
+            } else {
+                $this->populateTrackingDb($userId);
+            }
         }
     }
 
@@ -115,5 +118,18 @@ class TrackingService
     private function populateTrackingSession(): void
     {
         session(["armors" => $this->formattedDefaults->toArray()]);
+    }
+
+    private function copyTrackingData(int $userId): void
+    {
+        $sessionData = session("armors", $this->formattedDefaults->toArray());
+        foreach ($sessionData as &$sessionDatum) {
+            $sessionDatum["user_id"] = $userId;
+        }
+        Track::upsert(
+            $sessionData,
+            ["user_id", "armor_id"],
+            ["tracking", "tracking_tier_start", "tracking_tier_end"],
+        );
     }
 }
