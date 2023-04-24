@@ -15,6 +15,13 @@ module.exports = {
                 // sans: ['Nunito', ...defaultTheme.fontFamily.sans],
                 sans: ["Inter var", ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                'botw-beige': '#fdffe0',
+                'botw-lightgreen': '#92c582',
+                'botw-cyan': '#86a5a9',
+                'botw-gray': '#767676',
+                'botw-darkgreen': '#536f50',
+            },
         },
     },
 

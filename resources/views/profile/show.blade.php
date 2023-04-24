@@ -1,11 +1,15 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
+        <div class="flex justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Profile') }}
+            </h2>
+            <a href="{{ route('home') }}" class="font-semibold text-xl text-botw-darkgreen hover:text-botw-lightgreen">
+                &lt;&nbsp;{{ __('Back') }}
+            </a>
+        </div>
     </x-slot>
 
-    <!-- TODO: Add back arrow button or "X" button for going back to the home page. -->
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
             @if (Laravel\Fortify\Features::canUpdateProfileInformation())
