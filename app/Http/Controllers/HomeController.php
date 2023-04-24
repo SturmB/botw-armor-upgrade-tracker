@@ -15,12 +15,6 @@ class HomeController extends Controller
      */
     public function index(): View
     {
-        $armorSets = ArmorSet::with([
-            "armors.resources" => function ($query) {
-                $query->orderBy("tier", "asc");
-            },
-        ])->get();
-
-        return view("index", compact("armorSets"));
+        return view("index");
     }
 }
