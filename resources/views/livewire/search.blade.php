@@ -26,6 +26,7 @@
                 name="search"
                 wire:model="searchTerm"
                 wire:keydown.debounce.500ms="onChange"
+                wire:click.debounce="onChange"
             >
         </div>
     </form>
