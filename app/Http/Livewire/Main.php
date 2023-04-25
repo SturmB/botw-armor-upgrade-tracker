@@ -4,7 +4,6 @@ namespace App\Http\Livewire;
 
 use App\Models\Armor;
 use App\Models\ArmorSet;
-use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Livewire\Component;
@@ -14,6 +13,7 @@ class Main extends Component
     public Collection $armorSets;
     public Collection $uncategorizedArmors;
     public Collection $filteredArmors;
+    public string $searchTerm = "";
 
     protected $listeners = ["searchArmors"];
 
@@ -41,7 +41,7 @@ class Main extends Component
 
     public function searchArmors(string $searchTerm): void
     {
-        Debugbar::log("Main's searchTerm: ", $searchTerm);
+        $this->searchTerm = $searchTerm;
         if ($searchTerm) {
             $this->filteredArmors = Armor::where("name", "like", "%$searchTerm%")
                 ->with([

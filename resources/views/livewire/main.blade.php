@@ -1,10 +1,17 @@
 <div class="py-12">
-    @if($filteredArmors->count() > 0)
-        <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 mb-6">
-            @foreach($filteredArmors as $armor)
-                <livewire:armor-card :armor="$armor" :wire:key="'search-' . $armor->id" />
-            @endforeach
-        </ul>
+    @if($searchTerm)
+        @if(!$filteredArmors->count())
+            <div class="flex justify-center items-center gap-4 font-semibold text-2xl text-gray-400">
+                <i class="fa-sharp fa-regular fa-circle-xmark fa-xl"></i>
+                <h2>No Search Results</h2>
+            </div>
+        @else
+            <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 mb-6">
+                @foreach($filteredArmors as $armor)
+                    <livewire:armor-card :armor="$armor" :wire:key="'search-' . $armor->id" />
+                @endforeach
+            </ul>
+        @endif
     @else
         @foreach($armorSets as $armorSet)
             <div>
