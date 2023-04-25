@@ -6,8 +6,8 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
         </svg>
     </button>
-    <div class="flex flex-1 justify-between px-4">
-        <livewire:search />
+    <div class="flex flex-1 justify-end px-4">
+{{--        <livewire:search />--}}
         <div class="ml-4 flex items-center md:ml-6">
             {{-- TODO: Change notifications button to light/dark theme button --}}
             <button type="button" class="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
