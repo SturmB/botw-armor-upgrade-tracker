@@ -12,6 +12,7 @@ use Livewire\Component;
 class Main extends Component
 {
     public Collection $armorSets;
+    public Collection $uncategorizedArmors;
     public Collection $filteredArmors;
 
     protected $listeners = ["searchArmors"];
@@ -23,6 +24,13 @@ class Main extends Component
                 $query->orderBy("tier", "asc");
             },
         ])->get();
+        $this->uncategorizedArmors = Armor::with([
+            "resources" => function ($query) {
+                $query->orderBy("tier", "asc");
+            },
+        ])
+            ->whereNull("armor_set_id")
+            ->get();
         $this->filteredArmors = collect();
     }
 
