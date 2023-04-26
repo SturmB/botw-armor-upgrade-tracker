@@ -18,7 +18,7 @@
         @livewireStyles
     </head>
     <body class="font-sans antialiased h-full">
-        <x-jet-banner />
+        <x-banner />
 
         <div x-data="{ sidebarOpen: false }">
             <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
