@@ -12,8 +12,6 @@ class ArmorSetSeeder extends Seeder
 
     /**
      * Seed the Armor Sets table.
-     *
-     * @return void
      */
     public function run(): void
     {
@@ -22,15 +20,19 @@ class ArmorSetSeeder extends Seeder
         $armorSets = [
             [
                 "name" => "Well-Worn Outfit",
-                "image" => "{$prefix}/BotW_Link_Wearing_Well-Worn_Outfit.jpg",
+                "image" => "$prefix/BotW_Link_Wearing_Well-Worn_Outfit.jpg",
             ],
             [
                 "name" => "Hylian Set",
-                "image" => "{$prefix}/BotW_Link_Wearing_Hylian_Armor.jpg",
+                "image" => "$prefix/BotW_Link_Wearing_Hylian_Armor.jpg",
             ],
             [
                 "name" => "Soldier's Set",
-                "image" => "{$prefix}/BotW_Link_Wearing_Soldier's_Set.jpg",
+                "image" => "$prefix/BotW_Link_Wearing_Soldier's_Set.jpg",
+            ],
+            [
+                "name" => "Snowquill Set",
+                "image" => "$prefix/BotW_Link_Wearing_Snowquill_Set.jpg",
             ],
         ];
 

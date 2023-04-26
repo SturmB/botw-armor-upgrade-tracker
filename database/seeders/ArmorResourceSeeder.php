@@ -15,35 +15,62 @@ class ArmorResourceSeeder extends Seeder
 
     /**
      * Seed the Armor-Resource pivot table.
-     *
-     * @return void
      */
     public function run(): void
     {
         // Armors
+        $championsTunic = Armor::where("name", "Champion's Tunic")->first()->id;
         $hylianHood = Armor::where("name", "Hylian Hood")->first()->id;
         $hylianTunic = Armor::where("name", "Hylian Tunic")->first()->id;
         $hylianTrousers = Armor::where("name", "Hylian Trousers")->first()->id;
         $soldiersHelm = Armor::where("name", "Soldier's Helm")->first()->id;
         $soldiersArmor = Armor::where("name", "Soldier's Armor")->first()->id;
-        $soldiersGreaves = Armor::where("name", "Soldier's Greaves")->first()
-            ->id;
+        $soldiersGreaves = Armor::where("name", "Soldier's Greaves")->first()->id;
+        $amberEarrings = Armor::where("name", "Amber Earrings")->first()->id;
+        $rubyCirclet = Armor::where("name", "Ruby Circlet")->first()->id;
+        $snowquillHeaddress = Armor::where("name", "Snowquill Headdress")->first()->id;
+        $snowquillTunic = Armor::where("name", "Snowquill Tunic")->first()->id;
+        $snowquillTrousers = Armor::where("name", "Snowquill Trousers")->first()->id;
 
         // Resources
+        $sunshroom = Resource::where("name", "Sunshroom")->first()->id;
+        $warmSafflina = Resource::where("name", "Warm Safflina")->first()->id;
+        $silentPrincess = Resource::where("name", "Silent Princess")->first()->id;
+        $shardOfDinraalsHorn = Resource::where("name", "Shard of Dinraal's Horn")->first()->id;
+        $shardOfNaydrasHorn = Resource::where("name", "Shard of Naydra's Horn")->first()->id;
+        $shardOfFaroshsHorn = Resource::where("name", "Shard of Farosh's Horn")->first()->id;
+        $flint = Resource::where("name", "Flint")->first()->id;
+        $amber = Resource::where("name", "Amber")->first()->id;
+        $ruby = Resource::where("name", "Ruby")->first()->id;
+        $starFragment = Resource::where("name", "Star Fragment")->first()->id;
         $bokoblinHorn = Resource::where("name", "Bokoblin Horn")->first()->id;
         $bokoblinFang = Resource::where("name", "Bokoblin Fang")->first()->id;
         $bokoblinGuts = Resource::where("name", "Bokoblin Guts")->first()->id;
-        $amber = Resource::where("name", "Amber")->first()->id;
         $moblinGuts = Resource::where("name", "Moblin Guts")->first()->id;
         $lizalfosTail = Resource::where("name", "Lizalfos Tail")->first()->id;
+        $redLizalfosTail = Resource::where("name", "Red Lizalfos Tail")->first()->id;
         $lynelHoof = Resource::where("name", "Lynel Hoof")->first()->id;
         $lynelGuts = Resource::where("name", "Lynel Guts")->first()->id;
         $chuchuJelly = Resource::where("name", "Chuchu Jelly")->first()->id;
+        $redChuchuJelly = Resource::where("name", "Red Chuchu Jelly")->first()->id;
         $keeseWing = Resource::where("name", "Keese Wing")->first()->id;
+        $fireKeeseWing = Resource::where("name", "Fire Keese Wing")->first()->id;
         $keeseEyeball = Resource::where("name", "Keese Eyeball")->first()->id;
         $hinoxGuts = Resource::where("name", "Hinox Guts")->first()->id;
 
         $armorResources = new Collection();
+
+        $armorResources->push(
+            $this->buildArmorRequirements($championsTunic, collect([
+                [1, $silentPrincess, 3],
+                [2, $silentPrincess, 3],
+                [2, $shardOfFaroshsHorn, 2],
+                [2, $silentPrincess, 3],
+                [2, $shardOfNaydrasHorn, 2],
+                [2, $silentPrincess, 3],
+                [2, $shardOfDinraalsHorn, 2],
+            ])),
+        );
 
         // Hylian Set
         $hylianData = collect([
@@ -86,6 +113,53 @@ class ArmorResourceSeeder extends Seeder
             $this->buildArmorRequirements($soldiersGreaves, $soldiersData),
         );
 
+        $armorResources->push(
+            $this->buildArmorRequirements($amberEarrings, collect([
+                [1, $amber, 3],
+                [1, $flint, 3],
+                [2, $amber, 10],
+                [2, $flint, 3],
+                [3, $amber, 20],
+                [3, $flint, 3],
+                [4, $amber, 30],
+                [4, $flint, 3],
+            ])),
+        );
+
+        $armorResources->push(
+            $this->buildArmorRequirements($rubyCirclet, collect([
+                [1, $ruby, 2],
+                [1, $flint, 3],
+                [2, $ruby, 4],
+                [2, $flint, 3],
+                [3, $ruby, 6],
+                [3, $starFragment, 1],
+                [4, $ruby, 10],
+                [4, $starFragment, 1],
+            ])),
+        );
+
+        // Snowquill Set
+        $snowquillData = collect([
+            [1, $redChuchuJelly, 3],
+            [2, $redChuchuJelly, 5],
+            [2, $warmSafflina, 3],
+            [3, $fireKeeseWing, 8],
+            [3, $sunshroom, 5],
+            [4, $redLizalfosTail, 10],
+            [4, $ruby, 5],
+        ]);
+        $armorResources->push(
+            $this->buildArmorRequirements($snowquillHeaddress, $snowquillData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($snowquillTunic, $snowquillData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($snowquillTrousers, $snowquillData),
+        );
+
+        // Populate the database.
         $armorResources = $armorResources->flatten(1);
         DB::table("armor_resource")->insert($armorResources->toArray());
     }
