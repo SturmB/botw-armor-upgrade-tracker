@@ -4,7 +4,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Profile') }}
             </h2>
-            <a href="{{ route('home') }}" class="font-semibold text-xl text-botw-darkgreen hover:text-botw-lightgreen">
+            <a href="{{ route('home') }}" class="font-semibold text-xl text-botw-blue-500 hover:text-botw-blue-600">
                 &lt;&nbsp;{{ __('Back') }}
             </a>
         </div>

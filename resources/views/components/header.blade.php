@@ -10,13 +10,13 @@
         <livewire:search />
         <div class="ml-4 flex items-center md:ml-6">
             {{-- TODO: Change notifications button to light/dark theme button --}}
-            <button type="button" class="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            {{--<button type="button" class="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                 <span class="sr-only">View notifications</span>
                 <!-- Heroicon name: outline/bell -->
                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
                 </svg>
-            </button>
+            </button>--}}
 
             <!-- Profile dropdown -->
             @auth
@@ -55,10 +55,10 @@
                     </div>
                 </div>
             @else
-                <a type="button" href="{{ route('login') }}" class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 mx-2">Log in</a>
+                <a type="button" href="{{ route('login') }}" class="inline-flex items-center rounded-md border border-transparent bg-botw-blue-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-botw-blue-600 focus:outline-none focus:ring-2 focus:ring-botw-blue-400 focus:ring-offset-2 mx-2">Log in</a>
 
                 @if (Route::has('register'))
-                    <a type="button" href="{{ route('register') }}" class="inline-flex items-center rounded-md border border-transparent bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ml-2">Register</a>
+                    <a type="button" href="{{ route('register') }}" class="inline-flex items-center rounded-md border border-transparent bg-botw-blue-100 px-4 py-2 text-sm font-medium text-botw-blue-600 hover:bg-botw-blue-200 focus:outline-none focus:ring-2 focus:ring-botw-blue-400 focus:ring-offset-2 ml-2">Register</a>
                 @endif
             @endauth
         </div>

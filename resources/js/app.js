@@ -1,4 +1,5 @@
 import './bootstrap';
+import '../css/nouislider.css';
 
 import Alpine from 'alpinejs';
 
