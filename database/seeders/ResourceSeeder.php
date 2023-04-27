@@ -19,8 +19,16 @@ class ResourceSeeder extends Seeder
 
         $resources = [
             [
+                "name" => "Voltfruit",
+                "image" => "$prefix/BotW_Voltfruit_Icon.png",
+            ],
+            [
                 "name" => "Sunshroom",
                 "image" => "$prefix/BotW_Sunshroom_Icon.png",
+            ],
+            [
+                "name" => "Zapshroom",
+                "image" => "$prefix/BotW_Zapshroom_Icon.png",
             ],
             [
                 "name" => "Warm Safflina",
@@ -95,6 +103,10 @@ class ResourceSeeder extends Seeder
                 "image" => "$prefix/BotW_Red_Lizalfos_Tail_Icon.png",
             ],
             [
+                "name" => "Yellow Lizalfos Tail",
+                "image" => "$prefix/BotW_Yellow_Lizalfos_Tail_Icon.png",
+            ],
+            [
                 "name" => "Lynel Hoof",
                 "image" => "$prefix/BotW_Lynel_Hoof_Icon.png",
             ],
@@ -113,6 +125,10 @@ class ResourceSeeder extends Seeder
             [
                 "name" => "Red Chuchu Jelly",
                 "image" => "$prefix/BotW_Red_Chuchu_Jelly_Icon.png",
+            ],
+            [
+                "name" => "Yellow Chuchu Jelly",
+                "image" => "$prefix/BotW_Yellow_Chuchu_Jelly_Icon.png",
             ],
             [
                 "name" => "Keese Wing",
