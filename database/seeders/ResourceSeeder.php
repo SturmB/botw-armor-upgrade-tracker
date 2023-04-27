@@ -59,6 +59,10 @@ class ResourceSeeder extends Seeder
                 "image" => "$prefix/BotW_Ruby_Icon.png",
             ],
             [
+                "name" => "Sapphire",
+                "image" => "$prefix/BotW_Sapphire_Icon.png",
+            ],
+            [
                 "name" => "Bokoblin Horn",
                 "image" => "$prefix/BotW_Bokoblin_Horn_Icon.png",
             ],
@@ -79,6 +83,10 @@ class ResourceSeeder extends Seeder
                 "image" => "$prefix/BotW_Lizalfos_Tail_Icon.png",
             ],
             [
+                "name" => "Icy Lizalfos Tail",
+                "image" => "$prefix/BotW_Icy_Lizalfos_Tail_Icon.png",
+            ],
+            [
                 "name" => "Red Lizalfos Tail",
                 "image" => "$prefix/BotW_Red_Lizalfos_Tail_Icon.png",
             ],
@@ -95,12 +103,20 @@ class ResourceSeeder extends Seeder
                 "image" => "$prefix/BotW_Chuchu_Jelly_Icon.png",
             ],
             [
+                "name" => "White Chuchu Jelly",
+                "image" => "$prefix/BotW_White_Chuchu_Jelly_Icon.png",
+            ],
+            [
                 "name" => "Red Chuchu Jelly",
                 "image" => "$prefix/BotW_Red_Chuchu_Jelly_Icon.png",
             ],
             [
                 "name" => "Keese Wing",
                 "image" => "$prefix/BotW_Keese_Wing_Icon.png",
+            ],
+            [
+                "name" => "Ice Keese Wing",
+                "image" => "$prefix/BotW_Ice_Keese_Wing_Icon.png",
             ],
             [
                 "name" => "Fire Keese Wing",

@@ -31,6 +31,10 @@ class ArmorResourceSeeder extends Seeder
         $snowquillHeaddress = Armor::where("name", "Snowquill Headdress")->first()->id;
         $snowquillTunic = Armor::where("name", "Snowquill Tunic")->first()->id;
         $snowquillTrousers = Armor::where("name", "Snowquill Trousers")->first()->id;
+        $sapphireCirclet = Armor::where("name", "Sapphire Circlet")->first()->id;
+        $desertVoeHeadband = Armor::where("name", "Desert Voe Headband")->first()->id;
+        $desertVoeSpaulder = Armor::where("name", "Desert Voe Spaulder")->first()->id;
+        $desertVoeTrousers = Armor::where("name", "Desert Voe Trousers")->first()->id;
 
         // Resources
         $sunshroom = Resource::where("name", "Sunshroom")->first()->id;
@@ -42,18 +46,22 @@ class ArmorResourceSeeder extends Seeder
         $flint = Resource::where("name", "Flint")->first()->id;
         $amber = Resource::where("name", "Amber")->first()->id;
         $ruby = Resource::where("name", "Ruby")->first()->id;
+        $sapphire = Resource::where("name", "Sapphire")->first()->id;
         $starFragment = Resource::where("name", "Star Fragment")->first()->id;
         $bokoblinHorn = Resource::where("name", "Bokoblin Horn")->first()->id;
         $bokoblinFang = Resource::where("name", "Bokoblin Fang")->first()->id;
         $bokoblinGuts = Resource::where("name", "Bokoblin Guts")->first()->id;
         $moblinGuts = Resource::where("name", "Moblin Guts")->first()->id;
         $lizalfosTail = Resource::where("name", "Lizalfos Tail")->first()->id;
+        $icyLizalfosTail = Resource::where("name", "Icy Lizalfos Tail")->first()->id;
         $redLizalfosTail = Resource::where("name", "Red Lizalfos Tail")->first()->id;
         $lynelHoof = Resource::where("name", "Lynel Hoof")->first()->id;
         $lynelGuts = Resource::where("name", "Lynel Guts")->first()->id;
         $chuchuJelly = Resource::where("name", "Chuchu Jelly")->first()->id;
+        $whiteChuchuJelly = Resource::where("name", "White Chuchu Jelly")->first()->id;
         $redChuchuJelly = Resource::where("name", "Red Chuchu Jelly")->first()->id;
         $keeseWing = Resource::where("name", "Keese Wing")->first()->id;
+        $iceKeeseWing = Resource::where("name", "Ice Keese Wing")->first()->id;
         $fireKeeseWing = Resource::where("name", "Fire Keese Wing")->first()->id;
         $keeseEyeball = Resource::where("name", "Keese Eyeball")->first()->id;
         $hinoxGuts = Resource::where("name", "Hinox Guts")->first()->id;
@@ -157,6 +165,39 @@ class ArmorResourceSeeder extends Seeder
         );
         $armorResources->push(
             $this->buildArmorRequirements($snowquillTrousers, $snowquillData),
+        );
+
+        $armorResources->push(
+            $this->buildArmorRequirements($sapphireCirclet, collect([
+                [1, $sapphire, 2],
+                [1, $flint, 3],
+                [2, $sapphire, 4],
+                [2, $flint, 3],
+                [3, $sapphire, 6],
+                [3, $starFragment, 1],
+                [4, $sapphire, 10],
+                [4, $starFragment, 1],
+            ])),
+        );
+
+        // Desert Voe Set
+        $desertVoeData = collect([
+            [1, $whiteChuchuJelly, 3],
+            [2, $whiteChuchuJelly, 5],
+            [2, $iceKeeseWing, 3],
+            [3, $iceKeeseWing, 8],
+            [3, $icyLizalfosTail, 3],
+            [4, $icyLizalfosTail, 10],
+            [4, $sapphire, 5],
+        ]);
+        $armorResources->push(
+            $this->buildArmorRequirements($desertVoeHeadband, $desertVoeData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($desertVoeSpaulder, $desertVoeData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($desertVoeTrousers, $desertVoeData),
         );
 
         // Populate the database.

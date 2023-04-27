@@ -34,6 +34,10 @@ class ArmorSetSeeder extends Seeder
                 "name" => "Snowquill Set",
                 "image" => "$prefix/BotW_Link_Wearing_Snowquill_Set.jpg",
             ],
+            [
+                "name" => "Desert Voe Set",
+                "image" => "$prefix/BotW_Link_Wearing_Desert_Voe_Set.jpg",
+            ],
         ];
 
         foreach ($armorSets as $armorSet) {

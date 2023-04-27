@@ -18,10 +18,12 @@ class ArmorSeeder extends Seeder
     {
         $prefix = "armors";
 
-        $wellWornOutfit = ArmorSet::where("name", "Well-Worn Outfit")->first()->id;
+        $wellWornOutfit = ArmorSet::where("name", "Well-Worn Outfit")->first()
+            ->id;
         $hylianSet = ArmorSet::where("name", "Hylian Set")->first()->id;
         $soldiersSet = ArmorSet::where("name", "Soldier's Set")->first()->id;
         $snowquillSet = ArmorSet::where("name", "Snowquill Set")->first()->id;
+        $desertVoeSet = ArmorSet::where("name", "Desert Voe Set")->first()->id;
 
         $armors = [
             [
@@ -92,6 +94,25 @@ class ArmorSeeder extends Seeder
                 "name" => "Snowquill Trousers",
                 "image" => "$prefix/BotW_Snowquill_Trousers_Icon.png",
                 "armor_set_id" => $snowquillSet,
+            ],
+            [
+                "name" => "Sapphire Circlet",
+                "image" => "$prefix/BotW_Sapphire_Circlet_Icon.png",
+            ],
+            [
+                "name" => "Desert Voe Headband",
+                "image" => "$prefix/BotW_Desert_Voe_Headband_Icon.png",
+                "armor_set_id" => $desertVoeSet,
+            ],
+            [
+                "name" => "Desert Voe Spaulder",
+                "image" => "$prefix/BotW_Desert_Voe_Spaulder_Icon.png",
+                "armor_set_id" => $desertVoeSet,
+            ],
+            [
+                "name" => "Desert Voe Trousers",
+                "image" => "$prefix/BotW_Desert_Voe_Trousers_Icon.png",
+                "armor_set_id" => $desertVoeSet,
             ],
         ];
 
