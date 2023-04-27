@@ -1,4 +1,3 @@
-{{--<li>{{ $quantity }} of {{ $resource->name }}</li>--}}
 <li class="flex py-4">
     <img class="h-10 w-10" src="{{ asset("storage/images/{$resource->image}") }}" alt="">
     <div class="ml-3">

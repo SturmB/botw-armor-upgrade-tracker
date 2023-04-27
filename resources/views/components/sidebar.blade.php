@@ -15,7 +15,7 @@
 
 
     <div class="mt-5 flex flex-grow flex-col">
-        <nav class="flex-1 space-y-1 px-2 pb-4">
+        <nav class="flex-1 space-y-1 px-4 lg:px-2 pb-4">
             <livewire:shopping-list />
         </nav>
     </div>
