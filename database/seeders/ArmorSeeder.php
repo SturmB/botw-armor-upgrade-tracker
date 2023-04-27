@@ -205,6 +205,15 @@ class ArmorSeeder extends Seeder
                 "image" => "$prefix/BotW_Stealth_Tights_Icon.png",
                 "armor_set_id" => $stealthSet,
             ],
+            [
+                "name" => "Sheik's Mask",
+                "image" => "$prefix/BotW_Sheik's_Mask_Icon.png",
+            ],
+            [
+                "name" => "Thunder Helm",
+                "image" => "$prefix/BotW_Thunder_Helm_Icon.png",
+                "upgradable" => 0,
+            ],
         ];
 
         foreach ($armors as $armor) {

@@ -49,6 +49,7 @@ class ArmorResourceSeeder extends Seeder
         $stealthMask = Armor::where("name", "Stealth Mask")->first()->id;
         $stealthChestGuard = Armor::where("name", "Stealth Chest Guard")->first()->id;
         $stealthTights = Armor::where("name", "Stealth Tights")->first()->id;
+        $sheiksMask = Armor::where("name", "Sheik's Mask")->first()->id;
 
         // Resources
         $voltfruit = Resource::where("name", "Voltfruit")->first()->id;
@@ -338,6 +339,19 @@ class ArmorResourceSeeder extends Seeder
         );
         $armorResources->push(
             $this->buildArmorRequirements($stealthTights, $stealthData),
+        );
+
+        $armorResources->push(
+            $this->buildArmorRequirements($sheiksMask, collect([
+                [1, $silentPrincess, 1],
+                [1, $starFragment, 1],
+                [2, $silentPrincess, 2],
+                [2, $starFragment, 2],
+                [3, $silentPrincess, 3],
+                [3, $starFragment, 3],
+                [4, $silentPrincess, 4],
+                [4, $starFragment, 4],
+            ])),
         );
 
         // Populate the database.
