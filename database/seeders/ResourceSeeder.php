@@ -179,6 +179,10 @@ class ResourceSeeder extends Seeder
                 "image" => "$prefix/BotW_Yellow_Lizalfos_Tail_Icon.png",
             ],
             [
+                "name" => "Lynel Horn",
+                "image" => "$prefix/BotW_Lynel_Horn_Icon.png",
+            ],
+            [
                 "name" => "Lynel Hoof",
                 "image" => "$prefix/BotW_Lynel_Hoof_Icon.png",
             ],

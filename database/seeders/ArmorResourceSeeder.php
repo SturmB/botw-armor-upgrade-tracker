@@ -53,6 +53,9 @@ class ArmorResourceSeeder extends Seeder
         $climbersBandanna = Armor::where("name", "Climber's Bandanna")->first()->id;
         $climbingGear = Armor::where("name", "Climbing Gear")->first()->id;
         $climbingBoots = Armor::where("name", "Climbing Boots")->first()->id;
+        $barbarianHelm = Armor::where("name", "Barbarian Helm")->first()->id;
+        $barbarianArmor = Armor::where("name", "Barbarian Armor")->first()->id;
+        $barbarianLegWraps = Armor::where("name", "Barbarian Leg Wraps")->first()->id;
 
         // Resources
         $voltfruit = Resource::where("name", "Voltfruit")->first()->id;
@@ -95,6 +98,7 @@ class ArmorResourceSeeder extends Seeder
         $icyLizalfosTail = Resource::where("name", "Icy Lizalfos Tail")->first()->id;
         $redLizalfosTail = Resource::where("name", "Red Lizalfos Tail")->first()->id;
         $yellowLizalfosTail = Resource::where("name", "Yellow Lizalfos Tail")->first()->id;
+        $lynelHorn = Resource::where("name", "Lynel Horn")->first()->id;
         $lynelHoof = Resource::where("name", "Lynel Hoof")->first()->id;
         $lynelGuts = Resource::where("name", "Lynel Guts")->first()->id;
         $chuchuJelly = Resource::where("name", "Chuchu Jelly")->first()->id;
@@ -380,6 +384,25 @@ class ArmorResourceSeeder extends Seeder
         );
         $armorResources->push(
             $this->buildArmorRequirements($climbingBoots, $climbingData),
+        );
+
+        // Barbarian Set
+        $barbarianData = collect([
+            [1, $lynelHorn, 3],
+            [2, $lynelHorn, 5],
+            [2, $lynelHoof, 3],
+            [3, $lynelHoof, 8],
+            [3, $lynelGuts, 1],
+            [4, $lynelGuts, 2],
+        ]);
+        $armorResources->push(
+            $this->buildArmorRequirements($barbarianHelm, $barbarianData->concat([[4, $shardOfDinraalsHorn, 1]])),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($barbarianArmor, $barbarianData->concat([[4, $shardOfFaroshsHorn, 1]])),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($barbarianLegWraps, $barbarianData->concat([[4, $shardOfNaydrasHorn, 1]])),
         );
 
         // Populate the database.
