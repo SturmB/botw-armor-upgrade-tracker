@@ -133,6 +133,10 @@ class ArmorSeeder extends Seeder
                 "upgradable" => 0,
                 "armor_set_id" => $gerudoSet,
             ],
+            [
+                "name" => "Topaz Earrings",
+                "image" => "$prefix/BotW_Topaz_Earrings_Icon.png",
+            ],
         ];
 
         foreach ($armors as $armor) {

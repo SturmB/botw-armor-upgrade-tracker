@@ -55,6 +55,10 @@ class ResourceSeeder extends Seeder
                 "image" => "$prefix/BotW_Amber_Icon.png",
             ],
             [
+                "name" => "Topaz",
+                "image" => "$prefix/BotW_Topaz_Icon.png",
+            ],
+            [
                 "name" => "Ruby",
                 "image" => "$prefix/BotW_Ruby_Icon.png",
             ],

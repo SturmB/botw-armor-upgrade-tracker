@@ -35,6 +35,7 @@ class ArmorResourceSeeder extends Seeder
         $desertVoeHeadband = Armor::where("name", "Desert Voe Headband")->first()->id;
         $desertVoeSpaulder = Armor::where("name", "Desert Voe Spaulder")->first()->id;
         $desertVoeTrousers = Armor::where("name", "Desert Voe Trousers")->first()->id;
+        $topazEarrings = Armor::where("name", "Topaz Earrings")->first()->id;
 
         // Resources
         $sunshroom = Resource::where("name", "Sunshroom")->first()->id;
@@ -45,6 +46,7 @@ class ArmorResourceSeeder extends Seeder
         $shardOfFaroshsHorn = Resource::where("name", "Shard of Farosh's Horn")->first()->id;
         $flint = Resource::where("name", "Flint")->first()->id;
         $amber = Resource::where("name", "Amber")->first()->id;
+        $topaz = Resource::where("name", "Topaz")->first()->id;
         $ruby = Resource::where("name", "Ruby")->first()->id;
         $sapphire = Resource::where("name", "Sapphire")->first()->id;
         $starFragment = Resource::where("name", "Star Fragment")->first()->id;
@@ -198,6 +200,19 @@ class ArmorResourceSeeder extends Seeder
         );
         $armorResources->push(
             $this->buildArmorRequirements($desertVoeTrousers, $desertVoeData),
+        );
+
+        $armorResources->push(
+            $this->buildArmorRequirements($topazEarrings, collect([
+                [1, $topaz, 2],
+                [1, $flint, 3],
+                [2, $topaz, 4],
+                [2, $flint, 3],
+                [3, $topaz, 6],
+                [3, $starFragment, 1],
+                [4, $topaz, 10],
+                [4, $starFragment, 1],
+            ])),
         );
 
         // Populate the database.
