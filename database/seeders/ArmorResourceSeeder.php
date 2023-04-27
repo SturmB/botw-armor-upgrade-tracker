@@ -59,6 +59,9 @@ class ArmorResourceSeeder extends Seeder
         $fierceDeityMask = Armor::where("name", "Fierce Deity Mask")->first()->id;
         $fierceDeityArmor = Armor::where("name", "Fierce Deity Armor")->first()->id;
         $fierceDeityBoots = Armor::where("name", "Fierce Deity Boots")->first()->id;
+        $radiantMask = Armor::where("name", "Radiant Mask")->first()->id;
+        $radiantShirt = Armor::where("name", "Radiant Shirt")->first()->id;
+        $radiantTights = Armor::where("name", "Radiant Tights")->first()->id;
 
         // Resources
         $voltfruit = Resource::where("name", "Voltfruit")->first()->id;
@@ -94,6 +97,7 @@ class ArmorResourceSeeder extends Seeder
         $flint = Resource::where("name", "Flint")->first()->id;
         $amber = Resource::where("name", "Amber")->first()->id;
         $opal = Resource::where("name", "Opal")->first()->id;
+        $luminousStone = Resource::where("name", "Luminous Stone")->first()->id;
         $topaz = Resource::where("name", "Topaz")->first()->id;
         $ruby = Resource::where("name", "Ruby")->first()->id;
         $sapphire = Resource::where("name", "Sapphire")->first()->id;
@@ -122,6 +126,7 @@ class ArmorResourceSeeder extends Seeder
         $fireKeeseWing = Resource::where("name", "Fire Keese Wing")->first()->id;
         $electricKeeseWing = Resource::where("name", "Electric Keese Wing")->first()->id;
         $keeseEyeball = Resource::where("name", "Keese Eyeball")->first()->id;
+        $moldugaGuts = Resource::where("name", "Molduga Guts")->first()->id;
         $hinoxToenail = Resource::where("name", "Hinox Toenail")->first()->id;
         $hinoxTooth = Resource::where("name", "Hinox Tooth")->first()->id;
         $hinoxGuts = Resource::where("name", "Hinox Guts")->first()->id;
@@ -449,6 +454,27 @@ class ArmorResourceSeeder extends Seeder
                 [3, $shardOfFaroshsFang, 1],
                 [4, $shardOfFaroshsHorn, 1],
             ])),
+        );
+
+        // Radiant Set
+        $radiantData = collect([
+            [1, $luminousStone, 5],
+            [1, $bokoblinGuts, 3],
+            [2, $luminousStone, 8],
+            [2, $moblinGuts, 3],
+            [3, $luminousStone, 10],
+            [3, $moldugaGuts, 3],
+            [4, $luminousStone, 20],
+            [4, $lynelGuts, 1],
+        ]);
+        $armorResources->push(
+            $this->buildArmorRequirements($radiantMask, $radiantData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($radiantShirt, $radiantData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($radiantTights, $radiantData),
         );
 
         // Populate the database.

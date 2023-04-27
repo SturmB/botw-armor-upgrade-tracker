@@ -69,6 +69,10 @@ class ArmorSetSeeder extends Seeder
             [
                 "name" => "Fierce Deity Set",
             ],
+            [
+                "name" => "Radiant Set",
+                "image" => "$prefix/BotW_Link_Wearing_Radiant_Set.jpg",
+            ],
         ];
 
         foreach ($armorSets as $armorSet) {

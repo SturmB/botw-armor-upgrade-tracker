@@ -155,6 +155,10 @@ class ResourceSeeder extends Seeder
                 "image" => "$prefix/BotW_Opal_Icon.png",
             ],
             [
+                "name" => "Luminous Stone",
+                "image" => "$prefix/BotW_Luminous_Stone_Icon.png",
+            ],
+            [
                 "name" => "Topaz",
                 "image" => "$prefix/BotW_Topaz_Icon.png",
             ],
@@ -261,6 +265,10 @@ class ResourceSeeder extends Seeder
             [
                 "name" => "Keese Eyeball",
                 "image" => "$prefix/BotW_Keese_Eyeball_Icon.png",
+            ],
+            [
+                "name" => "Molduga Guts",
+                "image" => "$prefix/BotW_Molduga_Guts_Icon.png",
             ],
             [
                 "name" => "Hinox Toenail",

@@ -32,6 +32,7 @@ class ArmorSeeder extends Seeder
         $climbingSet = ArmorSet::where("name", "Climbing Set")->first()->id;
         $barbarianSet = ArmorSet::where("name", "Barbarian Set")->first()->id;
         $fierceDeitySet = ArmorSet::where("name", "Fierce Deity Set")->first()->id;
+        $radiantSet = ArmorSet::where("name", "Radiant Set")->first()->id;
 
         $armors = [
             [
@@ -261,6 +262,21 @@ class ArmorSeeder extends Seeder
                 "name" => "Fierce Deity Boots",
                 "image" => "$prefix/BotW_Fierce_Deity_Boots_Icon.png",
                 "armor_set_id" => $fierceDeitySet,
+            ],
+            [
+                "name" => "Radiant Mask",
+                "image" => "$prefix/BotW_Radiant_Mask_Icon.png",
+                "armor_set_id" => $radiantSet,
+            ],
+            [
+                "name" => "Radiant Shirt",
+                "image" => "$prefix/BotW_Radiant_Shirt_Icon.png",
+                "armor_set_id" => $radiantSet,
+            ],
+            [
+                "name" => "Radiant Tights",
+                "image" => "$prefix/BotW_Radiant_Tights_Icon.png",
+                "armor_set_id" => $radiantSet,
             ],
         ];
 
