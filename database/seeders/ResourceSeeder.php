@@ -31,12 +31,20 @@ class ResourceSeeder extends Seeder
                 "image" => "$prefix/BotW_Zapshroom_Icon.png",
             ],
             [
+                "name" => "Rushroom",
+                "image" => "$prefix/BotW_Rushroom_Icon.png",
+            ],
+            [
                 "name" => "Silent Shroom",
                 "image" => "$prefix/BotW_Silent_Shroom_Icon.png",
             ],
             [
                 "name" => "Warm Safflina",
                 "image" => "$prefix/BotW_Warm_Safflina_Icon.png",
+            ],
+            [
+                "name" => "Swift Violet",
+                "image" => "$prefix/BotW_Swift_Violet_Icon.png",
             ],
             [
                 "name" => "Blue Nightshade",
@@ -85,6 +93,14 @@ class ResourceSeeder extends Seeder
             [
                 "name" => "Sunset Firefly",
                 "image" => "$prefix/BotW_Sunset_Firefly_Icon.png",
+            ],
+            [
+                "name" => "Hot-Footed Frog",
+                "image" => "$prefix/BotW_Hot-Footed_Frog_Icon.png",
+            ],
+            [
+                "name" => "Hightail Lizard",
+                "image" => "$prefix/BotW_Hightail_Lizard_Icon.png",
             ],
             [
                 "name" => "Fireproof Lizard",
@@ -197,6 +213,10 @@ class ResourceSeeder extends Seeder
             [
                 "name" => "Fire Keese Wing",
                 "image" => "$prefix/BotW_Fire_Keese_Wing_Icon.png",
+            ],
+            [
+                "name" => "Electric Keese Wing",
+                "image" => "$prefix/BotW_Electric_Keese_Wing_Icon.png",
             ],
             [
                 "name" => "Keese Eyeball",

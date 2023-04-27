@@ -29,6 +29,7 @@ class ArmorSeeder extends Seeder
         $flamebreakerSet = ArmorSet::where("name", "Flamebreaker Set")->first()->id;
         $zoraSet = ArmorSet::where("name", "Zora Set")->first()->id;
         $stealthSet = ArmorSet::where("name", "Stealth Set")->first()->id;
+        $climbingSet = ArmorSet::where("name", "Climbing Set")->first()->id;
 
         $armors = [
             [
@@ -213,6 +214,21 @@ class ArmorSeeder extends Seeder
                 "name" => "Thunder Helm",
                 "image" => "$prefix/BotW_Thunder_Helm_Icon.png",
                 "upgradable" => 0,
+            ],
+            [
+                "name" => "Climber's Bandanna",
+                "image" => "$prefix/BotW_Climber's_Bandanna_Icon.png",
+                "armor_set_id" => $climbingSet,
+            ],
+            [
+                "name" => "Climbing Gear",
+                "image" => "$prefix/BotW_Climbing_Gear_Icon.png",
+                "armor_set_id" => $climbingSet,
+            ],
+            [
+                "name" => "Climbing Boots",
+                "image" => "$prefix/BotW_Climbing_Boots_Icon.png",
+                "armor_set_id" => $climbingSet,
             ],
         ];
 

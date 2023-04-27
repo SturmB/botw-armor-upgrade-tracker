@@ -50,13 +50,18 @@ class ArmorResourceSeeder extends Seeder
         $stealthChestGuard = Armor::where("name", "Stealth Chest Guard")->first()->id;
         $stealthTights = Armor::where("name", "Stealth Tights")->first()->id;
         $sheiksMask = Armor::where("name", "Sheik's Mask")->first()->id;
+        $climbersBandanna = Armor::where("name", "Climber's Bandanna")->first()->id;
+        $climbingGear = Armor::where("name", "Climbing Gear")->first()->id;
+        $climbingBoots = Armor::where("name", "Climbing Boots")->first()->id;
 
         // Resources
         $voltfruit = Resource::where("name", "Voltfruit")->first()->id;
         $sunshroom = Resource::where("name", "Sunshroom")->first()->id;
         $zapshroom = Resource::where("name", "Zapshroom")->first()->id;
+        $rushroom = Resource::where("name", "Rushroom")->first()->id;
         $silentShroom = Resource::where("name", "Silent Shroom")->first()->id;
         $warmSafflina = Resource::where("name", "Warm Safflina")->first()->id;
+        $swiftViolet = Resource::where("name", "Swift Violet")->first()->id;
         $blueNightshade = Resource::where("name", "Blue Nightshade")->first()->id;
         $silentPrincess = Resource::where("name", "Silent Princess")->first()->id;
         $shardOfDinraalsHorn = Resource::where("name", "Shard of Dinraal's Horn")->first()->id;
@@ -68,6 +73,8 @@ class ArmorResourceSeeder extends Seeder
         $sneakyRiverSnail = Resource::where("name", "Sneaky River Snail")->first()->id;
         $smotherwingButterfly = Resource::where("name", "Smotherwing Butterfly")->first()->id;
         $sunsetFirefly = Resource::where("name", "Sunset Firefly")->first()->id;
+        $hotFootedFrog = Resource::where("name", "Hot-Footed Frog")->first()->id;
+        $hightailLizard = Resource::where("name", "Hightail Lizard")->first()->id;
         $fireproofLizard = Resource::where("name", "Fireproof Lizard")->first()->id;
         $flint = Resource::where("name", "Flint")->first()->id;
         $amber = Resource::where("name", "Amber")->first()->id;
@@ -97,6 +104,7 @@ class ArmorResourceSeeder extends Seeder
         $keeseWing = Resource::where("name", "Keese Wing")->first()->id;
         $iceKeeseWing = Resource::where("name", "Ice Keese Wing")->first()->id;
         $fireKeeseWing = Resource::where("name", "Fire Keese Wing")->first()->id;
+        $electricKeeseWing = Resource::where("name", "Electric Keese Wing")->first()->id;
         $keeseEyeball = Resource::where("name", "Keese Eyeball")->first()->id;
         $hinoxGuts = Resource::where("name", "Hinox Guts")->first()->id;
 
@@ -352,6 +360,26 @@ class ArmorResourceSeeder extends Seeder
                 [4, $silentPrincess, 4],
                 [4, $starFragment, 4],
             ])),
+        );
+
+        // Climbing Set
+        $climbingData = collect([
+            [1, $blueNightshade, 3],
+            [2, $blueNightshade, 5],
+            [2, $sunsetFirefly, 5],
+            [3, $silentShroom, 8],
+            [3, $sneakyRiverSnail, 5],
+            [4, $stealthfinTrout, 10],
+            [4, $silentPrincess, 5],
+        ]);
+        $armorResources->push(
+            $this->buildArmorRequirements($climbersBandanna, $climbingData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($climbingGear, $climbingData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($climbingBoots, $climbingData),
         );
 
         // Populate the database.
