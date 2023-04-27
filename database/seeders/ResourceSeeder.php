@@ -55,6 +55,14 @@ class ResourceSeeder extends Seeder
                 "image" => "$prefix/BotW_Shard_of_Farosh's_Horn_Icon.png",
             ],
             [
+                "name" => "Smotherwing Butterfly",
+                "image" => "$prefix/BotW_Fireproof_Lizard_Icon.png",
+            ],
+            [
+                "name" => "Fireproof Lizard",
+                "image" => "$prefix/BotW_Fireproof_Lizard_Icon.png",
+            ],
+            [
                 "name" => "Flint",
                 "image" => "$prefix/BotW_Flint_Icon.png",
             ],
@@ -85,6 +93,14 @@ class ResourceSeeder extends Seeder
             [
                 "name" => "Bokoblin Guts",
                 "image" => "$prefix/BotW_Bokoblin_Guts_Icon.png",
+            ],
+            [
+                "name" => "Moblin Horn",
+                "image" => "$prefix/BotW_Moblin_Horn_Icon.png",
+            ],
+            [
+                "name" => "Moblin Fang",
+                "image" => "$prefix/BotW_Moblin_Fang_Icon.png",
             ],
             [
                 "name" => "Moblin Guts",

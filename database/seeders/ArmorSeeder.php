@@ -26,6 +26,7 @@ class ArmorSeeder extends Seeder
         $desertVoeSet = ArmorSet::where("name", "Desert Voe Set")->first()->id;
         $gerudoSet = ArmorSet::where("name", "Gerudo Set")->first()->id;
         $rubberSet = ArmorSet::where("name", "Rubber Set")->first()->id;
+        $flamebreakerSet = ArmorSet::where("name", "Flamebreaker Set")->first()->id;
 
         $armors = [
             [
@@ -152,6 +153,21 @@ class ArmorSeeder extends Seeder
                 "name" => "Rubber Tights",
                 "image" => "$prefix/BotW_Rubber_Tights_Icon.png",
                 "armor_set_id" => $rubberSet,
+            ],
+            [
+                "name" => "Flamebreaker Helm",
+                "image" => "$prefix/BotW_Flamebreaker_Helm_Icon.png",
+                "armor_set_id" => $flamebreakerSet,
+            ],
+            [
+                "name" => "Flamebreaker Armor",
+                "image" => "$prefix/BotW_Flamebreaker_Armor_Icon.png",
+                "armor_set_id" => $flamebreakerSet,
+            ],
+            [
+                "name" => "Flamebreaker Boots",
+                "image" => "$prefix/BotW_Flamebreaker_Boots_Icon.png",
+                "armor_set_id" => $flamebreakerSet,
             ],
         ];
 
