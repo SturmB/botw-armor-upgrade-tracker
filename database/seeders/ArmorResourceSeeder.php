@@ -43,6 +43,9 @@ class ArmorResourceSeeder extends Seeder
         $flamebreakerArmor = Armor::where("name", "Flamebreaker Armor")->first()->id;
         $flamebreakerBoots = Armor::where("name", "Flamebreaker Boots")->first()->id;
         $opalEarrings = Armor::where("name", "Opal Earrings")->first()->id;
+        $zoraHelm = Armor::where("name", "Zora Helm")->first()->id;
+        $zoraArmor = Armor::where("name", "Zora Armor")->first()->id;
+        $zoraGreaves = Armor::where("name", "Zora Greaves")->first()->id;
 
         // Resources
         $voltfruit = Resource::where("name", "Voltfruit")->first()->id;
@@ -53,6 +56,8 @@ class ArmorResourceSeeder extends Seeder
         $shardOfDinraalsHorn = Resource::where("name", "Shard of Dinraal's Horn")->first()->id;
         $shardOfNaydrasHorn = Resource::where("name", "Shard of Naydra's Horn")->first()->id;
         $shardOfFaroshsHorn = Resource::where("name", "Shard of Farosh's Horn")->first()->id;
+        $heartyBass = Resource::where("name", "Hearty Bass")->first()->id;
+        $hyruleBass = Resource::where("name", "Hyrule Bass")->first()->id;
         $smotherwingButterfly = Resource::where("name", "Smotherwing Butterfly")->first()->id;
         $fireproofLizard = Resource::where("name", "Fireproof Lizard")->first()->id;
         $flint = Resource::where("name", "Flint")->first()->id;
@@ -68,6 +73,8 @@ class ArmorResourceSeeder extends Seeder
         $moblinHorn = Resource::where("name", "Moblin Horn")->first()->id;
         $moblinFang = Resource::where("name", "Moblin Fang")->first()->id;
         $moblinGuts = Resource::where("name", "Moblin Guts")->first()->id;
+        $lizalfosHorn = Resource::where("name", "Lizalfos Horn")->first()->id;
+        $lizalfosTalon = Resource::where("name", "Lizalfos Talon")->first()->id;
         $lizalfosTail = Resource::where("name", "Lizalfos Tail")->first()->id;
         $icyLizalfosTail = Resource::where("name", "Icy Lizalfos Tail")->first()->id;
         $redLizalfosTail = Resource::where("name", "Red Lizalfos Tail")->first()->id;
@@ -283,6 +290,26 @@ class ArmorResourceSeeder extends Seeder
                 [4, $opal, 20],
                 [4, $flint, 3],
             ])),
+        );
+
+        // Zora Set
+        $zoraData = collect([
+            [1, $lizalfosHorn, 3],
+            [2, $lizalfosTalon, 5],
+            [2, $hyruleBass, 5],
+            [3, $lizalfosTail, 5],
+            [3, $heartyBass, 5],
+            [4, $lizalfosTail, 10],
+            [4, $opal, 15],
+        ]);
+        $armorResources->push(
+            $this->buildArmorRequirements($zoraHelm, $zoraData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($zoraArmor, $zoraData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($zoraGreaves, $zoraData),
         );
 
         // Populate the database.

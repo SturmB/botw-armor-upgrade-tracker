@@ -27,6 +27,7 @@ class ArmorSeeder extends Seeder
         $gerudoSet = ArmorSet::where("name", "Gerudo Set")->first()->id;
         $rubberSet = ArmorSet::where("name", "Rubber Set")->first()->id;
         $flamebreakerSet = ArmorSet::where("name", "Flamebreaker Set")->first()->id;
+        $zoraSet = ArmorSet::where("name", "Zora Set")->first()->id;
 
         $armors = [
             [
@@ -172,6 +173,21 @@ class ArmorSeeder extends Seeder
             [
                 "name" => "Opal Earrings",
                 "image" => "$prefix/BotW_Opal_Earrings_Icon.png",
+            ],
+            [
+                "name" => "Zora Helm",
+                "image" => "$prefix/BotW_Zora_Helm_Icon.png",
+                "armor_set_id" => $zoraSet,
+            ],
+            [
+                "name" => "Zora Armor",
+                "image" => "$prefix/BotW_Zora_Armor_Icon.png",
+                "armor_set_id" => $zoraSet,
+            ],
+            [
+                "name" => "Zora Greaves",
+                "image" => "$prefix/BotW_Zora_Greaves_Icon.png",
+                "armor_set_id" => $zoraSet,
             ],
         ];
 

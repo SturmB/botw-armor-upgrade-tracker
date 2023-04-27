@@ -55,6 +55,14 @@ class ResourceSeeder extends Seeder
                 "image" => "$prefix/BotW_Shard_of_Farosh's_Horn_Icon.png",
             ],
             [
+                "name" => "Hearty Bass",
+                "image" => "$prefix/BotW_Hearty_Bass_Icon.png",
+            ],
+            [
+                "name" => "Hyrule Bass",
+                "image" => "$prefix/BotW_Hyrule_Bass_Icon.png",
+            ],
+            [
                 "name" => "Smotherwing Butterfly",
                 "image" => "$prefix/BotW_Fireproof_Lizard_Icon.png",
             ],
@@ -109,6 +117,14 @@ class ResourceSeeder extends Seeder
             [
                 "name" => "Moblin Guts",
                 "image" => "$prefix/BotW_Moblin_Guts_Icon.png",
+            ],
+            [
+                "name" => "Lizalfos Horn",
+                "image" => "$prefix/BotW_Lizalfos_Horn_Icon.png",
+            ],
+            [
+                "name" => "Lizalfos Talon",
+                "image" => "$prefix/BotW_Lizalfos_Talon_Icon.png",
             ],
             [
                 "name" => "Lizalfos Tail",
