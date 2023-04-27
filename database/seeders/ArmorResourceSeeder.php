@@ -42,6 +42,7 @@ class ArmorResourceSeeder extends Seeder
         $flamebreakerHelm = Armor::where("name", "Flamebreaker Helm")->first()->id;
         $flamebreakerArmor = Armor::where("name", "Flamebreaker Armor")->first()->id;
         $flamebreakerBoots = Armor::where("name", "Flamebreaker Boots")->first()->id;
+        $opalEarrings = Armor::where("name", "Opal Earrings")->first()->id;
 
         // Resources
         $voltfruit = Resource::where("name", "Voltfruit")->first()->id;
@@ -56,6 +57,7 @@ class ArmorResourceSeeder extends Seeder
         $fireproofLizard = Resource::where("name", "Fireproof Lizard")->first()->id;
         $flint = Resource::where("name", "Flint")->first()->id;
         $amber = Resource::where("name", "Amber")->first()->id;
+        $opal = Resource::where("name", "Opal")->first()->id;
         $topaz = Resource::where("name", "Topaz")->first()->id;
         $ruby = Resource::where("name", "Ruby")->first()->id;
         $sapphire = Resource::where("name", "Sapphire")->first()->id;
@@ -268,6 +270,19 @@ class ArmorResourceSeeder extends Seeder
         );
         $armorResources->push(
             $this->buildArmorRequirements($flamebreakerBoots, $flamebreakerData),
+        );
+
+        $armorResources->push(
+            $this->buildArmorRequirements($opalEarrings, collect([
+                [1, $opal, 3],
+                [1, $flint, 3],
+                [2, $opal, 8],
+                [2, $flint, 3],
+                [3, $opal, 16],
+                [3, $flint, 3],
+                [4, $opal, 20],
+                [4, $flint, 3],
+            ])),
         );
 
         // Populate the database.

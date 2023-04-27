@@ -169,6 +169,10 @@ class ArmorSeeder extends Seeder
                 "image" => "$prefix/BotW_Flamebreaker_Boots_Icon.png",
                 "armor_set_id" => $flamebreakerSet,
             ],
+            [
+                "name" => "Opal Earrings",
+                "image" => "$prefix/BotW_Opal_Earrings_Icon.png",
+            ],
         ];
 
         foreach ($armors as $armor) {
