@@ -59,12 +59,48 @@ class ResourceSeeder extends Seeder
                 "image" => "$prefix/BotW_Star_Fragment_Icon.png",
             ],
             [
+                "name" => "Dinraal's Scale",
+                "image" => "$prefix/BotW_Dinraal's_Scale_Icon.png",
+            ],
+            [
+                "name" => "Dinraal's Claw",
+                "image" => "$prefix/BotW_Dinraal's_Claw_Icon.png",
+            ],
+            [
+                "name" => "Shard of Dinraal's Fang",
+                "image" => "$prefix/BotW_Shard_of_Dinraal's_Fang_Icon.png",
+            ],
+            [
                 "name" => "Shard of Dinraal's Horn",
                 "image" => "$prefix/BotW_Shard_of_Dinraal's_Horn_Icon.png",
             ],
             [
+                "name" => "Naydra's Scale",
+                "image" => "$prefix/BotW_Naydra's_Scale_Icon.png",
+            ],
+            [
+                "name" => "Naydra's Claw",
+                "image" => "$prefix/BotW_Naydra's_Claw_Icon.png",
+            ],
+            [
+                "name" => "Shard of Naydra's Fang",
+                "image" => "$prefix/BotW_Shard_of_Naydra's_Fang_Icon.png",
+            ],
+            [
                 "name" => "Shard of Naydra's Horn",
                 "image" => "$prefix/BotW_Shard_of_Naydra's_Horn_Icon.png",
+            ],
+            [
+                "name" => "Farosh's Scale",
+                "image" => "$prefix/BotW_Farosh's_Scale_Icon.png",
+            ],
+            [
+                "name" => "Farosh's Claw",
+                "image" => "$prefix/BotW_Farosh's_Claw_Icon.png",
+            ],
+            [
+                "name" => "Shard of Farosh's Fang",
+                "image" => "$prefix/BotW_Shard_of_Farosh's_Fang_Icon.png",
             ],
             [
                 "name" => "Shard of Farosh's Horn",
@@ -225,6 +261,14 @@ class ResourceSeeder extends Seeder
             [
                 "name" => "Keese Eyeball",
                 "image" => "$prefix/BotW_Keese_Eyeball_Icon.png",
+            ],
+            [
+                "name" => "Hinox Toenail",
+                "image" => "$prefix/BotW_Hinox_Toenail_Icon.png",
+            ],
+            [
+                "name" => "Hinox Tooth",
+                "image" => "$prefix/BotW_Hinox_Tooth_Icon.png",
             ],
             [
                 "name" => "Hinox Guts",

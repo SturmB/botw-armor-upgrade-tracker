@@ -56,6 +56,9 @@ class ArmorResourceSeeder extends Seeder
         $barbarianHelm = Armor::where("name", "Barbarian Helm")->first()->id;
         $barbarianArmor = Armor::where("name", "Barbarian Armor")->first()->id;
         $barbarianLegWraps = Armor::where("name", "Barbarian Leg Wraps")->first()->id;
+        $fierceDeityMask = Armor::where("name", "Fierce Deity Mask")->first()->id;
+        $fierceDeityArmor = Armor::where("name", "Fierce Deity Armor")->first()->id;
+        $fierceDeityBoots = Armor::where("name", "Fierce Deity Boots")->first()->id;
 
         // Resources
         $voltfruit = Resource::where("name", "Voltfruit")->first()->id;
@@ -67,8 +70,17 @@ class ArmorResourceSeeder extends Seeder
         $swiftViolet = Resource::where("name", "Swift Violet")->first()->id;
         $blueNightshade = Resource::where("name", "Blue Nightshade")->first()->id;
         $silentPrincess = Resource::where("name", "Silent Princess")->first()->id;
+        $dinraalsScale = Resource::where("name", "Dinraal's Scale")->first()->id;
+        $dinraalsClaw = Resource::where("name", "Dinraal's Claw")->first()->id;
+        $shardOfDinraalsFang = Resource::where("name", "Shard of Dinraal's Fang")->first()->id;
         $shardOfDinraalsHorn = Resource::where("name", "Shard of Dinraal's Horn")->first()->id;
+        $naydrasScale = Resource::where("name", "Naydra's Scale")->first()->id;
+        $naydrasClaw = Resource::where("name", "Naydra's Claw")->first()->id;
+        $shardOfNaydrasFang = Resource::where("name", "Shard of Naydra's Fang")->first()->id;
         $shardOfNaydrasHorn = Resource::where("name", "Shard of Naydra's Horn")->first()->id;
+        $faroshsScale = Resource::where("name", "Farosh's Scale")->first()->id;
+        $faroshsClaw = Resource::where("name", "Farosh's Claw")->first()->id;
+        $shardOfFaroshsFang = Resource::where("name", "Shard of Farosh's Fang")->first()->id;
         $shardOfFaroshsHorn = Resource::where("name", "Shard of Farosh's Horn")->first()->id;
         $heartyBass = Resource::where("name", "Hearty Bass")->first()->id;
         $hyruleBass = Resource::where("name", "Hyrule Bass")->first()->id;
@@ -110,6 +122,8 @@ class ArmorResourceSeeder extends Seeder
         $fireKeeseWing = Resource::where("name", "Fire Keese Wing")->first()->id;
         $electricKeeseWing = Resource::where("name", "Electric Keese Wing")->first()->id;
         $keeseEyeball = Resource::where("name", "Keese Eyeball")->first()->id;
+        $hinoxToenail = Resource::where("name", "Hinox Toenail")->first()->id;
+        $hinoxTooth = Resource::where("name", "Hinox Tooth")->first()->id;
         $hinoxGuts = Resource::where("name", "Hinox Guts")->first()->id;
 
         $armorResources = new Collection();
@@ -403,6 +417,38 @@ class ArmorResourceSeeder extends Seeder
         );
         $armorResources->push(
             $this->buildArmorRequirements($barbarianLegWraps, $barbarianData->concat([[4, $shardOfNaydrasHorn, 1]])),
+        );
+
+        // Fierce Deity Set
+        $fierceDeityData = collect([
+            [1, $hinoxToenail, 5],
+            [2, $hinoxTooth, 5],
+            [3, $hinoxGuts, 5],
+            [4, $lynelGuts, 5],
+        ]);
+        $armorResources->push(
+            $this->buildArmorRequirements($fierceDeityMask, $fierceDeityData->concat([
+                [1, $dinraalsScale, 1],
+                [2, $dinraalsClaw, 1],
+                [3, $shardOfDinraalsFang, 1],
+                [4, $shardOfDinraalsHorn, 1],
+            ])),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($fierceDeityArmor, $fierceDeityData->concat([
+                [1, $naydrasScale, 1],
+                [2, $naydrasClaw, 1],
+                [3, $shardOfNaydrasFang, 1],
+                [4, $shardOfNaydrasHorn, 1],
+            ])),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($fierceDeityBoots, $fierceDeityData->concat([
+                [1, $faroshsScale, 1],
+                [2, $faroshsClaw, 1],
+                [3, $shardOfFaroshsFang, 1],
+                [4, $shardOfFaroshsHorn, 1],
+            ])),
         );
 
         // Populate the database.
