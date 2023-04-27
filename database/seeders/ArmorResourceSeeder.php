@@ -75,10 +75,10 @@ class ArmorResourceSeeder extends Seeder
                 [1, $silentPrincess, 3],
                 [2, $silentPrincess, 3],
                 [2, $shardOfFaroshsHorn, 2],
-                [2, $silentPrincess, 3],
-                [2, $shardOfNaydrasHorn, 2],
-                [2, $silentPrincess, 3],
-                [2, $shardOfDinraalsHorn, 2],
+                [3, $silentPrincess, 3],
+                [3, $shardOfNaydrasHorn, 2],
+                [4, $silentPrincess, 3],
+                [4, $shardOfDinraalsHorn, 2],
             ])),
         );
 
