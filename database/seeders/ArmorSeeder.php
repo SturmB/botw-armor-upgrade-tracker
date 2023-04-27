@@ -28,6 +28,7 @@ class ArmorSeeder extends Seeder
         $rubberSet = ArmorSet::where("name", "Rubber Set")->first()->id;
         $flamebreakerSet = ArmorSet::where("name", "Flamebreaker Set")->first()->id;
         $zoraSet = ArmorSet::where("name", "Zora Set")->first()->id;
+        $stealthSet = ArmorSet::where("name", "Stealth Set")->first()->id;
 
         $armors = [
             [
@@ -188,6 +189,21 @@ class ArmorSeeder extends Seeder
                 "name" => "Zora Greaves",
                 "image" => "$prefix/BotW_Zora_Greaves_Icon.png",
                 "armor_set_id" => $zoraSet,
+            ],
+            [
+                "name" => "Stealth Mask",
+                "image" => "$prefix/BotW_Stealth_Mask_Icon.png",
+                "armor_set_id" => $stealthSet,
+            ],
+            [
+                "name" => "Stealth Chest Guard",
+                "image" => "$prefix/BotW_Stealth_Chest_Guard_Icon.png",
+                "armor_set_id" => $stealthSet,
+            ],
+            [
+                "name" => "Stealth Tights",
+                "image" => "$prefix/BotW_Stealth_Tights_Icon.png",
+                "armor_set_id" => $stealthSet,
             ],
         ];
 

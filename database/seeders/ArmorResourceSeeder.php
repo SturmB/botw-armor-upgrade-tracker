@@ -46,19 +46,27 @@ class ArmorResourceSeeder extends Seeder
         $zoraHelm = Armor::where("name", "Zora Helm")->first()->id;
         $zoraArmor = Armor::where("name", "Zora Armor")->first()->id;
         $zoraGreaves = Armor::where("name", "Zora Greaves")->first()->id;
+        $stealthMask = Armor::where("name", "Stealth Mask")->first()->id;
+        $stealthChestGuard = Armor::where("name", "Stealth Chest Guard")->first()->id;
+        $stealthTights = Armor::where("name", "Stealth Tights")->first()->id;
 
         // Resources
         $voltfruit = Resource::where("name", "Voltfruit")->first()->id;
         $sunshroom = Resource::where("name", "Sunshroom")->first()->id;
         $zapshroom = Resource::where("name", "Zapshroom")->first()->id;
+        $silentShroom = Resource::where("name", "Silent Shroom")->first()->id;
         $warmSafflina = Resource::where("name", "Warm Safflina")->first()->id;
+        $blueNightshade = Resource::where("name", "Blue Nightshade")->first()->id;
         $silentPrincess = Resource::where("name", "Silent Princess")->first()->id;
         $shardOfDinraalsHorn = Resource::where("name", "Shard of Dinraal's Horn")->first()->id;
         $shardOfNaydrasHorn = Resource::where("name", "Shard of Naydra's Horn")->first()->id;
         $shardOfFaroshsHorn = Resource::where("name", "Shard of Farosh's Horn")->first()->id;
         $heartyBass = Resource::where("name", "Hearty Bass")->first()->id;
         $hyruleBass = Resource::where("name", "Hyrule Bass")->first()->id;
+        $stealthfinTrout = Resource::where("name", "Stealthfin Trout")->first()->id;
+        $sneakyRiverSnail = Resource::where("name", "Sneaky River Snail")->first()->id;
         $smotherwingButterfly = Resource::where("name", "Smotherwing Butterfly")->first()->id;
+        $sunsetFirefly = Resource::where("name", "Sunset Firefly")->first()->id;
         $fireproofLizard = Resource::where("name", "Fireproof Lizard")->first()->id;
         $flint = Resource::where("name", "Flint")->first()->id;
         $amber = Resource::where("name", "Amber")->first()->id;
@@ -310,6 +318,26 @@ class ArmorResourceSeeder extends Seeder
         );
         $armorResources->push(
             $this->buildArmorRequirements($zoraGreaves, $zoraData),
+        );
+
+        // Stealth Set
+        $stealthData = collect([
+            [1, $blueNightshade, 3],
+            [2, $blueNightshade, 5],
+            [2, $sunsetFirefly, 5],
+            [3, $silentShroom, 8],
+            [3, $sneakyRiverSnail, 5],
+            [4, $stealthfinTrout, 10],
+            [4, $silentPrincess, 5],
+        ]);
+        $armorResources->push(
+            $this->buildArmorRequirements($stealthMask, $stealthData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($stealthChestGuard, $stealthData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($stealthTights, $stealthData),
         );
 
         // Populate the database.

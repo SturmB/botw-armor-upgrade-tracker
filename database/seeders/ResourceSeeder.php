@@ -31,8 +31,16 @@ class ResourceSeeder extends Seeder
                 "image" => "$prefix/BotW_Zapshroom_Icon.png",
             ],
             [
+                "name" => "Silent Shroom",
+                "image" => "$prefix/BotW_Silent_Shroom_Icon.png",
+            ],
+            [
                 "name" => "Warm Safflina",
                 "image" => "$prefix/BotW_Warm_Safflina_Icon.png",
+            ],
+            [
+                "name" => "Blue Nightshade",
+                "image" => "$prefix/BotW_Blue_Nightshade_Icon.png",
             ],
             [
                 "name" => "Silent Princess",
@@ -63,8 +71,20 @@ class ResourceSeeder extends Seeder
                 "image" => "$prefix/BotW_Hyrule_Bass_Icon.png",
             ],
             [
+                "name" => "Stealthfin Trout",
+                "image" => "$prefix/BotW_Stealthfin_Trout_Icon.png",
+            ],
+            [
+                "name" => "Sneaky River Snail",
+                "image" => "$prefix/BotW_Sneaky_River_Snail_Icon.png",
+            ],
+            [
                 "name" => "Smotherwing Butterfly",
                 "image" => "$prefix/BotW_Fireproof_Lizard_Icon.png",
+            ],
+            [
+                "name" => "Sunset Firefly",
+                "image" => "$prefix/BotW_Sunset_Firefly_Icon.png",
             ],
             [
                 "name" => "Fireproof Lizard",
