@@ -499,6 +499,21 @@ class ArmorSeeder extends Seeder
                 "upgradable" => 0,
                 "armor_set_id" => $phantomEquipment,
             ],
+            [
+                "name" => "Island Lobster Shirt",
+                "image" => "$prefix/BotW_Island_Lobster_Shirt_Icon.png",
+                "upgradable" => 0,
+            ],
+            [
+                "name" => "Ravio's Hood",
+                "image" => "$prefix/BotW_Ravio's_Hood_Icon.png",
+                "upgradable" => 0,
+            ],
+            [
+                "name" => "Zant's Helmet",
+                "image" => "$prefix/BotW_Zant's_Helmet_Icon.png",
+                "upgradable" => 0,
+            ],
         ];
 
         foreach ($armors as $armor) {
