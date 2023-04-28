@@ -71,6 +71,9 @@ class ArmorResourceSeeder extends Seeder
         $capOfTime = Armor::where("name", "Cap of Time")->first()->id;
         $tunicOfTime = Armor::where("name", "Tunic of Time")->first()->id;
         $trousersOfTime = Armor::where("name", "Trousers of Time")->first()->id;
+        $capOfTheWind = Armor::where("name", "Cap of the Wind")->first()->id;
+        $tunicOfTheWind = Armor::where("name", "Tunic of the Wind")->first()->id;
+        $trousersOfTheWind = Armor::where("name", "Trousers of the Wind")->first()->id;
 
         // Resources
         $voltfruit = Resource::where("name", "Voltfruit")->first()->id;
@@ -578,6 +581,27 @@ class ArmorResourceSeeder extends Seeder
         );
         $armorResources->push(
             $this->buildArmorRequirements($trousersOfTime, $heroOfTimeData),
+        );
+
+        // Hero of Winds Set
+        $heroOfTheWindsData = collect([
+            [1, $opal, 3],
+            [1, $starFragment, 1],
+            [2, $opal, 5],
+            [2, $starFragment, 2],
+            [3, $opal, 10],
+            [3, $starFragment, 3],
+            [4, $opal, 20],
+            [4, $starFragment, 4],
+        ]);
+        $armorResources->push(
+            $this->buildArmorRequirements($capOfTheWind, $heroOfTheWindsData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($tunicOfTheWind, $heroOfTheWindsData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($trousersOfTheWind, $heroOfTheWindsData),
         );
 
         // Populate the database.

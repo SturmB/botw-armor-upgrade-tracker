@@ -84,6 +84,9 @@ class ArmorSetSeeder extends Seeder
             [
                 "name" => "Hero of Time Set",
             ],
+            [
+                "name" => "Hero of Winds Set",
+            ],
         ];
 
         foreach ($armorSets as $armorSet) {
