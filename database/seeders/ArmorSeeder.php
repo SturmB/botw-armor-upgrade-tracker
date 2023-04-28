@@ -41,6 +41,7 @@ class ArmorSeeder extends Seeder
         $heroOfTheSkySet = ArmorSet::where("name", "Hero of the Sky Set")->first()->id;
         $heroSet = ArmorSet::where("name", "Hero Set")->first()->id;
         $heroOfTheWildSet = ArmorSet::where("name", "Hero of the Wild Set")->first()->id;
+        $tinglesSet = ArmorSet::where("name", "Tingle's Set")->first()->id;
 
         $armors = [
             [
@@ -455,6 +456,24 @@ class ArmorSeeder extends Seeder
                 "name" => "Majora's Mask",
                 "image" => "$prefix/BotW_Majora's_Mask_Icon.png",
                 "upgradable" => 0,
+            ],
+            [
+                "name" => "Tingle's Hood",
+                "image" => "$prefix/BotW_Tingle's_Hood_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $tinglesSet,
+            ],
+            [
+                "name" => "Tingle's Shirt",
+                "image" => "$prefix/BotW_Tingle's_Shirt_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $tinglesSet,
+            ],
+            [
+                "name" => "Tingle's Tights",
+                "image" => "$prefix/BotW_Tingle's_Tights_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $tinglesSet,
             ],
         ];
 

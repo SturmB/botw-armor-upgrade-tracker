@@ -99,6 +99,10 @@ class ArmorSetSeeder extends Seeder
             [
                 "name" => "Hero of the Wild Set",
             ],
+            [
+                "name" => "Tingle's Set",
+                "image" => "$prefix/BotW_Tingle%27s_Set_Concept_Artwork.png",
+            ],
         ];
 
         foreach ($armorSets as $armorSet) {
