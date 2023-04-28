@@ -33,6 +33,7 @@ class ArmorSeeder extends Seeder
         $barbarianSet = ArmorSet::where("name", "Barbarian Set")->first()->id;
         $fierceDeitySet = ArmorSet::where("name", "Fierce Deity Set")->first()->id;
         $radiantSet = ArmorSet::where("name", "Radiant Set")->first()->id;
+        $ancientSet = ArmorSet::where("name", "Ancient Set")->first()->id;
 
         $armors = [
             [
@@ -281,6 +282,21 @@ class ArmorSeeder extends Seeder
             [
                 "name" => "Diamond Circlet",
                 "image" => "$prefix/BotW_Diamond_Circlet_Icon.png",
+            ],
+            [
+                "name" => "Ancient Helm",
+                "image" => "$prefix/BotW_Ancient_Helm_Icon.png",
+                "armor_set_id" => $ancientSet,
+            ],
+            [
+                "name" => "Ancient Cuirass",
+                "image" => "$prefix/BotW_Ancient_Cuirass_Icon.png",
+                "armor_set_id" => $ancientSet,
+            ],
+            [
+                "name" => "Ancient Greaves",
+                "image" => "$prefix/BotW_Ancient_Greaves_Icon.png",
+                "armor_set_id" => $ancientSet,
             ],
         ];
 

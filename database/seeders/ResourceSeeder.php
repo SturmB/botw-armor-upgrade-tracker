@@ -286,6 +286,30 @@ class ResourceSeeder extends Seeder
                 "name" => "Hinox Guts",
                 "image" => "$prefix/BotW_Hinox_Guts_Icon.png",
             ],
+            [
+                "name" => "Ancient Screw",
+                "image" => "$prefix/BotW_Ancient_Screw_Icon.png",
+            ],
+            [
+                "name" => "Ancient Spring",
+                "image" => "$prefix/BotW_Ancient_Spring_Icon.png",
+            ],
+            [
+                "name" => "Ancient Gear",
+                "image" => "$prefix/BotW_Ancient_Gear_Icon.png",
+            ],
+            [
+                "name" => "Ancient Shaft",
+                "image" => "$prefix/BotW_Ancient_Shaft_Icon.png",
+            ],
+            [
+                "name" => "Ancient Core",
+                "image" => "$prefix/BotW_Ancient_Core_Icon.png",
+            ],
+            [
+                "name" => "Giant Ancient Core",
+                "image" => "$prefix/BotW_Giant_Ancient_Core_Icon.png",
+            ],
         ];
 
         foreach ($resources as $resource) {

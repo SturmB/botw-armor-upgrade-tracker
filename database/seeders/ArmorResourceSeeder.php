@@ -63,6 +63,9 @@ class ArmorResourceSeeder extends Seeder
         $radiantShirt = Armor::where("name", "Radiant Shirt")->first()->id;
         $radiantTights = Armor::where("name", "Radiant Tights")->first()->id;
         $diamondCirclet = Armor::where("name", "Diamond Circlet")->first()->id;
+        $ancientHelm = Armor::where("name", "Ancient Helm")->first()->id;
+        $ancientCuirass = Armor::where("name", "Ancient Cuirass")->first()->id;
+        $ancientGreaves = Armor::where("name", "Ancient Greaves")->first()->id;
 
         // Resources
         $voltfruit = Resource::where("name", "Voltfruit")->first()->id;
@@ -132,6 +135,12 @@ class ArmorResourceSeeder extends Seeder
         $hinoxToenail = Resource::where("name", "Hinox Toenail")->first()->id;
         $hinoxTooth = Resource::where("name", "Hinox Tooth")->first()->id;
         $hinoxGuts = Resource::where("name", "Hinox Guts")->first()->id;
+        $ancientScrew = Resource::where("name", "Ancient Screw")->first()->id;
+        $ancientSpring = Resource::where("name", "Ancient Spring")->first()->id;
+        $ancientGear = Resource::where("name", "Ancient Gear")->first()->id;
+        $ancientShaft = Resource::where("name", "Ancient Shaft")->first()->id;
+        $ancientCore = Resource::where("name", "Ancient Core")->first()->id;
+        $giantAncientCore = Resource::where("name", "Giant Ancient Core")->first()->id;
 
         $armorResources = new Collection();
 
@@ -490,6 +499,27 @@ class ArmorResourceSeeder extends Seeder
                 [4, $diamond, 10],
                 [4, $starFragment, 1],
             ])),
+        );
+
+        // Ancient Set
+        $ancientData = collect([
+            [1, $ancientScrew, 5],
+            [1, $ancientSpring, 5],
+            [2, $ancientSpring, 15],
+            [2, $ancientGear, 10],
+            [3, $ancientShaft, 15],
+            [3, $ancientCore, 5],
+            [4, $starFragment, 1],
+            [4, $giantAncientCore, 2],
+        ]);
+        $armorResources->push(
+            $this->buildArmorRequirements($ancientHelm, $ancientData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($ancientCuirass, $ancientData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($ancientGreaves, $ancientData),
         );
 
         // Populate the database.
