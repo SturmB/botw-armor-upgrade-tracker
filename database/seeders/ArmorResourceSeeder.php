@@ -68,6 +68,9 @@ class ArmorResourceSeeder extends Seeder
         $ancientGreaves = Armor::where("name", "Ancient Greaves")->first()->id;
         $sandBoots = Armor::where("name", "Sand Boots")->first()->id;
         $snowBoots = Armor::where("name", "Snow Boots")->first()->id;
+        $capOfTime = Armor::where("name", "Cap of Time")->first()->id;
+        $tunicOfTime = Armor::where("name", "Tunic of Time")->first()->id;
+        $trousersOfTime = Armor::where("name", "Trousers of Time")->first()->id;
 
         // Resources
         $voltfruit = Resource::where("name", "Voltfruit")->first()->id;
@@ -554,6 +557,27 @@ class ArmorResourceSeeder extends Seeder
                 [4, $naydrasScale, 2],
                 [4, $swiftViolet, 15],
             ])),
+        );
+
+        // Hero of Time Set
+        $heroOfTimeData = collect([
+            [1, $amber, 3],
+            [1, $starFragment, 1],
+            [2, $amber, 5],
+            [2, $starFragment, 2],
+            [3, $amber, 15],
+            [3, $starFragment, 3],
+            [4, $amber, 30],
+            [4, $starFragment, 4],
+        ]);
+        $armorResources->push(
+            $this->buildArmorRequirements($capOfTime, $heroOfTimeData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($tunicOfTime, $heroOfTimeData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($trousersOfTime, $heroOfTimeData),
         );
 
         // Populate the database.

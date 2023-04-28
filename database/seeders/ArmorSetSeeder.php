@@ -81,6 +81,9 @@ class ArmorSetSeeder extends Seeder
                 "name" => "Dark Set",
                 "image" => "$prefix/BotW_Link_Wearing_Dark_Series.jpg",
             ],
+            [
+                "name" => "Hero of Time Set",
+            ],
         ];
 
         foreach ($armorSets as $armorSet) {

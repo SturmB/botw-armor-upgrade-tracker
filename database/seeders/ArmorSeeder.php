@@ -35,6 +35,7 @@ class ArmorSeeder extends Seeder
         $radiantSet = ArmorSet::where("name", "Radiant Set")->first()->id;
         $ancientSet = ArmorSet::where("name", "Ancient Set")->first()->id;
         $darkSet = ArmorSet::where("name", "Dark Set")->first()->id;
+        $heroOfTimeSet = ArmorSet::where("name", "Hero of Time Set")->first()->id;
 
         $armors = [
             [
@@ -344,6 +345,21 @@ class ArmorSeeder extends Seeder
                 "image" => "$prefix/BotW_Dark_Trousers_Icon.png",
                 "upgradable" => 0,
                 "armor_set_id" => $darkSet,
+            ],
+            [
+                "name" => "Cap of Time",
+                "image" => "$prefix/BotW_Cap_of_Time_Icon.png",
+                "armor_set_id" => $heroOfTimeSet,
+            ],
+            [
+                "name" => "Tunic of Time",
+                "image" => "$prefix/BotW_Tunic_of_Time_Icon.png",
+                "armor_set_id" => $heroOfTimeSet,
+            ],
+            [
+                "name" => "Trousers of Time",
+                "image" => "$prefix/BotW_Trousers_of_Time_Icon.png",
+                "armor_set_id" => $heroOfTimeSet,
             ],
         ];
 
