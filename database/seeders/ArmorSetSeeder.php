@@ -110,6 +110,9 @@ class ArmorSetSeeder extends Seeder
                 "name" => "Royal Guard Set",
                 "image" => "$prefix/BotW_Royal_Guard_Set_Concept_Artwork.png",
             ],
+            [
+                "name" => "Phantom Ganon Set",
+            ],
         ];
 
         foreach ($armorSets as $armorSet) {

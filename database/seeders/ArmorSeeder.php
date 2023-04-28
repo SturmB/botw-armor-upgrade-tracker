@@ -44,6 +44,7 @@ class ArmorSeeder extends Seeder
         $tinglesSet = ArmorSet::where("name", "Tingle's Set")->first()->id;
         $phantomEquipment = ArmorSet::where("name", "Phantom Equipment")->first()->id;
         $royalGuardSet = ArmorSet::where("name", "Royal Guard Set")->first()->id;
+        $phantomGanonSet = ArmorSet::where("name", "Phantom Ganon Set")->first()->id;
 
         $armors = [
             [
@@ -532,6 +533,24 @@ class ArmorSeeder extends Seeder
                 "image" => "$prefix/BotW_Royal_Guard_Boots_Icon.png",
                 "upgradable" => 0,
                 "armor_set_id" => $royalGuardSet,
+            ],
+            [
+                "name" => "Phantom Ganon Skull",
+                "image" => "$prefix/BotW_Phantom_Ganon_Skull_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $phantomGanonSet,
+            ],
+            [
+                "name" => "Phantom Ganon Armor",
+                "image" => "$prefix/BotW_Phantom_Ganon_Armor_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $phantomGanonSet,
+            ],
+            [
+                "name" => "Phantom Ganon Greaves",
+                "image" => "$prefix/BotW_Phantom_Ganon_Greaves_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $phantomGanonSet,
             ],
         ];
 
