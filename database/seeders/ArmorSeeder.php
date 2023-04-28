@@ -34,6 +34,7 @@ class ArmorSeeder extends Seeder
         $fierceDeitySet = ArmorSet::where("name", "Fierce Deity Set")->first()->id;
         $radiantSet = ArmorSet::where("name", "Radiant Set")->first()->id;
         $ancientSet = ArmorSet::where("name", "Ancient Set")->first()->id;
+        $darkSet = ArmorSet::where("name", "Dark Set")->first()->id;
 
         $armors = [
             [
@@ -325,6 +326,24 @@ class ArmorSeeder extends Seeder
                 "name" => "Lynel Mask",
                 "image" => "$prefix/BotW_Lynel_Mask_Icon.png",
                 "upgradable" => 0,
+            ],
+            [
+                "name" => "Dark Hood",
+                "image" => "$prefix/BotW_Dark_Hood_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $darkSet,
+            ],
+            [
+                "name" => "Dark Tunic",
+                "image" => "$prefix/BotW_Dark_Tunic_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $darkSet,
+            ],
+            [
+                "name" => "Dark Trousers",
+                "image" => "$prefix/BotW_Dark_Trousers_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $darkSet,
             ],
         ];
 
