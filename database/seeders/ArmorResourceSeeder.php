@@ -66,6 +66,8 @@ class ArmorResourceSeeder extends Seeder
         $ancientHelm = Armor::where("name", "Ancient Helm")->first()->id;
         $ancientCuirass = Armor::where("name", "Ancient Cuirass")->first()->id;
         $ancientGreaves = Armor::where("name", "Ancient Greaves")->first()->id;
+        $sandBoots = Armor::where("name", "Sand Boots")->first()->id;
+        $snowBoots = Armor::where("name", "Snow Boots")->first()->id;
 
         // Resources
         $voltfruit = Resource::where("name", "Voltfruit")->first()->id;
@@ -73,6 +75,7 @@ class ArmorResourceSeeder extends Seeder
         $zapshroom = Resource::where("name", "Zapshroom")->first()->id;
         $rushroom = Resource::where("name", "Rushroom")->first()->id;
         $silentShroom = Resource::where("name", "Silent Shroom")->first()->id;
+        $swiftCarrot = Resource::where("name", "Swift Carrot")->first()->id;
         $warmSafflina = Resource::where("name", "Warm Safflina")->first()->id;
         $swiftViolet = Resource::where("name", "Swift Violet")->first()->id;
         $blueNightshade = Resource::where("name", "Blue Nightshade")->first()->id;
@@ -131,6 +134,10 @@ class ArmorResourceSeeder extends Seeder
         $fireKeeseWing = Resource::where("name", "Fire Keese Wing")->first()->id;
         $electricKeeseWing = Resource::where("name", "Electric Keese Wing")->first()->id;
         $keeseEyeball = Resource::where("name", "Keese Eyeball")->first()->id;
+        $octorokTentacle = Resource::where("name", "Octorok Tentacle")->first()->id;
+        $octorokEyeball = Resource::where("name", "Octorok Eyeball")->first()->id;
+        $octoBalloon = Resource::where("name", "Octo Balloon")->first()->id;
+        $moldugaFin = Resource::where("name", "Molduga Fin")->first()->id;
         $moldugaGuts = Resource::where("name", "Molduga Guts")->first()->id;
         $hinoxToenail = Resource::where("name", "Hinox Toenail")->first()->id;
         $hinoxTooth = Resource::where("name", "Hinox Tooth")->first()->id;
@@ -521,6 +528,32 @@ class ArmorResourceSeeder extends Seeder
         );
         $armorResources->push(
             $this->buildArmorRequirements($ancientGreaves, $ancientData),
+        );
+
+        $armorResources->push(
+            $this->buildArmorRequirements($sandBoots, collect([
+                [1, $moldugaFin, 5],
+                [1, $hightailLizard, 10],
+                [2, $moldugaFin, 10],
+                [2, $swiftCarrot, 10],
+                [3, $moldugaGuts, 3],
+                [3, $rushroom, 15],
+                [4, $moldugaGuts, 5],
+                [4, $swiftViolet, 15],
+            ])),
+        );
+
+        $armorResources->push(
+            $this->buildArmorRequirements($snowBoots, collect([
+                [1, $octorokTentacle, 5],
+                [1, $hightailLizard, 10],
+                [2, $octoBalloon, 5],
+                [2, $swiftCarrot, 10],
+                [3, $octorokEyeball, 5],
+                [3, $rushroom, 15],
+                [4, $naydrasScale, 2],
+                [4, $swiftViolet, 15],
+            ])),
         );
 
         // Populate the database.

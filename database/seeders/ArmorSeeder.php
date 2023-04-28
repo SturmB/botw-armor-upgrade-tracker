@@ -298,6 +298,14 @@ class ArmorSeeder extends Seeder
                 "image" => "$prefix/BotW_Ancient_Greaves_Icon.png",
                 "armor_set_id" => $ancientSet,
             ],
+            [
+                "name" => "Sand Boots",
+                "image" => "$prefix/BotW_Sand_Boots_Icon.png",
+            ],
+            [
+                "name" => "Snow Boots",
+                "image" => "$prefix/BotW_Snow_Boots_Icon.png",
+            ],
         ];
 
         foreach ($armors as $armor) {

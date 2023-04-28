@@ -39,6 +39,10 @@ class ResourceSeeder extends Seeder
                 "image" => "$prefix/BotW_Silent_Shroom_Icon.png",
             ],
             [
+                "name" => "Swift Carrot",
+                "image" => "$prefix/BotW_Swift_Carrot_Icon.png",
+            ],
+            [
                 "name" => "Warm Safflina",
                 "image" => "$prefix/BotW_Warm_Safflina_Icon.png",
             ],
@@ -269,6 +273,22 @@ class ResourceSeeder extends Seeder
             [
                 "name" => "Keese Eyeball",
                 "image" => "$prefix/BotW_Keese_Eyeball_Icon.png",
+            ],
+            [
+                "name" => "Octorok Tentacle",
+                "image" => "$prefix/BotW_Octorok_Tentacle_Icon.png",
+            ],
+            [
+                "name" => "Octorok Eyeball",
+                "image" => "$prefix/BotW_Octorok_Eyeball_Icon.png",
+            ],
+            [
+                "name" => "Octo Balloon",
+                "image" => "$prefix/BotW_Octo_Balloon_Icon.png",
+            ],
+            [
+                "name" => "Molduga Fin",
+                "image" => "$prefix/BotW_Molduga_Fin_Icon.png",
             ],
             [
                 "name" => "Molduga Guts",
