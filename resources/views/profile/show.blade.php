@@ -1,14 +1,12 @@
 <x-app-layout>
-    <x-slot name="header">
-        <div class="flex justify-between">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Profile') }}
-            </h2>
-            <a href="{{ route('home') }}" class="font-semibold text-xl text-botw-blue-500 hover:text-botw-blue-600">
-                &lt;&nbsp;{{ __('Back') }}
-            </a>
-        </div>
-    </x-slot>
+    <div class="flex justify-between">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Profile') }}
+        </h2>
+        <a href="{{ route('home') }}" class="font-semibold text-xl text-botw-blue-500 hover:text-botw-blue-600">
+            &lt;&nbsp;{{ __('Back') }}
+        </a>
+    </div>
 
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">

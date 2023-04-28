@@ -10,6 +10,10 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script src="https://kit.fontawesome.com/8ea7ba55a2.js" crossorigin="anonymous"></script>
@@ -95,9 +99,6 @@
                 <!-- Main -->
                 <main class="flex-1">
                     <div class="py-6">
-                        <div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-                            <h1 class="text-2xl font-semibold text-gray-900">{{ $header }}</h1>
-                        </div>
                         <div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
                             {{ $slot }}
                         </div>

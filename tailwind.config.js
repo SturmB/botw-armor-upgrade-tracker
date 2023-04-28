@@ -14,6 +14,7 @@ module.exports = {
             fontFamily: {
                 // sans: ['Nunito', ...defaultTheme.fontFamily.sans],
                 sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+                title: ["Rowdies", ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 'botw-beige': '#fdffe0',
