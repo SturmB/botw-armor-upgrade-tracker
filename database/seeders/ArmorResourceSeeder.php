@@ -398,13 +398,14 @@ class ArmorResourceSeeder extends Seeder
 
         // Climbing Set
         $climbingData = collect([
-            [1, $blueNightshade, 3],
-            [2, $blueNightshade, 5],
-            [2, $sunsetFirefly, 5],
-            [3, $silentShroom, 8],
-            [3, $sneakyRiverSnail, 5],
-            [4, $stealthfinTrout, 10],
-            [4, $silentPrincess, 5],
+            [1, $keeseWing, 3],
+            [1, $rushroom, 3],
+            [2, $electricKeeseWing, 5],
+            [2, $hightailLizard, 5],
+            [3, $iceKeeseWing, 5],
+            [3, $hotFootedFrog, 10],
+            [4, $fireKeeseWing, 5],
+            [4, $swiftViolet, 20],
         ]);
         $armorResources->push(
             $this->buildArmorRequirements($climbersBandanna, $climbingData),
