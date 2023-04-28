@@ -552,6 +552,22 @@ class ArmorSeeder extends Seeder
                 "upgradable" => 0,
                 "armor_set_id" => $phantomGanonSet,
             ],
+            [
+                "name" => "Vah Ruta Divine Helm",
+                "image" => "$prefix/BotW_Vah_Ruta_Divine_Helm_Icon.png",
+            ],
+            [
+                "name" => "Vah Medoh Divine Helm",
+                "image" => "$prefix/BotW_Vah_Medoh_Divine_Helm_Icon.png",
+            ],
+            [
+                "name" => "Vah Rudania Divine Helm",
+                "image" => "$prefix/BotW_Vah_Rudania_Divine_Helm_Icon.png",
+            ],
+            [
+                "name" => "Vah Naboris Divine Helm",
+                "image" => "$prefix/BotW_Vah_Naboris_Divine_Helm_Icon.png",
+            ],
         ];
 
         foreach ($armors as $armor) {

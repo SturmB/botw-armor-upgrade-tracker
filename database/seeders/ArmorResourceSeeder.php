@@ -86,6 +86,10 @@ class ArmorResourceSeeder extends Seeder
         $capOfTheWild = Armor::where("name", "Cap of the Wild")->first()->id;
         $tunicOfTheWild = Armor::where("name", "Tunic of the Wild")->first()->id;
         $trousersOfTheWild = Armor::where("name", "Trousers of the Wild")->first()->id;
+        $vahRutaDivineHelm = Armor::where("name", "Vah Ruta Divine Helm")->first()->id;
+        $vahMedohDivineHelm = Armor::where("name", "Vah Medoh Divine Helm")->first()->id;
+        $vahRudaniaDivineHelm = Armor::where("name", "Vah Rudania Divine Helm")->first()->id;
+        $vahNaborisDivineHelm = Armor::where("name", "Vah Naboris Divine Helm")->first()->id;
 
         // Resources
         $voltfruit = Resource::where("name", "Voltfruit")->first()->id;
@@ -712,6 +716,30 @@ class ArmorResourceSeeder extends Seeder
                 [3, $shardOfDinraalsFang, 2],
                 [4, $shardOfDinraalsHorn, 2],
             ])),
+        );
+
+        // Divine Helms
+        $divineHelmData = collect([
+            [1, $ancientScrew, 5],
+            [1, $ancientSpring, 5],
+            [2, $ancientSpring, 15],
+            [2, $ancientGear, 10],
+            [3, $ancientShaft, 15],
+            [3, $ancientCore, 5],
+            [4, $starFragment, 1],
+            [4, $giantAncientCore, 2],
+        ]);
+        $armorResources->push(
+            $this->buildArmorRequirements($vahRutaDivineHelm, $divineHelmData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($vahMedohDivineHelm, $divineHelmData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($vahRudaniaDivineHelm, $divineHelmData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($vahNaborisDivineHelm, $divineHelmData),
         );
 
         // Populate the database.
