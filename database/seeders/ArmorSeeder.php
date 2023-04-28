@@ -43,6 +43,7 @@ class ArmorSeeder extends Seeder
         $heroOfTheWildSet = ArmorSet::where("name", "Hero of the Wild Set")->first()->id;
         $tinglesSet = ArmorSet::where("name", "Tingle's Set")->first()->id;
         $phantomEquipment = ArmorSet::where("name", "Phantom Equipment")->first()->id;
+        $royalGuardSet = ArmorSet::where("name", "Royal Guard Set")->first()->id;
 
         $armors = [
             [
@@ -513,6 +514,24 @@ class ArmorSeeder extends Seeder
                 "name" => "Zant's Helmet",
                 "image" => "$prefix/BotW_Zant's_Helmet_Icon.png",
                 "upgradable" => 0,
+            ],
+            [
+                "name" => "Royal Guard Cap",
+                "image" => "$prefix/BotW_Royal_Guard_Cap_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $royalGuardSet,
+            ],
+            [
+                "name" => "Royal Guard Uniform",
+                "image" => "$prefix/BotW_Royal_Guard_Uniform_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $royalGuardSet,
+            ],
+            [
+                "name" => "Royal Guard Boots",
+                "image" => "$prefix/BotW_Royal_Guard_Boots_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $royalGuardSet,
             ],
         ];
 

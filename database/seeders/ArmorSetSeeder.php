@@ -106,6 +106,10 @@ class ArmorSetSeeder extends Seeder
             [
                 "name" => "Phantom Equipment",
             ],
+            [
+                "name" => "Royal Guard Set",
+                "image" => "$prefix/BotW_Royal_Guard_Set_Concept_Artwork.png",
+            ],
         ];
 
         foreach ($armorSets as $armorSet) {
