@@ -103,6 +103,9 @@ class ArmorSetSeeder extends Seeder
                 "name" => "Tingle's Set",
                 "image" => "$prefix/BotW_Tingle%27s_Set_Concept_Artwork.png",
             ],
+            [
+                "name" => "Phantom Equipment",
+            ],
         ];
 
         foreach ($armorSets as $armorSet) {

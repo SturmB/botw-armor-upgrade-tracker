@@ -42,6 +42,7 @@ class ArmorSeeder extends Seeder
         $heroSet = ArmorSet::where("name", "Hero Set")->first()->id;
         $heroOfTheWildSet = ArmorSet::where("name", "Hero of the Wild Set")->first()->id;
         $tinglesSet = ArmorSet::where("name", "Tingle's Set")->first()->id;
+        $phantomEquipment = ArmorSet::where("name", "Phantom Equipment")->first()->id;
 
         $armors = [
             [
@@ -479,6 +480,24 @@ class ArmorSeeder extends Seeder
                 "name" => "Midna's Helmet",
                 "image" => "$prefix/BotW_Midna's_Helmet_Icon.png",
                 "upgradable" => 0,
+            ],
+            [
+                "name" => "Phantom Helmet",
+                "image" => "$prefix/BotW_Phantom_Helmet_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $phantomEquipment,
+            ],
+            [
+                "name" => "Phantom Armor",
+                "image" => "$prefix/BotW_Phantom_Armor_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $phantomEquipment,
+            ],
+            [
+                "name" => "Phantom Greaves",
+                "image" => "$prefix/BotW_Phantom_Greaves_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $phantomEquipment,
             ],
         ];
 
