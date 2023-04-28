@@ -39,6 +39,7 @@ class ArmorSeeder extends Seeder
         $heroOfWindsSet = ArmorSet::where("name", "Hero of Winds Set")->first()->id;
         $heroOfTwilightSet = ArmorSet::where("name", "Hero of Twilight Set")->first()->id;
         $heroOfTheSkySet = ArmorSet::where("name", "Hero of the Sky Set")->first()->id;
+        $heroSet = ArmorSet::where("name", "Hero Set")->first()->id;
 
         $armors = [
             [
@@ -408,6 +409,21 @@ class ArmorSeeder extends Seeder
                 "name" => "Trousers of the Sky",
                 "image" => "$prefix/BotW_Trousers_of_the_Sky_Icon.png",
                 "armor_set_id" => $heroOfTheSkySet,
+            ],
+            [
+                "name" => "Cap of the Hero",
+                "image" => "$prefix/BotW_Cap_of_the_Hero_Icon.png",
+                "armor_set_id" => $heroSet,
+            ],
+            [
+                "name" => "Tunic of the Hero",
+                "image" => "$prefix/BotW_Tunic_of_the_Hero_Icon.png",
+                "armor_set_id" => $heroSet,
+            ],
+            [
+                "name" => "Trousers of the Hero",
+                "image" => "$prefix/BotW_Trousers_of_the_Hero_Icon.png",
+                "armor_set_id" => $heroSet,
             ],
         ];
 

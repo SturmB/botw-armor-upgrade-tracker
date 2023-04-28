@@ -80,6 +80,9 @@ class ArmorResourceSeeder extends Seeder
         $capOfTheSky = Armor::where("name", "Cap of the Sky")->first()->id;
         $tunicOfTheSky = Armor::where("name", "Tunic of the Sky")->first()->id;
         $trousersOfTheSky = Armor::where("name", "Trousers of the Sky")->first()->id;
+        $capOfTheHero = Armor::where("name", "Cap of the Hero")->first()->id;
+        $tunicOfTheHero = Armor::where("name", "Tunic of the Hero")->first()->id;
+        $trousersOfTheHero = Armor::where("name", "Trousers of the Hero")->first()->id;
 
         // Resources
         $voltfruit = Resource::where("name", "Voltfruit")->first()->id;
@@ -650,6 +653,27 @@ class ArmorResourceSeeder extends Seeder
         );
         $armorResources->push(
             $this->buildArmorRequirements($trousersOfTheSky, $heroOfTheSkyData),
+        );
+
+        // Hero Set
+        $heroData = collect([
+            [1, $ruby, 1],
+            [1, $starFragment, 1],
+            [2, $ruby, 3],
+            [2, $starFragment, 2],
+            [3, $ruby, 5],
+            [3, $starFragment, 3],
+            [4, $ruby, 10],
+            [4, $starFragment, 4],
+        ]);
+        $armorResources->push(
+            $this->buildArmorRequirements($capOfTheHero, $heroData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($tunicOfTheHero, $heroData),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($trousersOfTheHero, $heroData),
         );
 
         // Populate the database.
