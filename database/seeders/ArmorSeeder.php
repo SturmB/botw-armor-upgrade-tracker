@@ -441,6 +441,21 @@ class ArmorSeeder extends Seeder
                 "image" => "$prefix/BotW_Trousers_of_the_Wild_Icon.png",
                 "armor_set_id" => $heroOfTheWildSet,
             ],
+            [
+                "name" => "Nintendo Switch Shirt",
+                "image" => "$prefix/BotW_Nintendo_Switch_Shirt_Icon.png",
+                "upgradable" => 0,
+            ],
+            [
+                "name" => "Korok Mask",
+                "image" => "$prefix/BotW_Korok_Mask_Icon.png",
+                "upgradable" => 0,
+            ],
+            [
+                "name" => "Majora's Mask",
+                "image" => "$prefix/BotW_Majora's_Mask_Icon.png",
+                "upgradable" => 0,
+            ],
         ];
 
         foreach ($armors as $armor) {
