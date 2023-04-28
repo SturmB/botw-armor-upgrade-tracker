@@ -62,6 +62,7 @@ class ArmorResourceSeeder extends Seeder
         $radiantMask = Armor::where("name", "Radiant Mask")->first()->id;
         $radiantShirt = Armor::where("name", "Radiant Shirt")->first()->id;
         $radiantTights = Armor::where("name", "Radiant Tights")->first()->id;
+        $diamondCirclet = Armor::where("name", "Diamond Circlet")->first()->id;
 
         // Resources
         $voltfruit = Resource::where("name", "Voltfruit")->first()->id;
@@ -73,6 +74,7 @@ class ArmorResourceSeeder extends Seeder
         $swiftViolet = Resource::where("name", "Swift Violet")->first()->id;
         $blueNightshade = Resource::where("name", "Blue Nightshade")->first()->id;
         $silentPrincess = Resource::where("name", "Silent Princess")->first()->id;
+        $starFragment = Resource::where("name", "Star Fragment")->first()->id;
         $dinraalsScale = Resource::where("name", "Dinraal's Scale")->first()->id;
         $dinraalsClaw = Resource::where("name", "Dinraal's Claw")->first()->id;
         $shardOfDinraalsFang = Resource::where("name", "Shard of Dinraal's Fang")->first()->id;
@@ -101,7 +103,7 @@ class ArmorResourceSeeder extends Seeder
         $topaz = Resource::where("name", "Topaz")->first()->id;
         $ruby = Resource::where("name", "Ruby")->first()->id;
         $sapphire = Resource::where("name", "Sapphire")->first()->id;
-        $starFragment = Resource::where("name", "Star Fragment")->first()->id;
+        $diamond = Resource::where("name", "Diamond")->first()->id;
         $bokoblinHorn = Resource::where("name", "Bokoblin Horn")->first()->id;
         $bokoblinFang = Resource::where("name", "Bokoblin Fang")->first()->id;
         $bokoblinGuts = Resource::where("name", "Bokoblin Guts")->first()->id;
@@ -475,6 +477,19 @@ class ArmorResourceSeeder extends Seeder
         );
         $armorResources->push(
             $this->buildArmorRequirements($radiantTights, $radiantData),
+        );
+
+        $armorResources->push(
+            $this->buildArmorRequirements($diamondCirclet, collect([
+                [1, $diamond, 2],
+                [1, $flint, 3],
+                [2, $diamond, 4],
+                [2, $flint, 3],
+                [3, $diamond, 6],
+                [3, $starFragment, 1],
+                [4, $diamond, 10],
+                [4, $starFragment, 1],
+            ])),
         );
 
         // Populate the database.

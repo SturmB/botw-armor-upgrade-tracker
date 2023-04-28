@@ -171,6 +171,10 @@ class ResourceSeeder extends Seeder
                 "image" => "$prefix/BotW_Sapphire_Icon.png",
             ],
             [
+                "name" => "Diamond",
+                "image" => "$prefix/BotW_Diamond_Icon.png",
+            ],
+            [
                 "name" => "Bokoblin Horn",
                 "image" => "$prefix/BotW_Bokoblin_Horn_Icon.png",
             ],
