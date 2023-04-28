@@ -12,8 +12,10 @@ Please file all bug reports, issues, and feature requests using the Issues tab a
 
 There are several things that I need to address after launching this app.
 
-- Speed up SQL queries with Redis caching. (Might even need to re-architect the querying altogether.)
+- Speed up SQL queries with Redis caching.
+- Re-architect the app as a single Livewire component.
 - Add a "Select all" and "Deselect all" set of links near the top.
 - Add a tri-state checkbox for each armor set to select/deselect all armors in that set.
 - Replace the apparently abandoned [Livewire Range Slider](https://github.com/jantinnerezo/livewire-range-slider) with a pure-JavaScript usage of the [noUiSlider](https://refreshless.com/nouislider/).
-- Add a Dark Mode toggle next to the User Profile icon
+- Add a Dark Mode toggle next to the User Profile icon.
+- Add a loading spinner to appear during searches.
