@@ -306,6 +306,26 @@ class ArmorSeeder extends Seeder
                 "name" => "Snow Boots",
                 "image" => "$prefix/BotW_Snow_Boots_Icon.png",
             ],
+            [
+                "name" => "Bokoblin Mask",
+                "image" => "$prefix/BotW_Bokoblin_Mask_Icon.png",
+                "upgradable" => 0,
+            ],
+            [
+                "name" => "Moblin Mask",
+                "image" => "$prefix/BotW_Moblin_Mask_Icon.png",
+                "upgradable" => 0,
+            ],
+            [
+                "name" => "Lizalfos Mask",
+                "image" => "$prefix/BotW_Lizalfos_Mask_Icon.png",
+                "upgradable" => 0,
+            ],
+            [
+                "name" => "Lynel Mask",
+                "image" => "$prefix/BotW_Lynel_Mask_Icon.png",
+                "upgradable" => 0,
+            ],
         ];
 
         foreach ($armors as $armor) {
