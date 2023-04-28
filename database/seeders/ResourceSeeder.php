@@ -59,6 +59,14 @@ class ResourceSeeder extends Seeder
                 "image" => "$prefix/BotW_Silent_Princess_Icon.png",
             ],
             [
+                "name" => "Courser Bee Honey",
+                "image" => "$prefix/BotW_Courser_Bee_Honey_Icon.png",
+            ],
+            [
+                "name" => "Acorn",
+                "image" => "$prefix/BotW_Acorn_Icon.png",
+            ],
+            [
                 "name" => "Star Fragment",
                 "image" => "$prefix/BotW_Star_Fragment_Icon.png",
             ],
@@ -129,6 +137,10 @@ class ResourceSeeder extends Seeder
             [
                 "name" => "Smotherwing Butterfly",
                 "image" => "$prefix/BotW_Fireproof_Lizard_Icon.png",
+            ],
+            [
+                "name" => "Energetic Rhino Beetle",
+                "image" => "$prefix/BotW_Energetic_Rhino_Beetle_Icon.png",
             ],
             [
                 "name" => "Sunset Firefly",

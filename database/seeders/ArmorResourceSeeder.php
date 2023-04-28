@@ -83,6 +83,9 @@ class ArmorResourceSeeder extends Seeder
         $capOfTheHero = Armor::where("name", "Cap of the Hero")->first()->id;
         $tunicOfTheHero = Armor::where("name", "Tunic of the Hero")->first()->id;
         $trousersOfTheHero = Armor::where("name", "Trousers of the Hero")->first()->id;
+        $capOfTheWild = Armor::where("name", "Cap of the Wild")->first()->id;
+        $tunicOfTheWild = Armor::where("name", "Tunic of the Wild")->first()->id;
+        $trousersOfTheWild = Armor::where("name", "Trousers of the Wild")->first()->id;
 
         // Resources
         $voltfruit = Resource::where("name", "Voltfruit")->first()->id;
@@ -95,6 +98,8 @@ class ArmorResourceSeeder extends Seeder
         $swiftViolet = Resource::where("name", "Swift Violet")->first()->id;
         $blueNightshade = Resource::where("name", "Blue Nightshade")->first()->id;
         $silentPrincess = Resource::where("name", "Silent Princess")->first()->id;
+        $courserBeeHoney = Resource::where("name", "Courser Bee Honey")->first()->id;
+        $acorn = Resource::where("name", "Acorn")->first()->id;
         $starFragment = Resource::where("name", "Star Fragment")->first()->id;
         $dinraalsScale = Resource::where("name", "Dinraal's Scale")->first()->id;
         $dinraalsClaw = Resource::where("name", "Dinraal's Claw")->first()->id;
@@ -113,6 +118,7 @@ class ArmorResourceSeeder extends Seeder
         $stealthfinTrout = Resource::where("name", "Stealthfin Trout")->first()->id;
         $sneakyRiverSnail = Resource::where("name", "Sneaky River Snail")->first()->id;
         $smotherwingButterfly = Resource::where("name", "Smotherwing Butterfly")->first()->id;
+        $energeticRhinoBeetle = Resource::where("name", "Energetic Rhino Beetle")->first()->id;
         $sunsetFirefly = Resource::where("name", "Sunset Firefly")->first()->id;
         $hotFootedFrog = Resource::where("name", "Hot-Footed Frog")->first()->id;
         $hightailLizard = Resource::where("name", "Hightail Lizard")->first()->id;
@@ -674,6 +680,38 @@ class ArmorResourceSeeder extends Seeder
         );
         $armorResources->push(
             $this->buildArmorRequirements($trousersOfTheHero, $heroData),
+        );
+
+        // Hero of the Wild Set
+        $heroofTheWildData = collect([
+            [1, $acorn, 10],
+            [2, $courserBeeHoney, 5],
+            [3, $energeticRhinoBeetle, 5],
+            [4, $starFragment, 1],
+        ]);
+        $armorResources->push(
+            $this->buildArmorRequirements($capOfTheWild, $heroofTheWildData->concat([
+                [1, $faroshsScale, 2],
+                [2, $faroshsClaw, 2],
+                [3, $shardOfFaroshsFang, 2],
+                [4, $shardOfFaroshsHorn, 2],
+            ])),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($tunicOfTheWild, $heroofTheWildData->concat([
+                [1, $naydrasScale, 2],
+                [2, $naydrasClaw, 2],
+                [3, $shardOfNaydrasFang, 2],
+                [4, $shardOfNaydrasHorn, 2],
+            ])),
+        );
+        $armorResources->push(
+            $this->buildArmorRequirements($trousersOfTheWild, $heroofTheWildData->concat([
+                [1, $dinraalsScale, 2],
+                [2, $dinraalsClaw, 2],
+                [3, $shardOfDinraalsFang, 2],
+                [4, $shardOfDinraalsHorn, 2],
+            ])),
         );
 
         // Populate the database.
