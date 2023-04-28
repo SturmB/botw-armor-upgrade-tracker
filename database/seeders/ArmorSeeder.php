@@ -45,6 +45,7 @@ class ArmorSeeder extends Seeder
         $phantomEquipment = ArmorSet::where("name", "Phantom Equipment")->first()->id;
         $royalGuardSet = ArmorSet::where("name", "Royal Guard Set")->first()->id;
         $phantomGanonSet = ArmorSet::where("name", "Phantom Ganon Set")->first()->id;
+        $salvagersSet = ArmorSet::where("name", "Salvager's Set")->first()->id;
 
         $armors = [
             [
@@ -567,6 +568,24 @@ class ArmorSeeder extends Seeder
             [
                 "name" => "Vah Naboris Divine Helm",
                 "image" => "$prefix/BotW_Vah_Naboris_Divine_Helm_Icon.png",
+            ],
+            [
+                "name" => "Salvager Headwear",
+                "image" => "$prefix/BotW_Salvager_Headwear_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $salvagersSet,
+            ],
+            [
+                "name" => "Salvager Vest",
+                "image" => "$prefix/BotW_Salvager_Vest_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $salvagersSet,
+            ],
+            [
+                "name" => "Salvager Trousers",
+                "image" => "$prefix/BotW_Salvager_Trousers_Icon.png",
+                "upgradable" => 0,
+                "armor_set_id" => $salvagersSet,
             ],
         ];
 

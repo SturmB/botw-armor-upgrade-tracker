@@ -113,6 +113,9 @@ class ArmorSetSeeder extends Seeder
             [
                 "name" => "Phantom Ganon Set",
             ],
+            [
+                "name" => "Salvager's Set",
+            ],
         ];
 
         foreach ($armorSets as $armorSet) {
