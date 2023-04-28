@@ -475,6 +475,11 @@ class ArmorSeeder extends Seeder
                 "upgradable" => 0,
                 "armor_set_id" => $tinglesSet,
             ],
+            [
+                "name" => "Midna's Helmet",
+                "image" => "$prefix/BotW_Midna's_Helmet_Icon.png",
+                "upgradable" => 0,
+            ],
         ];
 
         foreach ($armors as $armor) {
