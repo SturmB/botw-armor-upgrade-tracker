@@ -31,10 +31,11 @@ class ShoppingList extends Component
     public function updateShoppingList(TrackingService $service): void
     {
         $trackingData = $service->getAllTracking();
-        $requirements = Requirement::whereIn(
-            "armor_id",
-            array_keys($trackingData),
-        )
+        $requirements = Requirement::with("resource")
+            ->whereIn(
+                "armor_id",
+                array_keys($trackingData),
+            )
             ->get()
             ->filter(function ($requirement) use ($trackingData) {
                 $trackingForThisArmor = $trackingData[$requirement->armor_id];
@@ -49,9 +50,9 @@ class ShoppingList extends Component
             })
             ->groupBy("resource_id")
             ->map(
-                fn ($resources) => [
-                    "resourceId" => $resources->first()->resource_id,
-                    "quantity" => $resources->sum("quantity_needed"),
+                fn ($requirement) => [
+                    "resource" => $requirement->first()->resource,
+                    "quantity" => $requirement->sum("quantity_needed"),
                 ],
             );
 

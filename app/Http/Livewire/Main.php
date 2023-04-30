@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Armor;
 use App\Models\ArmorSet;
+use App\Services\TrackingService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Livewire\Component;
@@ -14,10 +15,11 @@ class Main extends Component
     public Collection $uncategorizedArmors;
     public Collection $filteredArmors;
     public string $searchTerm = "";
+    public Collection $tracks;
 
     protected $listeners = ["searchArmors"];
 
-    public function mount(): void
+    public function mount(TrackingService $service): void
     {
         $this->armorSets = ArmorSet::with([
             "armors.resources" => function ($query) {
@@ -32,6 +34,7 @@ class Main extends Component
             ->whereNull("armor_set_id")
             ->get();
         $this->filteredArmors = collect();
+        $this->tracks = collect($service->getAllTracking());
     }
 
     public function render(): View

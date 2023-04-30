@@ -8,7 +8,7 @@
         @else
             <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-6">
                 @foreach($filteredArmors as $armor)
-                    <livewire:armor-card :armor="$armor" :wire:key="'search-' . $armor->id" />
+                    <livewire:armor-card :armor="$armor" :tracking-data="$tracks->get($armor->id)" :wire:key="'search-' . $armor->id" />
                 @endforeach
             </ul>
         @endif
@@ -22,7 +22,7 @@
                     </div>
                     <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-6">
                         @foreach($armorSet->armors as $armor)
-                            <livewire:armor-card :armor="$armor" :wire:key="'main-' . $armor->id" />
+                            <livewire:armor-card :armor="$armor" :tracking-data="$tracks->get($armor->id)" :wire:key="'main-' . $armor->id" />
                         @endforeach
                     </ul>
                 </div>
@@ -37,7 +37,7 @@
         <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-6">
             @foreach($uncategorizedArmors as $armor)
                 @if($armor->upgradable)
-                    <livewire:armor-card :armor="$armor" :wire:key="'main-' . $armor->id" />
+                    <livewire:armor-card :armor="$armor" :tracking-data="$tracks->get($armor->id)" :wire:key="'main-' . $armor->id" />
                 @endif
             @endforeach
         </ul>

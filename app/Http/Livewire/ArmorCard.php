@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Armor;
 use App\Services\TrackingService;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Collection;
 use Livewire\Component;
 
 class ArmorCard extends Component
@@ -28,24 +29,26 @@ class ArmorCard extends Component
     public Armor $armor;
     public array $range;
     public bool $isActive;
+    public array|null $trackingData = null;
 
     public function render(): View
     {
         return view("livewire.armor-card");
     }
 
-    public function mount(TrackingService $service): void
+    public function mount(): void
     {
-        $trackingData = $service->getTrackingForArmor($this->armor->id);
-        $this->tierSliderOptions["start"] = [
-            $trackingData["tracking_tier_start"],
-            $trackingData["tracking_tier_end"],
-        ];
-        $this->range = [
-            "min" => strval($trackingData["tracking_tier_start"]),
-            "max" => strval($trackingData["tracking_tier_end"]),
-        ];
-        $this->isActive = $trackingData["tracking"];
+        if ($this->trackingData) {
+            $this->tierSliderOptions["start"] = [
+                $this->trackingData["tracking_tier_start"],
+                $this->trackingData["tracking_tier_end"],
+            ];
+            $this->range = [
+                "min" => strval($this->trackingData["tracking_tier_start"]),
+                "max" => strval($this->trackingData["tracking_tier_end"]),
+            ];
+            $this->isActive = $this->trackingData["tracking"];
+        }
     }
 
 

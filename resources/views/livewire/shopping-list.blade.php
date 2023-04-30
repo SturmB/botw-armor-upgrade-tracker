@@ -4,7 +4,7 @@
             @forelse($list as $item)
                 <x-shopping-list-item
                     :quantity="$item['quantity']"
-                    :resourceId="$item['resourceId']"
+                    :resource="$item['resource']"
                 />
             @empty
                 <div class="flex justify-center items-center gap-3 font-semibold text-lg text-gray-400">

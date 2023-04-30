@@ -11,7 +11,6 @@
 
 
     <div class="mt-5 flex flex-grow flex-col">
-        {{--        <h3 class="flex-1 px-4 lg:px-2 text-xl font-bold leading-6">Shopping List</h3>--}}
         <div class="relative">
             <div class="absolute inset-0 flex items-center" aria-hidden="true">
                 <div class="w-full border-t border-gray-300"></div>
