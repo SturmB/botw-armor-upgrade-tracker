@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/armor-upgrade-tracker.iml" filepath="$PROJECT_DIR$/.idea/armor-upgrade-tracker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/botw-armor-upgrade-tracker.iml" filepath="$PROJECT_DIR$/.idea/botw-armor-upgrade-tracker.iml" />
     </modules>
   </component>
 </project>
