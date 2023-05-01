@@ -18,6 +18,7 @@
     ],
     "require": {
         "php": "^8.1.7",
+        "fakerphp/faker": "^1.9.1",
         "guzzlehttp/guzzle": "^7.2",
         "jantinnerezo/livewire-range-slider": "^1.0",
         "laravel/framework": "^9.19",
@@ -30,7 +31,6 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",
         "beyondcode/laravel-query-detector": "^1.6",
-        "fakerphp/faker": "^1.9.1",
         "krlove/eloquent-model-generator": "^2.0",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
