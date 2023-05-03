@@ -164,6 +164,9 @@ Homestead.json
 # Local config See: https://cs.symfony.com/doc/config.html
 .php-cs-fixer.php
 
+### Source files
+*.afphoto
+
 ### Filtered from creating new Laravel project
 /public/build
 .env.backup

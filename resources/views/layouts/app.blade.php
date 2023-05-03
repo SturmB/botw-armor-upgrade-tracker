@@ -7,6 +7,29 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <!-- Favicons! -->
+        <link rel="apple-touch-icon-precomposed" href="{{ asset('storage/images/icons/favicons/favicon-180.png') }}">
+        <link rel="apple-touch-icon-precomposed" href="{{ asset('storage/images/icons/favicons/favicon-152.png') }}">
+        <link rel="apple-touch-icon-precomposed" href="{{ asset('storage/images/icons/favicons/favicon-120.png') }}">
+        <link rel="apple-touch-icon-precomposed" href="{{ asset('storage/images/icons/favicons/favicon-76.png') }}">
+        <link rel="apple-touch-icon-precomposed" href="{{ asset('storage/images/icons/favicons/favicon-57.png') }}">
+        <link rel="mask-icon" href="{{ asset('storage/images/icons/favicons/icon.svg') }}" color="#302816">
+        <link rel="shortcut icon" sizes="196x196" href="{{ asset('storage/images/icons/favicons/favicon-196.png') }}">
+
+        <link rel="icon" href="{{ asset('storage/images/icons/favicons/favicon-228.png') }}" sizes="228x228">
+        <link rel="icon" href="{{ asset('storage/images/icons/favicons/favicon-195.png') }}" sizes="195x195">
+        <link rel="icon" href="{{ asset('storage/images/icons/favicons/favicon-144.png') }}" sizes="144x144">
+        <link rel="icon" href="{{ asset('storage/images/icons/favicons/favicon-128.png') }}" sizes="128x128">
+        <link rel="icon" href="{{ asset('storage/images/icons/favicons/favicon-96.png') }}" sizes="96x96">
+        <link rel="icon" href="{{ asset('storage/images/icons/favicons/favicon-32.png') }}" sizes="32x32">
+
+        <meta name="msapplication-TileColor" content="#302816">
+        <meta name="msapplication-TileImage" content="{{ asset('storage/images/icons/favicons/favicon-144.png') }}">
+        <meta name="application-name" content="{{ config('app.name', 'Laravel') }}">
+        <meta name="msapplication-tooltip" content="{{ config('app.name', 'Laravel') }}">
+        <meta name="msapplication-config" content="{{ asset('storage/images/icons/favicons/ieconfig.xml') }}">
+        <!-- End Favicons -->
+
         <!-- Fonts -->
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
