@@ -58,4 +58,9 @@ class Main extends Component
             $this->filteredArmors = collect();
         }
     }
+
+    public function setAllActive(bool $active): void
+    {
+        $this->emit("setActive", $active);
+    }
 }

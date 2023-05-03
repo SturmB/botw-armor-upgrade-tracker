@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use App\Models\Armor;
 use App\Services\TrackingService;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Collection;
 use Livewire\Component;
 
 class ArmorCard extends Component
@@ -31,6 +30,8 @@ class ArmorCard extends Component
     public bool $isActive;
     public array|null $trackingData = null;
 
+    protected $listeners = ["setActive"];
+
     public function render(): View
     {
         return view("livewire.armor-card");
@@ -51,7 +52,6 @@ class ArmorCard extends Component
         }
     }
 
-
     public function onChange(TrackingService $service): void
     {
         $updatedTracking = collect([
@@ -64,5 +64,11 @@ class ArmorCard extends Component
         $service->upsertTrackingForArmor($updatedTracking);
 
         $this->emit("updateShoppingList");
+    }
+
+    public function setActive(bool $active): void
+    {
+        $this->isActive = $active;
+        $this->onChange(new TrackingService());
     }
 }
