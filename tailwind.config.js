@@ -22,6 +22,7 @@ module.exports = {
                 'botw-cyan': '#86a5a9',
                 'botw-gray': '#767676',
                 'botw-darkgreen': '#536f50',
+                'botw-gold': '#b59c64',
                 'botw-orange': {
                     50: '#fef4ea',
                     100: '#fde9d6',
