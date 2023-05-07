@@ -26,7 +26,7 @@ class ShoppingList extends Component
 
     /**
      * The action to perform in this ShoppingList component
-     * whenever a TierSlider component is changed.
+     * whenever an ArmorCard component is changed.
      */
     public function updateShoppingList(TrackingService $service): void
     {
