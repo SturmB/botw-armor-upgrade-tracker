@@ -7,6 +7,7 @@ use App\Models\ArmorSet;
 use App\Services\TrackingService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 
 class Main extends Component
@@ -21,18 +22,24 @@ class Main extends Component
 
     public function mount(TrackingService $service): void
     {
-        $this->armorSets = ArmorSet::with([
-            "armors.resources" => function ($query) {
-                $query->orderBy("tier", "asc");
-            },
-        ])->get();
-        $this->uncategorizedArmors = Armor::with([
-            "resources" => function ($query) {
-                $query->orderBy("tier", "asc");
-            },
-        ])
-            ->whereNull("armor_set_id")
-            ->get();
+        $this->armorSets = Cache::rememberForever(
+            "armor-sets:all",
+            fn () => ArmorSet::with([
+                "armors.resources" => function ($query) {
+                    $query->orderBy("tier", "asc");
+                },
+            ])->get()
+        );
+        $this->uncategorizedArmors = Cache::rememberForever(
+            "armors:uncategorized",
+            fn () => Armor::with([
+                "resources" => function ($query) {
+                    $query->orderBy("tier", "asc");
+                },
+            ])
+                ->whereNull("armor_set_id")
+                ->get()
+        );
         $this->filteredArmors = collect();
         $this->tracks = collect($service->getAllTracking());
     }
@@ -46,14 +53,18 @@ class Main extends Component
     {
         $this->searchTerm = $searchTerm;
         if ($searchTerm) {
-            $this->filteredArmors = Armor::where("name", "like", "%$searchTerm%")
-                ->with([
-                    "resources" => function ($query) {
-                        $query->orderBy("tier", "asc");
-                    },
-                ])
-                ->where("upgradable", true)
-                ->get();
+            $this->filteredArmors = Cache::remember(
+                "armors:searches:$searchTerm",
+                30 * 24 * 60 * 60,
+                fn () => Armor::where("name", "like", "%$searchTerm%")
+                    ->with([
+                        "resources" => function ($query) {
+                            $query->orderBy("tier", "asc");
+                        },
+                    ])
+                    ->where("upgradable", true)
+                    ->get()
+            );
         } else {
             $this->filteredArmors = collect();
         }
