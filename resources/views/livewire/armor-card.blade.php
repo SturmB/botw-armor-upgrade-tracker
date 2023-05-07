@@ -4,7 +4,7 @@
     @endif
     <div class="flex flex-1 flex-col p-8">
         <img class="mx-auto h-32 w-32 flex-shrink-0 @if(!$isActive) grayscale opacity-50 @endif" src="{{ asset("storage/images/{$armor->image}") }}" alt="">
-        <h3 class="mt-6 text-2xl font-medium @if($isActive) text-gray-900 @else text-gray-400 @endif">{{ $armor->name }}</h3>
+        <h3 class="mt-6 text-2xl font-medium @if($isActive) text-gray-900 @else text-gray-400 @endif">{{ __($armor->name) }}</h3>
     </div>
     <div class="pb-8 px-4" @if(!$isActive) disabled @endif>
         @if($armor->upgradable)
