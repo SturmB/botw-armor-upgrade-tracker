@@ -1,4 +1,13 @@
 <div class="pb-12">
+    <div wire:loading.delay class="fixed inset-0 z-10 md:start-64 top-16 bg-gray-100/75">
+        <button
+            class="block relative items-center mx-auto px-4 py-2 top-1/2 translate-y-[-50%] bg-botw-blue-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest transition"
+            disabled
+        >
+            <i class="fa-duotone fa-loader fa-spin-pulse mr-2"></i>
+            Processing…
+        </button>
+    </div>
     @if($searchTerm)
         @if(!$filteredArmors->count())
             <div class="flex justify-center items-center gap-4 font-semibold text-2xl text-gray-400">
