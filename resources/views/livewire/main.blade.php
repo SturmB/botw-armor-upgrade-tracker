@@ -1,4 +1,10 @@
 <div class="pb-12">
+    <div class="absolute inset-0 z-10 bg-gray-100/75 flex items-center justify-center">
+        <x-button>
+            <i class="fa-duotone fa-loader fa-spin-pulse mr-2"></i>
+            Processing…
+        </x-button>
+    </div>
     @if($searchTerm)
         @if(!$filteredArmors->count())
             <div class="flex justify-center items-center gap-4 font-semibold text-2xl text-gray-400">
