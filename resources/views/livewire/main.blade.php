@@ -1,5 +1,5 @@
 <div class="pb-12">
-    <div class="absolute inset-0 z-10 bg-gray-100/75 flex items-center justify-center">
+    <div class="fixed inset-0 z-10 md:start-64 top-16 bg-gray-100/75 flex items-center justify-center">
         <x-button>
             <i class="fa-duotone fa-loader fa-spin-pulse mr-2"></i>
             Processing…
