@@ -10,19 +10,25 @@
         <livewire:search />
         <div class="ml-4 flex items-center md:ml-6">
             {{-- TODO: Change notifications button to light/dark theme button --}}
-            {{--<button type="button" class="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                <span class="sr-only">View notifications</span>
-                <!-- Heroicon name: outline/bell -->
-                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-                </svg>
-            </button>--}}
+            <button
+                type="button"
+                id="theme-toggle"
+                class="rounded-full bg-white dark:bg-gray-900 mr-2 p-1 h-10 w-10 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-botw-blue-400 dark:focus:ring-botw-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+            >
+                <span class="sr-only">Toggle dark mode</span>
+                <div id="theme-toggle-dark-icon" class="hidden">
+                    <i class="fa-duotone fa-moon-stars fa-xl"></i>
+                </div>
+                <div id="theme-toggle-light-icon" class="hidden">
+                    <i class="fa-duotone fa-sun-bright fa-xl"></i>
+                </div>
+            </button>
 
             <!-- Profile dropdown -->
             @auth
                 <div x-data="{ profileMenuOpen: false }" class="relative ml-3">
                     <div>
-                        <button type="button" @click="profileMenuOpen = !profileMenuOpen" class="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                        <button type="button" @click="profileMenuOpen = !profileMenuOpen" class="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-botw-blue-400 dark:focus:ring-botw-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                             <span class="sr-only">Open user menu</span>
                             <img class="h-8 w-8 rounded-full" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
                         </button>
