@@ -1,5 +1,5 @@
-<div class="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow">
-    <button type="button" @click="sidebarOpen = !sidebarOpen" class="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden">
+<div class="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white dark:bg-gray-900 shadow">
+    <button type="button" @click="sidebarOpen = !sidebarOpen" class="border-r border-gray-200 dark:border-gray-600 px-4 text-gray-500 border:text-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-botw-blue-500 dark:focus:ring-botw-blue-300 md:hidden">
         <span class="sr-only">Open sidebar</span>
         <!-- Heroicon name: outline/bars-3-bottom-left -->
         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -37,28 +37,35 @@
                         x-transition:leave="transition ease-in duration-75"
                         x-transition:leave-start="opacity-100 scale-100"
                         x-transition:leave-end="opacity-0 scale-95"
-                        class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                        class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white dark:bg-gray-900 py-1 shadow-lg ring-1 ring-black dark:ring-gray-600 ring-opacity-5 focus:outline-none"
                         role="menu"
                         aria-orientation="vertical"
                         aria-labelledby="user-menu-button"
                         tabindex="-1"
                     >
                         <!-- Active: "bg-gray-100", Not Active: "" -->
-                        <a href="{{ route('profile.show') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">{{ __("Your
-                            Profile") }}</a>
+                        <a href="{{ route('profile.show') }}" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300" role="menuitem" tabindex="-1" id="user-menu-item-0">
+                            {{ __("Your Profile") }}
+                        </a>
 
                         <form method="POST" action="{{ route('logout') }}" x-data>
                             @csrf
 
-                            <a href="{{ route('logout') }}" @click.prevent="$root.submit();" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">{{ __("Sign out") }}</a>
+                            <a href="{{ route('logout') }}" @click.prevent="$root.submit();" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300" role="menuitem" tabindex="-1" id="user-menu-item-1">
+                                {{ __("Sign out") }}
+                            </a>
                         </form>
                     </div>
                 </div>
             @else
-                <a type="button" href="{{ route('login') }}" class="inline-flex items-center rounded-md border border-transparent bg-botw-blue-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-botw-blue-600 focus:outline-none focus:ring-2 focus:ring-botw-blue-400 focus:ring-offset-2 mx-2">Log in</a>
+                <a type="button" href="{{ route('login') }}" class="inline-flex items-center rounded-md border border-transparent bg-botw-blue-500 dark:bg-botw-blue-400 px-4 py-2 text-sm font-medium text-white dark:text-botw-blue-900 shadow-sm hover:bg-botw-blue-600 dark:hover:bg-botw-blue-300 focus:outline-none focus:ring-2 focus:ring-botw-blue-400 dark:focus:ring-botw-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 mx-2">
+                    {{ __("Log in") }}
+                </a>
 
                 @if (Route::has('register'))
-                    <a type="button" href="{{ route('register') }}" class="inline-flex items-center rounded-md border border-transparent bg-botw-blue-100 px-4 py-2 text-sm font-medium text-botw-blue-600 hover:bg-botw-blue-200 focus:outline-none focus:ring-2 focus:ring-botw-blue-400 focus:ring-offset-2 ml-2">Register</a>
+                    <a type="button" href="{{ route('register') }}" class="inline-flex items-center rounded-md border border-transparent bg-botw-blue-100 dark:bg-botw-blue-800 px-4 py-2 text-sm font-medium text-botw-blue-600 dark:text-botw-blue-300 hover:bg-botw-blue-200 dark:hover:bg-botw-blue-700 focus:outline-none focus:ring-2 focus:ring-botw-blue-400 dark:focus:ring-botw-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 ml-2">
+                        {{ __("Register") }}
+                    </a>
                 @endif
             @endauth
         </div>

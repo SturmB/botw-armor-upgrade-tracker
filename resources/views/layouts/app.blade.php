@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-gray-100">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
+
+        <script>
+            // It's best to inline this in `head` to avoid FOUC (flash of unstyled content) when changing pages or themes
+            if (localStorage.theme === "dark"
+                || (!("theme" in localStorage)
+                    && window.matchMedia("(prefers-color-scheme: dark)").matches)
+            ) {
+                console.log("dark");
+                document.documentElement.classList.add("dark");
+            } else {
+                console.log("light");
+                document.documentElement.classList.remove("dark");
+            }
+        </script>
 
         <!-- Favicons! -->
         <link rel="apple-touch-icon-precomposed" href="{{ asset('storage/images/icons/favicons/favicon-180.png') }}">
@@ -44,7 +58,7 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased h-full">
+    <body class="font-sans antialiased h-full bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
         <x-banner />
 
         <div x-data="{ sidebarOpen: false }">
@@ -64,7 +78,7 @@
                     x-transition:leave="transition-opacity ease-linear duration-300"
                     x-transition:leave-start="opacity-100"
                     x-transition:leave-end="opacity-0"
-                    class="fixed inset-0 bg-gray-600 bg-opacity-75"
+                    class="fixed inset-0 bg-gray-600 dark:bg-gray-800 bg-opacity-75 dark:bg-opacity-75"
                 ></div>
 
                 <div class="fixed inset-0 z-40 flex">
@@ -77,7 +91,7 @@
                         x-transition:leave="transition ease-in-out duration-300 transform"
                         x-transition:leave-start="translate-x-0"
                         x-transition:leave-end="-translate-x-full"
-                        class="relative flex w-full max-w-xs flex-1 flex-col bg-white pb-4"
+                        class="relative flex w-full max-w-xs flex-1 flex-col bg-white dark:bg-black pb-4"
                     >
                         <!-- Close button, show/hide based on off-canvas menu state. -->
                         <div
@@ -90,10 +104,10 @@
                             x-transition:leave-end="opacity-0"
                             class="absolute top-0 right-0 -mr-12 pt-2"
                         >
-                            <button @click="sidebarOpen = !sidebarOpen" type="button" class="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                            <button @click="sidebarOpen = !sidebarOpen" type="button" class="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white dark:focus:ring-gray-300">
                                 <span class="sr-only">Close sidebar</span>
                                 <!-- Heroicon name: outline/x-mark -->
-                                <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <svg class="h-6 w-6 text-white dark:text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </button>
