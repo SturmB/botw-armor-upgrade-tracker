@@ -9,7 +9,6 @@
     <div class="flex flex-1 justify-between px-4">
         <livewire:search />
         <div class="ml-4 flex items-center md:ml-6">
-            {{-- TODO: Change notifications button to light/dark theme button --}}
             <button
                 type="button"
                 id="theme-toggle"

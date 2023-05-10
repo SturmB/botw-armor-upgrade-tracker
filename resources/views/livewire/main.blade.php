@@ -5,7 +5,7 @@
             disabled
         >
             <i class="fa-duotone fa-loader fa-spin-pulse mr-2"></i>
-            Processing…
+            {{ __("Processing…") }}
         </button>
     </div>
     @if($searchTerm)

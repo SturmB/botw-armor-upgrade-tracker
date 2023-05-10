@@ -1,9 +1,9 @@
 <x-app-layout>
     <div class="flex justify-between">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Profile') }}
         </h2>
-        <a href="{{ route('home') }}" class="font-semibold text-xl text-botw-blue-500 hover:text-botw-blue-600">
+        <a href="{{ route('home') }}" class="font-semibold text-xl text-botw-blue-500 dark:text-botw-blue-400 hover:text-botw-blue-600 dark:hover:text-botw-blue-300 hover:underline">
             &lt;&nbsp;{{ __('Back') }}
         </a>
     </div>
