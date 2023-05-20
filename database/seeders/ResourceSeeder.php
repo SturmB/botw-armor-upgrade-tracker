@@ -344,8 +344,6 @@ class ResourceSeeder extends Seeder
             ],
         ];
 
-        foreach ($resources as $resource) {
-            Resource::create($resource);
-        }
+        Resource::upsert($resources, ['name'], ['image']);
     }
 }
