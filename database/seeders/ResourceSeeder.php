@@ -136,7 +136,7 @@ class ResourceSeeder extends Seeder
             ],
             [
                 "name" => "Smotherwing Butterfly",
-                "image" => "$prefix/BotW_Fireproof_Lizard_Icon.png",
+                "image" => "$prefix/BotW_Smotherwing_Butterfly_Icon.png",
             ],
             [
                 "name" => "Energetic Rhino Beetle",
@@ -344,8 +344,6 @@ class ResourceSeeder extends Seeder
             ],
         ];
 
-        foreach ($resources as $resource) {
-            Resource::create($resource);
-        }
+        Resource::upsert($resources, ['name'], ['image']);
     }
 }
