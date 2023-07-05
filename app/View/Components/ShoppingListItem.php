@@ -2,7 +2,7 @@
 
 namespace App\View\Components;
 
-use App\Models\Resource;
+use App\Models\BotwResource;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
@@ -13,7 +13,7 @@ class ShoppingListItem extends Component
      */
     public function __construct(
         public int $quantity,
-        public Resource $resource,
+        public BotwResource $resource,
     ) {
     }
 

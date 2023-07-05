@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Resource;
+use App\Models\BotwResource;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -344,6 +344,6 @@ class ResourceSeeder extends Seeder
             ],
         ];
 
-        Resource::upsert($resources, ['name'], ['image']);
+        BotwResource::upsert($resources, ['name'], ['image']);
     }
 }

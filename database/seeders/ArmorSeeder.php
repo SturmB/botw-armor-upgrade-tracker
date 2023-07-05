@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Armor;
-use App\Models\ArmorSet;
+use App\Models\BotwArmor;
+use App\Models\BotwArmorSet;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,47 +18,47 @@ class ArmorSeeder extends Seeder
     {
         $prefix = "armors";
 
-        $wellWornOutfit = ArmorSet::where("name", "Well-Worn Outfit")->first()
+        $wellWornOutfit = BotwArmorSet::where("name", "Well-Worn Outfit")->first()
             ->id;
-        $hylianSet = ArmorSet::where("name", "Hylian Set")->first()->id;
-        $soldiersSet = ArmorSet::where("name", "Soldier's Set")->first()->id;
-        $snowquillSet = ArmorSet::where("name", "Snowquill Set")->first()->id;
-        $desertVoeSet = ArmorSet::where("name", "Desert Voe Set")->first()->id;
-        $gerudoSet = ArmorSet::where("name", "Gerudo Set")->first()->id;
-        $rubberSet = ArmorSet::where("name", "Rubber Set")->first()->id;
-        $flamebreakerSet = ArmorSet::where("name", "Flamebreaker Set")->first()->id;
-        $zoraSet = ArmorSet::where("name", "Zora Set")->first()->id;
-        $stealthSet = ArmorSet::where("name", "Stealth Set")->first()->id;
-        $climbingSet = ArmorSet::where("name", "Climbing Set")->first()->id;
-        $barbarianSet = ArmorSet::where("name", "Barbarian Set")->first()->id;
-        $fierceDeitySet = ArmorSet::where("name", "Fierce Deity Set")->first()->id;
-        $radiantSet = ArmorSet::where("name", "Radiant Set")->first()->id;
-        $ancientSet = ArmorSet::where("name", "Ancient Set")->first()->id;
-        $darkSet = ArmorSet::where("name", "Dark Set")->first()->id;
-        $heroOfTimeSet = ArmorSet::where("name", "Hero of Time Set")->first()->id;
-        $heroOfWindsSet = ArmorSet::where("name", "Hero of Winds Set")->first()->id;
-        $heroOfTwilightSet = ArmorSet::where("name", "Hero of Twilight Set")->first()->id;
-        $heroOfTheSkySet = ArmorSet::where("name", "Hero of the Sky Set")->first()->id;
-        $heroSet = ArmorSet::where("name", "Hero Set")->first()->id;
-        $heroOfTheWildSet = ArmorSet::where("name", "Hero of the Wild Set")->first()->id;
-        $tinglesSet = ArmorSet::where("name", "Tingle's Set")->first()->id;
-        $phantomEquipment = ArmorSet::where("name", "Phantom Equipment")->first()->id;
-        $royalGuardSet = ArmorSet::where("name", "Royal Guard Set")->first()->id;
-        $phantomGanonSet = ArmorSet::where("name", "Phantom Ganon Set")->first()->id;
-        $salvagersSet = ArmorSet::where("name", "Salvager's Set")->first()->id;
+        $hylianSet = BotwArmorSet::where("name", "Hylian Set")->first()->id;
+        $soldiersSet = BotwArmorSet::where("name", "Soldier's Set")->first()->id;
+        $snowquillSet = BotwArmorSet::where("name", "Snowquill Set")->first()->id;
+        $desertVoeSet = BotwArmorSet::where("name", "Desert Voe Set")->first()->id;
+        $gerudoSet = BotwArmorSet::where("name", "Gerudo Set")->first()->id;
+        $rubberSet = BotwArmorSet::where("name", "Rubber Set")->first()->id;
+        $flamebreakerSet = BotwArmorSet::where("name", "Flamebreaker Set")->first()->id;
+        $zoraSet = BotwArmorSet::where("name", "Zora Set")->first()->id;
+        $stealthSet = BotwArmorSet::where("name", "Stealth Set")->first()->id;
+        $climbingSet = BotwArmorSet::where("name", "Climbing Set")->first()->id;
+        $barbarianSet = BotwArmorSet::where("name", "Barbarian Set")->first()->id;
+        $fierceDeitySet = BotwArmorSet::where("name", "Fierce Deity Set")->first()->id;
+        $radiantSet = BotwArmorSet::where("name", "Radiant Set")->first()->id;
+        $ancientSet = BotwArmorSet::where("name", "Ancient Set")->first()->id;
+        $darkSet = BotwArmorSet::where("name", "Dark Set")->first()->id;
+        $heroOfTimeSet = BotwArmorSet::where("name", "Hero of Time Set")->first()->id;
+        $heroOfWindsSet = BotwArmorSet::where("name", "Hero of Winds Set")->first()->id;
+        $heroOfTwilightSet = BotwArmorSet::where("name", "Hero of Twilight Set")->first()->id;
+        $heroOfTheSkySet = BotwArmorSet::where("name", "Hero of the Sky Set")->first()->id;
+        $heroSet = BotwArmorSet::where("name", "Hero Set")->first()->id;
+        $heroOfTheWildSet = BotwArmorSet::where("name", "Hero of the Wild Set")->first()->id;
+        $tinglesSet = BotwArmorSet::where("name", "Tingle's Set")->first()->id;
+        $phantomEquipment = BotwArmorSet::where("name", "Phantom Equipment")->first()->id;
+        $royalGuardSet = BotwArmorSet::where("name", "Royal Guard Set")->first()->id;
+        $phantomGanonSet = BotwArmorSet::where("name", "Phantom Ganon Set")->first()->id;
+        $salvagersSet = BotwArmorSet::where("name", "Salvager's Set")->first()->id;
 
         $armors = [
             [
                 "name" => "Old Shirt",
                 "image" => "$prefix/BotW_Old_Shirt_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $wellWornOutfit,
+                "botw_armor_set_id" => $wellWornOutfit,
             ],
             [
                 "name" => "Well-Worn Trousers",
                 "image" => "$prefix/BotW_Well-Worn_Trousers_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $wellWornOutfit,
+                "botw_armor_set_id" => $wellWornOutfit,
             ],
             [
                 "name" => "Champion's Tunic",
@@ -67,32 +67,32 @@ class ArmorSeeder extends Seeder
             [
                 "name" => "Hylian Hood",
                 "image" => "$prefix/BotW_Hylian_Hood_Icon.png",
-                "armor_set_id" => $hylianSet,
+                "botw_armor_set_id" => $hylianSet,
             ],
             [
                 "name" => "Hylian Tunic",
                 "image" => "$prefix/BotW_Hylian_Tunic_Icon.png",
-                "armor_set_id" => $hylianSet,
+                "botw_armor_set_id" => $hylianSet,
             ],
             [
                 "name" => "Hylian Trousers",
                 "image" => "$prefix/BotW_Hylian_Trousers_Icon.png",
-                "armor_set_id" => $hylianSet,
+                "botw_armor_set_id" => $hylianSet,
             ],
             [
                 "name" => "Soldier's Helm",
                 "image" => "$prefix/BotW_Soldier's_Helm_Icon.png",
-                "armor_set_id" => $soldiersSet,
+                "botw_armor_set_id" => $soldiersSet,
             ],
             [
                 "name" => "Soldier's Armor",
                 "image" => "$prefix/BotW_Soldier's_Armor_Icon.png",
-                "armor_set_id" => $soldiersSet,
+                "botw_armor_set_id" => $soldiersSet,
             ],
             [
                 "name" => "Soldier's Greaves",
                 "image" => "$prefix/BotW_Soldier's_Greaves_Icon.png",
-                "armor_set_id" => $soldiersSet,
+                "botw_armor_set_id" => $soldiersSet,
             ],
             [
                 "name" => "Amber Earrings",
@@ -105,17 +105,17 @@ class ArmorSeeder extends Seeder
             [
                 "name" => "Snowquill Headdress",
                 "image" => "$prefix/BotW_Snowquill_Headdress_Icon.png",
-                "armor_set_id" => $snowquillSet,
+                "botw_armor_set_id" => $snowquillSet,
             ],
             [
                 "name" => "Snowquill Tunic",
                 "image" => "$prefix/BotW_Snowquill_Tunic_Icon.png",
-                "armor_set_id" => $snowquillSet,
+                "botw_armor_set_id" => $snowquillSet,
             ],
             [
                 "name" => "Snowquill Trousers",
                 "image" => "$prefix/BotW_Snowquill_Trousers_Icon.png",
-                "armor_set_id" => $snowquillSet,
+                "botw_armor_set_id" => $snowquillSet,
             ],
             [
                 "name" => "Sapphire Circlet",
@@ -124,35 +124,35 @@ class ArmorSeeder extends Seeder
             [
                 "name" => "Desert Voe Headband",
                 "image" => "$prefix/BotW_Desert_Voe_Headband_Icon.png",
-                "armor_set_id" => $desertVoeSet,
+                "botw_armor_set_id" => $desertVoeSet,
             ],
             [
                 "name" => "Desert Voe Spaulder",
                 "image" => "$prefix/BotW_Desert_Voe_Spaulder_Icon.png",
-                "armor_set_id" => $desertVoeSet,
+                "botw_armor_set_id" => $desertVoeSet,
             ],
             [
                 "name" => "Desert Voe Trousers",
                 "image" => "$prefix/BotW_Desert_Voe_Trousers_Icon.png",
-                "armor_set_id" => $desertVoeSet,
+                "botw_armor_set_id" => $desertVoeSet,
             ],
             [
                 "name" => "Gerudo Veil",
                 "image" => "$prefix/BotW_Gerudo_Veil_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $gerudoSet,
+                "botw_armor_set_id" => $gerudoSet,
             ],
             [
                 "name" => "Gerudo Top",
                 "image" => "$prefix/BotW_Gerudo_Top_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $gerudoSet,
+                "botw_armor_set_id" => $gerudoSet,
             ],
             [
                 "name" => "Gerudo Sirwal",
                 "image" => "$prefix/BotW_Gerudo_Sirwal_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $gerudoSet,
+                "botw_armor_set_id" => $gerudoSet,
             ],
             [
                 "name" => "Topaz Earrings",
@@ -161,32 +161,32 @@ class ArmorSeeder extends Seeder
             [
                 "name" => "Rubber Helm",
                 "image" => "$prefix/BotW_Rubber_Helm_Icon.png",
-                "armor_set_id" => $rubberSet,
+                "botw_armor_set_id" => $rubberSet,
             ],
             [
                 "name" => "Rubber Armor",
                 "image" => "$prefix/BotW_Rubber_Armor_Icon.png",
-                "armor_set_id" => $rubberSet,
+                "botw_armor_set_id" => $rubberSet,
             ],
             [
                 "name" => "Rubber Tights",
                 "image" => "$prefix/BotW_Rubber_Tights_Icon.png",
-                "armor_set_id" => $rubberSet,
+                "botw_armor_set_id" => $rubberSet,
             ],
             [
                 "name" => "Flamebreaker Helm",
                 "image" => "$prefix/BotW_Flamebreaker_Helm_Icon.png",
-                "armor_set_id" => $flamebreakerSet,
+                "botw_armor_set_id" => $flamebreakerSet,
             ],
             [
                 "name" => "Flamebreaker Armor",
                 "image" => "$prefix/BotW_Flamebreaker_Armor_Icon.png",
-                "armor_set_id" => $flamebreakerSet,
+                "botw_armor_set_id" => $flamebreakerSet,
             ],
             [
                 "name" => "Flamebreaker Boots",
                 "image" => "$prefix/BotW_Flamebreaker_Boots_Icon.png",
-                "armor_set_id" => $flamebreakerSet,
+                "botw_armor_set_id" => $flamebreakerSet,
             ],
             [
                 "name" => "Opal Earrings",
@@ -195,32 +195,32 @@ class ArmorSeeder extends Seeder
             [
                 "name" => "Zora Helm",
                 "image" => "$prefix/BotW_Zora_Helm_Icon.png",
-                "armor_set_id" => $zoraSet,
+                "botw_armor_set_id" => $zoraSet,
             ],
             [
                 "name" => "Zora Armor",
                 "image" => "$prefix/BotW_Zora_Armor_Icon.png",
-                "armor_set_id" => $zoraSet,
+                "botw_armor_set_id" => $zoraSet,
             ],
             [
                 "name" => "Zora Greaves",
                 "image" => "$prefix/BotW_Zora_Greaves_Icon.png",
-                "armor_set_id" => $zoraSet,
+                "botw_armor_set_id" => $zoraSet,
             ],
             [
                 "name" => "Stealth Mask",
                 "image" => "$prefix/BotW_Stealth_Mask_Icon.png",
-                "armor_set_id" => $stealthSet,
+                "botw_armor_set_id" => $stealthSet,
             ],
             [
                 "name" => "Stealth Chest Guard",
                 "image" => "$prefix/BotW_Stealth_Chest_Guard_Icon.png",
-                "armor_set_id" => $stealthSet,
+                "botw_armor_set_id" => $stealthSet,
             ],
             [
                 "name" => "Stealth Tights",
                 "image" => "$prefix/BotW_Stealth_Tights_Icon.png",
-                "armor_set_id" => $stealthSet,
+                "botw_armor_set_id" => $stealthSet,
             ],
             [
                 "name" => "Sheik's Mask",
@@ -234,62 +234,62 @@ class ArmorSeeder extends Seeder
             [
                 "name" => "Climber's Bandanna",
                 "image" => "$prefix/BotW_Climber's_Bandanna_Icon.png",
-                "armor_set_id" => $climbingSet,
+                "botw_armor_set_id" => $climbingSet,
             ],
             [
                 "name" => "Climbing Gear",
                 "image" => "$prefix/BotW_Climbing_Gear_Icon.png",
-                "armor_set_id" => $climbingSet,
+                "botw_armor_set_id" => $climbingSet,
             ],
             [
                 "name" => "Climbing Boots",
                 "image" => "$prefix/BotW_Climbing_Boots_Icon.png",
-                "armor_set_id" => $climbingSet,
+                "botw_armor_set_id" => $climbingSet,
             ],
             [
                 "name" => "Barbarian Helm",
                 "image" => "$prefix/BotW_Barbarian_Helm_Icon.png",
-                "armor_set_id" => $barbarianSet,
+                "botw_armor_set_id" => $barbarianSet,
             ],
             [
                 "name" => "Barbarian Armor",
                 "image" => "$prefix/BotW_Barbarian_Armor_Icon.png",
-                "armor_set_id" => $barbarianSet,
+                "botw_armor_set_id" => $barbarianSet,
             ],
             [
                 "name" => "Barbarian Leg Wraps",
                 "image" => "$prefix/BotW_Barbarian_Leg_Wraps_Icon.png",
-                "armor_set_id" => $barbarianSet,
+                "botw_armor_set_id" => $barbarianSet,
             ],
             [
                 "name" => "Fierce Deity Mask",
                 "image" => "$prefix/BotW_Fierce_Deity_Mask_Icon.png",
-                "armor_set_id" => $fierceDeitySet,
+                "botw_armor_set_id" => $fierceDeitySet,
             ],
             [
                 "name" => "Fierce Deity Armor",
                 "image" => "$prefix/BotW_Fierce_Deity_Armor_Icon.png",
-                "armor_set_id" => $fierceDeitySet,
+                "botw_armor_set_id" => $fierceDeitySet,
             ],
             [
                 "name" => "Fierce Deity Boots",
                 "image" => "$prefix/BotW_Fierce_Deity_Boots_Icon.png",
-                "armor_set_id" => $fierceDeitySet,
+                "botw_armor_set_id" => $fierceDeitySet,
             ],
             [
                 "name" => "Radiant Mask",
                 "image" => "$prefix/BotW_Radiant_Mask_Icon.png",
-                "armor_set_id" => $radiantSet,
+                "botw_armor_set_id" => $radiantSet,
             ],
             [
                 "name" => "Radiant Shirt",
                 "image" => "$prefix/BotW_Radiant_Shirt_Icon.png",
-                "armor_set_id" => $radiantSet,
+                "botw_armor_set_id" => $radiantSet,
             ],
             [
                 "name" => "Radiant Tights",
                 "image" => "$prefix/BotW_Radiant_Tights_Icon.png",
-                "armor_set_id" => $radiantSet,
+                "botw_armor_set_id" => $radiantSet,
             ],
             [
                 "name" => "Diamond Circlet",
@@ -298,17 +298,17 @@ class ArmorSeeder extends Seeder
             [
                 "name" => "Ancient Helm",
                 "image" => "$prefix/BotW_Ancient_Helm_Icon.png",
-                "armor_set_id" => $ancientSet,
+                "botw_armor_set_id" => $ancientSet,
             ],
             [
                 "name" => "Ancient Cuirass",
                 "image" => "$prefix/BotW_Ancient_Cuirass_Icon.png",
-                "armor_set_id" => $ancientSet,
+                "botw_armor_set_id" => $ancientSet,
             ],
             [
                 "name" => "Ancient Greaves",
                 "image" => "$prefix/BotW_Ancient_Greaves_Icon.png",
-                "armor_set_id" => $ancientSet,
+                "botw_armor_set_id" => $ancientSet,
             ],
             [
                 "name" => "Sand Boots",
@@ -342,109 +342,109 @@ class ArmorSeeder extends Seeder
                 "name" => "Dark Hood",
                 "image" => "$prefix/BotW_Dark_Hood_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $darkSet,
+                "botw_armor_set_id" => $darkSet,
             ],
             [
                 "name" => "Dark Tunic",
                 "image" => "$prefix/BotW_Dark_Tunic_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $darkSet,
+                "botw_armor_set_id" => $darkSet,
             ],
             [
                 "name" => "Dark Trousers",
                 "image" => "$prefix/BotW_Dark_Trousers_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $darkSet,
+                "botw_armor_set_id" => $darkSet,
             ],
             [
                 "name" => "Cap of Time",
                 "image" => "$prefix/BotW_Cap_of_Time_Icon.png",
-                "armor_set_id" => $heroOfTimeSet,
+                "botw_armor_set_id" => $heroOfTimeSet,
             ],
             [
                 "name" => "Tunic of Time",
                 "image" => "$prefix/BotW_Tunic_of_Time_Icon.png",
-                "armor_set_id" => $heroOfTimeSet,
+                "botw_armor_set_id" => $heroOfTimeSet,
             ],
             [
                 "name" => "Trousers of Time",
                 "image" => "$prefix/BotW_Trousers_of_Time_Icon.png",
-                "armor_set_id" => $heroOfTimeSet,
+                "botw_armor_set_id" => $heroOfTimeSet,
             ],
             [
                 "name" => "Cap of the Wind",
                 "image" => "$prefix/BotW_Cap_of_the_Wind_Icon.png",
-                "armor_set_id" => $heroOfWindsSet,
+                "botw_armor_set_id" => $heroOfWindsSet,
             ],
             [
                 "name" => "Tunic of the Wind",
                 "image" => "$prefix/BotW_Tunic_of_the_Wind_Icon.png",
-                "armor_set_id" => $heroOfWindsSet,
+                "botw_armor_set_id" => $heroOfWindsSet,
             ],
             [
                 "name" => "Trousers of the Wind",
                 "image" => "$prefix/BotW_Trousers_of_the_Wind_Icon.png",
-                "armor_set_id" => $heroOfWindsSet,
+                "botw_armor_set_id" => $heroOfWindsSet,
             ],
             [
                 "name" => "Cap of Twilight",
                 "image" => "$prefix/BotW_Cap_of_Twilight_Icon.png",
-                "armor_set_id" => $heroOfTwilightSet,
+                "botw_armor_set_id" => $heroOfTwilightSet,
             ],
             [
                 "name" => "Tunic of Twilight",
                 "image" => "$prefix/BotW_Tunic_of_Twilight_Icon.png",
-                "armor_set_id" => $heroOfTwilightSet,
+                "botw_armor_set_id" => $heroOfTwilightSet,
             ],
             [
                 "name" => "Trousers of Twilight",
                 "image" => "$prefix/BotW_Trousers_of_Twilight_Icon.png",
-                "armor_set_id" => $heroOfTwilightSet,
+                "botw_armor_set_id" => $heroOfTwilightSet,
             ],
             [
                 "name" => "Cap of the Sky",
                 "image" => "$prefix/BotW_Cap_of_the_Sky_Icon.png",
-                "armor_set_id" => $heroOfTheSkySet,
+                "botw_armor_set_id" => $heroOfTheSkySet,
             ],
             [
                 "name" => "Tunic of the Sky",
                 "image" => "$prefix/BotW_Tunic_of_the_Sky_Icon.png",
-                "armor_set_id" => $heroOfTheSkySet,
+                "botw_armor_set_id" => $heroOfTheSkySet,
             ],
             [
                 "name" => "Trousers of the Sky",
                 "image" => "$prefix/BotW_Trousers_of_the_Sky_Icon.png",
-                "armor_set_id" => $heroOfTheSkySet,
+                "botw_armor_set_id" => $heroOfTheSkySet,
             ],
             [
                 "name" => "Cap of the Hero",
                 "image" => "$prefix/BotW_Cap_of_the_Hero_Icon.png",
-                "armor_set_id" => $heroSet,
+                "botw_armor_set_id" => $heroSet,
             ],
             [
                 "name" => "Tunic of the Hero",
                 "image" => "$prefix/BotW_Tunic_of_the_Hero_Icon.png",
-                "armor_set_id" => $heroSet,
+                "botw_armor_set_id" => $heroSet,
             ],
             [
                 "name" => "Trousers of the Hero",
                 "image" => "$prefix/BotW_Trousers_of_the_Hero_Icon.png",
-                "armor_set_id" => $heroSet,
+                "botw_armor_set_id" => $heroSet,
             ],
             [
                 "name" => "Cap of the Wild",
                 "image" => "$prefix/BotW_Cap_of_the_Wild_Icon.png",
-                "armor_set_id" => $heroOfTheWildSet,
+                "botw_armor_set_id" => $heroOfTheWildSet,
             ],
             [
                 "name" => "Tunic of the Wild",
                 "image" => "$prefix/BotW_Tunic_of_the_Wild_Icon.png",
-                "armor_set_id" => $heroOfTheWildSet,
+                "botw_armor_set_id" => $heroOfTheWildSet,
             ],
             [
                 "name" => "Trousers of the Wild",
                 "image" => "$prefix/BotW_Trousers_of_the_Wild_Icon.png",
-                "armor_set_id" => $heroOfTheWildSet,
+                "botw_armor_set_id" => $heroOfTheWildSet,
             ],
             [
                 "name" => "Nintendo Switch Shirt",
@@ -465,19 +465,19 @@ class ArmorSeeder extends Seeder
                 "name" => "Tingle's Hood",
                 "image" => "$prefix/BotW_Tingle's_Hood_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $tinglesSet,
+                "botw_armor_set_id" => $tinglesSet,
             ],
             [
                 "name" => "Tingle's Shirt",
                 "image" => "$prefix/BotW_Tingle's_Shirt_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $tinglesSet,
+                "botw_armor_set_id" => $tinglesSet,
             ],
             [
                 "name" => "Tingle's Tights",
                 "image" => "$prefix/BotW_Tingle's_Tights_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $tinglesSet,
+                "botw_armor_set_id" => $tinglesSet,
             ],
             [
                 "name" => "Midna's Helmet",
@@ -488,19 +488,19 @@ class ArmorSeeder extends Seeder
                 "name" => "Phantom Helmet",
                 "image" => "$prefix/BotW_Phantom_Helmet_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $phantomEquipment,
+                "botw_armor_set_id" => $phantomEquipment,
             ],
             [
                 "name" => "Phantom Armor",
                 "image" => "$prefix/BotW_Phantom_Armor_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $phantomEquipment,
+                "botw_armor_set_id" => $phantomEquipment,
             ],
             [
                 "name" => "Phantom Greaves",
                 "image" => "$prefix/BotW_Phantom_Greaves_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $phantomEquipment,
+                "botw_armor_set_id" => $phantomEquipment,
             ],
             [
                 "name" => "Island Lobster Shirt",
@@ -521,37 +521,37 @@ class ArmorSeeder extends Seeder
                 "name" => "Royal Guard Cap",
                 "image" => "$prefix/BotW_Royal_Guard_Cap_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $royalGuardSet,
+                "botw_armor_set_id" => $royalGuardSet,
             ],
             [
                 "name" => "Royal Guard Uniform",
                 "image" => "$prefix/BotW_Royal_Guard_Uniform_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $royalGuardSet,
+                "botw_armor_set_id" => $royalGuardSet,
             ],
             [
                 "name" => "Royal Guard Boots",
                 "image" => "$prefix/BotW_Royal_Guard_Boots_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $royalGuardSet,
+                "botw_armor_set_id" => $royalGuardSet,
             ],
             [
                 "name" => "Phantom Ganon Skull",
                 "image" => "$prefix/BotW_Phantom_Ganon_Skull_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $phantomGanonSet,
+                "botw_armor_set_id" => $phantomGanonSet,
             ],
             [
                 "name" => "Phantom Ganon Armor",
                 "image" => "$prefix/BotW_Phantom_Ganon_Armor_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $phantomGanonSet,
+                "botw_armor_set_id" => $phantomGanonSet,
             ],
             [
                 "name" => "Phantom Ganon Greaves",
                 "image" => "$prefix/BotW_Phantom_Ganon_Greaves_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $phantomGanonSet,
+                "botw_armor_set_id" => $phantomGanonSet,
             ],
             [
                 "name" => "Vah Ruta Divine Helm",
@@ -573,24 +573,24 @@ class ArmorSeeder extends Seeder
                 "name" => "Salvager Headwear",
                 "image" => "$prefix/BotW_Salvager_Headwear_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $salvagersSet,
+                "botw_armor_set_id" => $salvagersSet,
             ],
             [
                 "name" => "Salvager Vest",
                 "image" => "$prefix/BotW_Salvager_Vest_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $salvagersSet,
+                "botw_armor_set_id" => $salvagersSet,
             ],
             [
                 "name" => "Salvager Trousers",
                 "image" => "$prefix/BotW_Salvager_Trousers_Icon.png",
                 "upgradable" => 0,
-                "armor_set_id" => $salvagersSet,
+                "botw_armor_set_id" => $salvagersSet,
             ],
         ];
 
         foreach ($armors as $armor) {
-            Armor::create($armor);
+            BotwArmor::create($armor);
         }
     }
 }

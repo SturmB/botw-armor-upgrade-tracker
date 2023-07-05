@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\ArmorSet;
+use App\Models\BotwArmorSet;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -119,7 +119,7 @@ class ArmorSetSeeder extends Seeder
         ];
 
         foreach ($armorSets as $armorSet) {
-            ArmorSet::create($armorSet);
+            BotwArmorSet::create($armorSet);
         }
     }
 }

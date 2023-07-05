@@ -79,8 +79,8 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function armors(): BelongsToMany
     {
-        return $this->belongsToMany(Armor::class)
-            ->using(Track::class)
+        return $this->belongsToMany(BotwArmor::class)
+            ->using(BotwTrack::class)
             ->withPivot("tracking", "tracking_tier_start", "tracking_tier_end")
             ->withTimestamps();
     }
@@ -90,7 +90,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function resources(): BelongsToMany
     {
-        return $this->belongsToMany(Resource::class)
+        return $this->belongsToMany(BotwResource::class)
             ->withPivot("quantity_owned")
             ->withTimestamps();
     }

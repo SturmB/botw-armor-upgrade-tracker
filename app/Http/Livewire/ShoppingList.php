@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Requirement;
+use App\Models\BotwRequirement;
 use App\Services\TrackingService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
@@ -31,14 +31,14 @@ class ShoppingList extends Component
     public function updateShoppingList(TrackingService $service): void
     {
         $trackingData = $service->getAllTracking();
-        $requirements = Requirement::with("resource")
+        $requirements = BotwRequirement::with("resource")
             ->whereIn(
-                "armor_id",
+                "botw_armor_id",
                 array_keys($trackingData),
             )
             ->get()
             ->filter(function ($requirement) use ($trackingData) {
-                $trackingForThisArmor = $trackingData[$requirement->armor_id];
+                $trackingForThisArmor = $trackingData[$requirement->botw_armor_id];
                 if (!$trackingForThisArmor["tracking"]) {
                     return false;
                 }
@@ -48,7 +48,7 @@ class ShoppingList extends Component
                 );
                 return in_array($requirement->tier, $tiers);
             })
-            ->groupBy("resource_id")
+            ->groupBy("botw_resource_id")
             ->map(
                 fn ($requirement) => [
                     "resource" => $requirement->first()->resource,

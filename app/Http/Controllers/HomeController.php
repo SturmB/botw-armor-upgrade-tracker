@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ArmorSet;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {

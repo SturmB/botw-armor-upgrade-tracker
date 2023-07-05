@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Armor;
-use App\Models\ArmorSet;
+use App\Models\BotwArmor;
+use App\Models\BotwArmorSet;
 use App\Services\TrackingService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
@@ -23,21 +23,21 @@ class Main extends Component
     public function mount(TrackingService $service): void
     {
         $this->armorSets = Cache::rememberForever(
-            "armor-sets:all",
-            fn () => ArmorSet::with([
+            "botw_armor_sets:all",
+            fn () => BotwArmorSet::with([
                 "armors.resources" => function ($query) {
                     $query->orderBy("tier", "asc");
                 },
             ])->get()
         );
         $this->uncategorizedArmors = Cache::rememberForever(
-            "armors:uncategorized",
-            fn () => Armor::with([
+            "botw_armors:uncategorized",
+            fn () => BotwArmor::with([
                 "resources" => function ($query) {
                     $query->orderBy("tier", "asc");
                 },
             ])
-                ->whereNull("armor_set_id")
+                ->whereNull("botw_armor_set_id")
                 ->get()
         );
         $this->filteredArmors = collect();
@@ -54,9 +54,9 @@ class Main extends Component
         $this->searchTerm = $searchTerm;
         if ($searchTerm) {
             $this->filteredArmors = Cache::remember(
-                "armors:searches:$searchTerm",
+                "botw_armors:searches:$searchTerm",
                 30 * 24 * 60 * 60,
-                fn () => Armor::where("name", "like", "%$searchTerm%")
+                fn () => BotwArmor::where("name", "like", "%$searchTerm%")
                     ->with([
                         "resources" => function ($query) {
                             $query->orderBy("tier", "asc");

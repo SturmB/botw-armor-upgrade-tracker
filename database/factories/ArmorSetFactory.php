@@ -2,15 +2,15 @@
 
 namespace Database\Factories;
 
-use App\Models\ArmorSet;
+use App\Models\BotwArmorSet;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<ArmorSet>
+ * @extends Factory<BotwArmorSet>
  */
 class ArmorSetFactory extends Factory
 {
-    protected $model = ArmorSet::class;
+    protected $model = BotwArmorSet::class;
 
     /**
      * Define the model's default state.

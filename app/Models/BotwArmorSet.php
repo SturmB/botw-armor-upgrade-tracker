@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class ArmorSet extends Model
+class BotwArmorSet extends Model
 {
     use HasFactory;
 
@@ -27,6 +27,6 @@ class ArmorSet extends Model
      */
     public function armors(): HasMany
     {
-        return $this->hasMany(Armor::class);
+        return $this->hasMany(BotwArmor::class, "botw_armor_set_id");
     }
 }

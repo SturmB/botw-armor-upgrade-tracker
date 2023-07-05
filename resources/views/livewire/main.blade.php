@@ -59,4 +59,8 @@
             @endforeach
         </ul>
     @endif
+
+    @push('modals')
+        <livewire:database-fix-modal />
+    @endpush
 </div>

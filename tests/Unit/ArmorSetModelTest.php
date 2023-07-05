@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use App\Models\Armor;
-use App\Models\ArmorSet;
+use App\Models\BotwArmor;
+use App\Models\BotwArmorSet;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -18,7 +18,7 @@ class ArmorSetModelTest extends TestCase
      */
     public function test_saves_armor_set_model_to_database(): void
     {
-        $armorSet = ArmorSet::factory()->create();
+        $armorSet = BotwArmorSet::factory()->create();
 
         $this->assertModelExists($armorSet);
     }
@@ -30,8 +30,8 @@ class ArmorSetModelTest extends TestCase
      */
     public function test_armor_set_is_connected_to_armors(): void
     {
-        $armorSet = ArmorSet::factory()
-            ->has(Armor::factory()->count(3))
+        $armorSet = BotwArmorSet::factory()
+            ->has(BotwArmor::factory()->count(3))
             ->create();
 
         $this->assertModelExists($armorSet->armors->first());

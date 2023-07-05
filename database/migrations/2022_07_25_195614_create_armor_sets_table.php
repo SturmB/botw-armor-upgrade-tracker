@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class () extends Migration {
     /**
      * Run the migrations.
      *
@@ -12,7 +12,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create("armor_sets", function (Blueprint $table) {
+        Schema::create("botw_armor_sets", function (Blueprint $table) {
             $table->smallIncrements("id");
             $table->string("name", 100);
             $table->string("image", 100)->nullable();
@@ -27,6 +27,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists("armor_sets");
+        Schema::dropIfExists("botw_armor_sets");
     }
 };

@@ -3,9 +3,9 @@
 namespace Tests\Feature\Livewire;
 
 use App\Http\Livewire\ShoppingList;
-use App\Models\Armor;
-use App\Models\Requirement;
-use App\Models\Resource;
+use App\Models\BotwArmor;
+use App\Models\BotwRequirement;
+use App\Models\BotwResource;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
 use Tests\TestCase;
@@ -31,9 +31,9 @@ class ShoppingListTest extends TestCase
     /** @test */
     public function shopping_list_received_update_shopping_list_event()
     {
-        $requirement = Requirement::factory()
-            ->for(Armor::factory()->create())
-            ->for(Resource::factory()->create())
+        $requirement = BotwRequirement::factory()
+            ->for(BotwArmor::factory()->create())
+            ->for(BotwResource::factory()->create())
             ->create();
         $passedData = [
             $requirement->armor->id => [
@@ -51,7 +51,7 @@ class ShoppingListTest extends TestCase
     /** @test */
     public function shopping_list_shows_combined_quantities()
     {
-        $resources = Resource::factory(4)
+        $resources = BotwResource::factory(4)
             ->sequence(
                 ["name" => "Amber"],
                 ["name" => "Bokoblin Horn"],
@@ -59,8 +59,8 @@ class ShoppingListTest extends TestCase
                 ["name" => "Bokoblin Guts"],
             )
             ->create();
-        $requirements = Requirement::factory(7)
-            ->for(Armor::factory()->create())
+        $requirements = BotwRequirement::factory(7)
+            ->for(BotwArmor::factory()->create())
             ->sequence(
                 [
                     "tier" => 1,

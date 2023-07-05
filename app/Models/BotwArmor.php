@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Resource extends Model
+class BotwArmor extends Model
 {
     use HasFactory;
 
@@ -21,15 +22,22 @@ class Resource extends Model
     /**
      * @var array
      */
-    protected $fillable = ["name", "image", "created_at", "updated_at"];
+    protected $fillable = [
+        "botw_armor_set_id",
+        "name",
+        "image",
+        "upgradable",
+        "created_at",
+        "updated_at",
+    ];
 
     /**
      * @return BelongsToMany
      */
-    public function armors(): BelongsToMany
+    public function resources(): BelongsToMany
     {
-        return $this->belongsToMany(Armor::class)
-            ->using(Requirement::class)
+        return $this->belongsToMany(BotwResource::class, "botw_armor_resource")
+            ->using(BotwRequirement::class)
             ->withPivot("id", "tier", "quantity_needed")
             ->withTimestamps();
     }
@@ -40,17 +48,26 @@ class Resource extends Model
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class)
-            ->withPivot("quantity_owned")
+            ->using(BotwTrack::class)
+            ->withPivot("tracking", "tracking_tier_start", "tracking_tier_end")
             ->withTimestamps();
     }
 
     /**
-     * Get the requirements in which this resource are used.
+     * @return BelongsTo
+     */
+    public function armorSet(): BelongsTo
+    {
+        return $this->belongsTo(BotwArmorSet::class, "botw_armor_set_id");
+    }
+
+    /**
+     * Get the requirements in which this armor is used.
      *
      * @return HasMany
      */
     public function requirements(): HasMany
     {
-        return $this->hasMany(Requirement::class);
+        return $this->hasMany(BotwRequirement::class, "botw_armor_id");
     }
 }

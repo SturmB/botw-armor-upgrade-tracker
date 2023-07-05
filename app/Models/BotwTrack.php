@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Track extends Pivot
+class BotwTrack extends Pivot
 {
     /**
      * The table name for requirements.
      *
      * @var string
      */
-    protected $table = "armor_user";
+    protected $table = "botw_armor_user";
 
     protected $fillable = [
         "user_id",
-        "armor_id",
+        "botw_armor_id",
         "tracking",
         "tracking_tier_start",
         "tracking_tier_end",
@@ -34,7 +34,7 @@ class Track extends Pivot
      */
     public function armor(): BelongsTo
     {
-        return $this->belongsTo(Armor::class);
+        return $this->belongsTo(BotwArmor::class, "botw_armor_id");
     }
 
     /**
