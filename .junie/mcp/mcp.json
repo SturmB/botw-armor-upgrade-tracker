@@ -1,9 +1,9 @@
 {
     "mcpServers": {
         "laravel-boost": {
-            "command": "/usr/bin/php",
+            "command": "php",
             "args": [
-                "/home/kerban/dev/botw-armor-upgrade-tracker/temp-project/artisan",
+                "artisan",
                 "boost:mcp"
             ]
         }
